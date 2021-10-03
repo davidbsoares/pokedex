@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import Stats from '../../Atoms/Stats';
-import Tag from './../../Atoms/Tag/index';
+import Card from './../../Molecules/Card/index';
 
 const Pokedex = () => {
   return (
     <Container>
-      <Stats value={40} name="Attack" />
-      <Tag $bgColor="grass" type="Grass" />
+      <Card />
     </Container>
   );
 };

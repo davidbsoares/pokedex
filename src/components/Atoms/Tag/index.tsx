@@ -21,6 +21,7 @@ const Container = styled.div.attrs((props: TagProps) => ({
   align-items: center;
 
   font-size: 0.875rem;
+  text-transform: capitalize;
 
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;

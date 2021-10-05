@@ -11,6 +11,11 @@ import MenuItem from '@mui/material/MenuItem';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import COLORS from '../../constants/colors';
+import { pokemonTypes } from '../../constants/pokemonTypes';
+
+type typeCheckProps = {
+  [key: string]: boolean;
+};
 
 const Filter = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -22,20 +27,36 @@ const Filter = () => {
     setAnchorEl(null);
   };
 
-  const [state, setState] = useState({
+  const [typeCheck, setTypeCheck] = useState<typeCheckProps>({
+    normal: false,
+    fighting: false,
+    flying: false,
+    poison: false,
+    ground: false,
+    rock: false,
+    bug: false,
+    ghost: false,
+    steel: false,
     fire: false,
     water: false,
-    normal: false,
+    grass: false,
+    electric: false,
+    psychic: false,
+    ice: false,
+    dragon: false,
+    dark: false,
+    fairy: false,
+    unknown: false,
+    shadow: false,
   });
 
   const handleChange = (event: any) => {
-    setState({
-      ...state,
+    setTypeCheck({
+      ...typeCheck,
       [event.target.name]: event.target.checked,
     });
   };
 
-  const { fire, water, normal } = state;
   return (
     <>
       <StyledButton
@@ -63,43 +84,20 @@ const Filter = () => {
       >
         <FormControl component="fieldset" variant="standard">
           <FormGroup>
-            <StyledMenuItem>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={fire}
-                    onChange={handleChange}
-                    name="fire"
-                  />
-                }
-                label="Fire"
-              />
-            </StyledMenuItem>
-            <StyledMenuItem>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={water}
-                    onChange={handleChange}
-                    name="water"
-                  />
-                }
-                label="Water"
-              />
-            </StyledMenuItem>
-
-            <StyledMenuItem>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={normal}
-                    onChange={handleChange}
-                    name="normal"
-                  />
-                }
-                label="Normal"
-              />
-            </StyledMenuItem>
+            {pokemonTypes.sort().map((type: string, index) => (
+              <StyledMenuItem key={index}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={typeCheck[type.toLowerCase()]}
+                      onChange={handleChange}
+                      name={type.toLowerCase()}
+                    />
+                  }
+                  label={type}
+                />
+              </StyledMenuItem>
+            ))}
           </FormGroup>
         </FormControl>
       </StyledMenu>

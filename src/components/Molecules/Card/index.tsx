@@ -1,24 +1,40 @@
-import React from 'react';
 import styled from 'styled-components';
+import { Pokemon_V2_Pokemon } from '../../../graphql/generated/graphql';
+import { artworkForPokemon } from '../../../graphql/getSprites';
 import Stats from '../../Atoms/Stats';
 import Tag from '../../Atoms/Tag';
 import COLORS from '../../constants/colors';
 
-const Card = () => {
+type ImageWrapperProps = {
+  $bgColor: string;
+};
+
+const Card = ({ pokemon }: any) => {
+  const { name, stats, types, id } = pokemon;
+
+  const pokemonImage = artworkForPokemon(id);
+
+  const firstType = types[0]?.type?.name;
+
+  console.log(firstType);
   return (
     <Container>
       <InformationWrapper>
-        <PokemonName>Charizard</PokemonName>
+        <PokemonName>{name || ''}</PokemonName>
         <StatsWrapper>
-          <Stats name="Attack" value={48} />
-          <Stats name="Defense" value={25} />
+          {stats.map((s: any, i: number) => (
+            <Stats key={i} name={s.stat.name} value={s.base_stat} />
+          ))}
         </StatsWrapper>
         <TagWrapper>
-          <Tag $bgColor="grass" type="grass" />
-          <Tag $bgColor="fire" type="fire" />
+          {types.map((t: any, i: number) => (
+            <Tag key={i} $bgColor={t.type.name} type={t.type.name} />
+          ))}
         </TagWrapper>
       </InformationWrapper>
-      <ImageWrapper>a</ImageWrapper>
+      <ImageWrapper $bgColor={firstType}>
+        <Image src={pokemonImage} />
+      </ImageWrapper>
     </Container>
   );
 };
@@ -44,6 +60,7 @@ const PokemonName = styled.span`
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.3125rem;
+  text-transform: capitalize;
 
   color: ${COLORS.dark};
 
@@ -75,14 +92,25 @@ const TagWrapper = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWrapperProps>`
   width: 60%;
   height: 100%;
-  background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+  background: linear-gradient(
+    to left,
+    ${({ $bgColor }) => COLORS.types[$bgColor]} 75%,
+    transparent 100%
+  );
   border-radius: 0px 8px 8px 0px;
   position: absolute;
   right: 0;
   top: 0;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Image = styled.img`
+  width: auto;
+  height: 100%;
 `;
 
 export default Card;

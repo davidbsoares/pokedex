@@ -51716,3 +51716,8 @@ export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_1_Query = { __typename?: 'query_root', pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', name: string, id: number, types: Array<{ __typename?: 'pokemon_v2_pokemontype', type?: { __typename?: 'pokemon_v2_type', name: string } | null | undefined }>, stats: Array<{ __typename?: 'pokemon_v2_pokemonstat', base_stat: number, stat?: { __typename?: 'pokemon_v2_stat', name: string } | null | undefined }> }> };
+
+export type PokemonLengthQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PokemonLengthQuery = { __typename?: 'query_root', pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', id: number }> };

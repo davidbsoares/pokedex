@@ -2,7 +2,7 @@ import { gql } from 'graphql-request';
 
 export const GET_POKEMONS = gql`
   query {
-    pokemon: pokemon_v2_pokemon(limit: 9) {
+    pokemon: pokemon_v2_pokemon {
       name
       id
       types: pokemon_v2_pokemontypes {

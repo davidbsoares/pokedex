@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Pokemon_V2_Pokemon } from '../../../graphql/generated/graphql';
 import { artworkForPokemon } from '../../../graphql/getSprites';
 import Stats from '../../Atoms/Stats';
 import Tag from '../../Atoms/Tag';
@@ -16,7 +15,6 @@ const Card = ({ pokemon }: any) => {
 
   const firstType = types[0]?.type?.name;
 
-  console.log(firstType);
   return (
     <Container>
       <InformationWrapper>

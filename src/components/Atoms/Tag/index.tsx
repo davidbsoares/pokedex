@@ -3,16 +3,15 @@ import styled from 'styled-components';
 import COLORS from '../../constants/colors';
 
 type TagProps = {
-  $bgColor: string;
   type: string;
 };
 
-const Tag = ({ $bgColor, type }: TagProps) => {
-  return <Container $bgColor={$bgColor}>{type}</Container>;
+const Tag = ({ type }: TagProps) => {
+  return <Container type={type}>{type}</Container>;
 };
 
 const Container = styled.div.attrs((props: TagProps) => ({
-  $bgColor: props.$bgColor,
+  type: props.type,
 }))`
   width: 74px;
   height: 21px;
@@ -26,7 +25,7 @@ const Container = styled.div.attrs((props: TagProps) => ({
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
 
-  background-color: ${({ $bgColor }) => COLORS.types[$bgColor]};
+  background-color: ${({ type }) => COLORS.types[type]};
 `;
 
 export default Tag;

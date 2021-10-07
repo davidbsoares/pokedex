@@ -5,13 +5,23 @@ import client from '../../../graphql/client';
 import { GET_POKEMONS } from '../../../graphql/queries';
 import { Pokemon_V2_Pokemon } from '../../../graphql/generated/graphql';
 
-import { TextField, Pagination } from '@mui/material';
+import { TextField, Pagination, Button } from '@mui/material';
 
 import Card from './../../Molecules/Card/index';
 
 import COLORS from '../../constants/colors';
+import PokemonDetails from '../../Organisms/PokemonDetails';
 
 const Pokedex = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const storageKey = localStorage.getItem('pokemonsStorage') || null;
 
   const pokemonsStorage: Pokemon_V2_Pokemon[] =
@@ -44,7 +54,7 @@ const Pokedex = () => {
   };
 
   function filterName(value: Pokemon_V2_Pokemon) {
-    if (value.name === search || value.name.includes(search)) return value;
+    if (value.name.includes(search.toLowerCase())) return value;
   }
 
   const filteredPokemon = pokemonData?.filter(filterName);
@@ -67,30 +77,34 @@ const Pokedex = () => {
   }, [search, filteredPokemon]);
 
   return (
-    <Container>
-      <Title>
-        {pokemonData?.length} Pokemons for you to choose your favorite
-      </Title>
-      <StyledTextField
-        value={search}
-        onChange={handleSearch}
-        label="Find your pokemon"
-        variant="standard"
-      />
-      <CardGrid>
-        {filteredPokemon?.slice(start, end).map((pokemon: any, index) => {
-          return <Card key={index} pokemon={pokemon} />;
-        })}
-      </CardGrid>
-      <StyledPagination
-        count={pages}
-        page={page}
-        onChange={handlePage}
-        variant="outlined"
-        hideNextButton
-        hidePrevButton
-      />
-    </Container>
+    <>
+      <Container>
+        <Title>
+          {pokemonData?.length} Pokemons for you to choose your favorite
+          <Button onClick={handleClickOpen}>Teste</Button>
+        </Title>
+        <StyledTextField
+          value={search}
+          onChange={handleSearch}
+          label="Find your pokemon"
+          variant="standard"
+        />
+        <CardGrid>
+          {filteredPokemon?.slice(start, end).map((pokemon: any, index) => {
+            return <Card key={index} pokemon={pokemon} />;
+          })}
+        </CardGrid>
+        <StyledPagination
+          count={pages}
+          page={page}
+          onChange={handlePage}
+          variant="outlined"
+          hideNextButton
+          hidePrevButton
+        />
+      </Container>
+      <PokemonDetails open={open} onClose={handleClose} />
+    </>
   );
 };
 

@@ -26,7 +26,7 @@ const Card = ({ pokemon }: any) => {
         </StatsWrapper>
         <TagWrapper>
           {types.map((t: any, i: number) => (
-            <Tag key={i} $bgColor={t.type.name} type={t.type.name} />
+            <Tag key={i} type={t.type.name} />
           ))}
         </TagWrapper>
       </InformationWrapper>
@@ -46,6 +46,8 @@ const Container = styled.div`
   border-radius: 0.5rem;
 
   padding: 0.3531rem 0 0.8069rem 1.6156rem;
+
+  cursor: pointer;
 `;
 
 const InformationWrapper = styled.div`

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Pokemon_V2_Pokemonstat } from '../../../graphql/generated/graphql';
 import { artworkForPokemon } from '../../../graphql/getSprites';
 import Stats from '../../Atoms/Stats';
 import Tag from '../../Atoms/Tag';
@@ -8,24 +9,35 @@ type ImageWrapperProps = {
   $bgColor: string;
 };
 
-const Card = ({ pokemon }: any) => {
+type CardProps = {
+  pokemon: any;
+  handleOpenModal: (id: number) => void;
+};
+
+const Card = ({ pokemon, handleOpenModal }: CardProps) => {
   const { name, stats, types, id } = pokemon;
 
   const pokemonImage = artworkForPokemon(id);
 
   const firstType = types[0]?.type?.name;
 
+  function getAttackDefense(value: any) {
+    if (value.stat?.name === 'attack' || value.stat?.name === 'defense') {
+      return value;
+    }
+  }
+
   return (
-    <Container>
+    <Container onClick={() => handleOpenModal(id)}>
       <InformationWrapper>
         <PokemonName>{name || ''}</PokemonName>
         <StatsWrapper>
-          {stats.map((s: any, i: number) => (
+          {stats.filter(getAttackDefense).map((s: any, i: number) => (
             <Stats key={i} name={s.stat.name} value={s.base_stat} />
           ))}
         </StatsWrapper>
         <TagWrapper>
-          {types.map((t: any, i: number) => (
+          {types.slice(0, 2).map((t: any, i: number) => (
             <Tag key={i} type={t.type.name} />
           ))}
         </TagWrapper>

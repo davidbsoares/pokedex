@@ -1,7 +1,11 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -83,7 +87,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = 'desc_nulls_last',
 }
 
 /** columns and relationships of "pokemon_v2_ability" */
@@ -117,7 +121,6 @@ export type Pokemon_V2_Ability = {
   pokemon_v2_pokemonabilities_aggregate: Pokemon_V2_Pokemonability_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_AbilitychangesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
@@ -126,7 +129,6 @@ export type Pokemon_V2_AbilityPokemon_V2_AbilitychangesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilitychange_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_Abilitychanges_AggregateArgs = {
@@ -137,7 +139,6 @@ export type Pokemon_V2_AbilityPokemon_V2_Abilitychanges_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_AbilityeffecttextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
@@ -146,7 +147,6 @@ export type Pokemon_V2_AbilityPokemon_V2_AbilityeffecttextsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_Abilityeffecttexts_AggregateArgs = {
@@ -157,7 +157,6 @@ export type Pokemon_V2_AbilityPokemon_V2_Abilityeffecttexts_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_AbilityflavortextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -166,7 +165,6 @@ export type Pokemon_V2_AbilityPokemon_V2_AbilityflavortextsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_Abilityflavortexts_AggregateArgs = {
@@ -177,7 +175,6 @@ export type Pokemon_V2_AbilityPokemon_V2_Abilityflavortexts_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_AbilitynamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
@@ -186,7 +183,6 @@ export type Pokemon_V2_AbilityPokemon_V2_AbilitynamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityname_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_Abilitynames_AggregateArgs = {
@@ -197,7 +193,6 @@ export type Pokemon_V2_AbilityPokemon_V2_Abilitynames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_PokemonabilitiesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
@@ -206,7 +201,6 @@ export type Pokemon_V2_AbilityPokemon_V2_PokemonabilitiesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonability_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_ability" */
 export type Pokemon_V2_AbilityPokemon_V2_Pokemonabilities_AggregateArgs = {
@@ -239,7 +233,6 @@ export type Pokemon_V2_Ability_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Ability_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Ability_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_ability" */
 export type Pokemon_V2_Ability_Aggregate_FieldsCountArgs = {
@@ -345,7 +338,7 @@ export enum Pokemon_V2_Ability_Select_Column {
   /** column name */
   IsMainSeries = 'is_main_series',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -455,7 +448,6 @@ export type Pokemon_V2_Abilitychange = {
   version_group_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_abilitychange" */
 export type Pokemon_V2_AbilitychangePokemon_V2_AbilitychangeeffecttextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
@@ -465,15 +457,17 @@ export type Pokemon_V2_AbilitychangePokemon_V2_AbilitychangeeffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_abilitychange" */
-export type Pokemon_V2_AbilitychangePokemon_V2_Abilitychangeeffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
-};
+export type Pokemon_V2_AbilitychangePokemon_V2_Abilitychangeeffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_abilitychange" */
 export type Pokemon_V2_Abilitychange_Aggregate = {
@@ -497,7 +491,6 @@ export type Pokemon_V2_Abilitychange_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Abilitychange_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Abilitychange_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_abilitychange" */
 export type Pokemon_V2_Abilitychange_Aggregate_FieldsCountArgs = {
@@ -595,7 +588,7 @@ export enum Pokemon_V2_Abilitychange_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -739,7 +732,6 @@ export type Pokemon_V2_Abilitychangeeffecttext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_abilitychangeeffecttext" */
 export type Pokemon_V2_Abilitychangeeffecttext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
@@ -842,7 +834,7 @@ export enum Pokemon_V2_Abilitychangeeffecttext_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -987,7 +979,6 @@ export type Pokemon_V2_Abilityeffecttext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Abilityeffecttext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_abilityeffecttext" */
 export type Pokemon_V2_Abilityeffecttext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
@@ -1098,7 +1089,7 @@ export enum Pokemon_V2_Abilityeffecttext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  ShortEffect = 'short_effect'
+  ShortEffect = 'short_effect',
 }
 
 /** aggregate stddev on columns */
@@ -1245,7 +1236,6 @@ export type Pokemon_V2_Abilityflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Abilityflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_abilityflavortext" */
 export type Pokemon_V2_Abilityflavortext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -1360,7 +1350,7 @@ export enum Pokemon_V2_Abilityflavortext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -1518,7 +1508,6 @@ export type Pokemon_V2_Abilityname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Abilityname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_abilityname" */
 export type Pokemon_V2_Abilityname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
@@ -1621,7 +1610,7 @@ export enum Pokemon_V2_Abilityname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -1755,7 +1744,6 @@ export type Pokemon_V2_Berry = {
   soil_dryness: Scalars['Int'];
 };
 
-
 /** columns and relationships of "pokemon_v2_berry" */
 export type Pokemon_V2_BerryPokemon_V2_BerryflavormapsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
@@ -1764,7 +1752,6 @@ export type Pokemon_V2_BerryPokemon_V2_BerryflavormapsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berryflavormap_Order_By>>;
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_berry" */
 export type Pokemon_V2_BerryPokemon_V2_Berryflavormaps_AggregateArgs = {
@@ -1797,7 +1784,6 @@ export type Pokemon_V2_Berry_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Berry_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Berry_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_berry" */
 export type Pokemon_V2_Berry_Aggregate_FieldsCountArgs = {
@@ -1975,7 +1961,7 @@ export enum Pokemon_V2_Berry_Select_Column {
   /** column name */
   Smoothness = 'smoothness',
   /** column name */
-  SoilDryness = 'soil_dryness'
+  SoilDryness = 'soil_dryness',
 }
 
 /** aggregate stddev on columns */
@@ -2196,7 +2182,6 @@ export type Pokemon_V2_Berryfirmness = {
   pokemon_v2_berryfirmnessnames_aggregate: Pokemon_V2_Berryfirmnessname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryfirmness" */
 export type Pokemon_V2_BerryfirmnessPokemon_V2_BerriesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
@@ -2205,7 +2190,6 @@ export type Pokemon_V2_BerryfirmnessPokemon_V2_BerriesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berry_Order_By>>;
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_berryfirmness" */
 export type Pokemon_V2_BerryfirmnessPokemon_V2_Berries_AggregateArgs = {
@@ -2216,7 +2200,6 @@ export type Pokemon_V2_BerryfirmnessPokemon_V2_Berries_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryfirmness" */
 export type Pokemon_V2_BerryfirmnessPokemon_V2_BerryfirmnessnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
@@ -2226,15 +2209,15 @@ export type Pokemon_V2_BerryfirmnessPokemon_V2_BerryfirmnessnamesArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryfirmness" */
-export type Pokemon_V2_BerryfirmnessPokemon_V2_Berryfirmnessnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
-};
+export type Pokemon_V2_BerryfirmnessPokemon_V2_Berryfirmnessnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_berryfirmness" */
 export type Pokemon_V2_Berryfirmness_Aggregate = {
@@ -2258,7 +2241,6 @@ export type Pokemon_V2_Berryfirmness_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Berryfirmness_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Berryfirmness_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_berryfirmness" */
 export type Pokemon_V2_Berryfirmness_Aggregate_FieldsCountArgs = {
@@ -2310,7 +2292,7 @@ export enum Pokemon_V2_Berryfirmness_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -2390,7 +2372,6 @@ export type Pokemon_V2_Berryfirmnessname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Berryfirmnessname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Berryfirmnessname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_berryfirmnessname" */
 export type Pokemon_V2_Berryfirmnessname_Aggregate_FieldsCountArgs = {
@@ -2494,7 +2475,7 @@ export enum Pokemon_V2_Berryfirmnessname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -2628,7 +2609,6 @@ export type Pokemon_V2_Berryflavor = {
   pokemon_v2_natures_aggregate: Pokemon_V2_Nature_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemonV2NaturesByLikesFlavorIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -2638,16 +2618,15 @@ export type Pokemon_V2_BerryflavorPokemonV2NaturesByLikesFlavorIdArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryflavor" */
-export type Pokemon_V2_BerryflavorPokemonV2NaturesByLikesFlavorId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Nature_Order_By>>;
-  where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
-};
-
+export type Pokemon_V2_BerryflavorPokemonV2NaturesByLikesFlavorId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Nature_Order_By>>;
+    where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_BerryflavormapsArgs = {
@@ -2658,7 +2637,6 @@ export type Pokemon_V2_BerryflavorPokemon_V2_BerryflavormapsArgs = {
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_Berryflavormaps_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
@@ -2667,7 +2645,6 @@ export type Pokemon_V2_BerryflavorPokemon_V2_Berryflavormaps_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berryflavormap_Order_By>>;
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_BerryflavornamesArgs = {
@@ -2678,7 +2655,6 @@ export type Pokemon_V2_BerryflavorPokemon_V2_BerryflavornamesArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_Berryflavornames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
@@ -2688,7 +2664,6 @@ export type Pokemon_V2_BerryflavorPokemon_V2_Berryflavornames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_NaturesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -2697,7 +2672,6 @@ export type Pokemon_V2_BerryflavorPokemon_V2_NaturesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Nature_Order_By>>;
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_BerryflavorPokemon_V2_Natures_AggregateArgs = {
@@ -2730,7 +2704,6 @@ export type Pokemon_V2_Berryflavor_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Berryflavor_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Berryflavor_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_berryflavor" */
 export type Pokemon_V2_Berryflavor_Aggregate_FieldsCountArgs = {
@@ -2830,7 +2803,7 @@ export enum Pokemon_V2_Berryflavor_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -2960,7 +2933,6 @@ export type Pokemon_V2_Berryflavormap_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Berryflavormap_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_berryflavormap" */
 export type Pokemon_V2_Berryflavormap_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
@@ -3065,7 +3037,7 @@ export enum Pokemon_V2_Berryflavormap_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Potency = 'potency'
+  Potency = 'potency',
 }
 
 /** aggregate stddev on columns */
@@ -3223,7 +3195,6 @@ export type Pokemon_V2_Berryflavorname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Berryflavorname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_berryflavorname" */
 export type Pokemon_V2_Berryflavorname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
@@ -3326,7 +3297,7 @@ export enum Pokemon_V2_Berryflavorname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -3448,25 +3419,29 @@ export type Pokemon_V2_Characteristic = {
   stat_id?: Maybe<Scalars['Int']>;
 };
 
+/** columns and relationships of "pokemon_v2_characteristic" */
+export type Pokemon_V2_CharacteristicPokemon_V2_CharacteristicdescriptionsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Characteristicdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_characteristic" */
-export type Pokemon_V2_CharacteristicPokemon_V2_CharacteristicdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_characteristic" */
-export type Pokemon_V2_CharacteristicPokemon_V2_Characteristicdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
-};
+export type Pokemon_V2_CharacteristicPokemon_V2_Characteristicdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Characteristicdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_characteristic" */
 export type Pokemon_V2_Characteristic_Aggregate = {
@@ -3490,7 +3465,6 @@ export type Pokemon_V2_Characteristic_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Characteristic_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Characteristic_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_characteristic" */
 export type Pokemon_V2_Characteristic_Aggregate_FieldsCountArgs = {
@@ -3586,7 +3560,7 @@ export enum Pokemon_V2_Characteristic_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  StatId = 'stat_id'
+  StatId = 'stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -3730,7 +3704,6 @@ export type Pokemon_V2_Characteristicdescription_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Characteristicdescription_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_characteristicdescription" */
 export type Pokemon_V2_Characteristicdescription_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
@@ -3833,7 +3806,7 @@ export enum Pokemon_V2_Characteristicdescription_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -3976,7 +3949,6 @@ export type Pokemon_V2_Contestcombo_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Contestcombo_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_contestcombo" */
 export type Pokemon_V2_Contestcombo_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
@@ -4071,7 +4043,7 @@ export enum Pokemon_V2_Contestcombo_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  SecondMoveId = 'second_move_id'
+  SecondMoveId = 'second_move_id',
 }
 
 /** aggregate stddev on columns */
@@ -4199,7 +4171,6 @@ export type Pokemon_V2_Contesteffect = {
   pokemon_v2_moves_aggregate: Pokemon_V2_Move_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesteffect" */
 export type Pokemon_V2_ContesteffectPokemon_V2_ContesteffecteffecttextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
@@ -4209,16 +4180,17 @@ export type Pokemon_V2_ContesteffectPokemon_V2_ContesteffecteffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesteffect" */
-export type Pokemon_V2_ContesteffectPokemon_V2_Contesteffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_ContesteffectPokemon_V2_Contesteffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_contesteffect" */
 export type Pokemon_V2_ContesteffectPokemon_V2_ContesteffectflavortextsArgs = {
@@ -4229,16 +4201,17 @@ export type Pokemon_V2_ContesteffectPokemon_V2_ContesteffectflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesteffect" */
-export type Pokemon_V2_ContesteffectPokemon_V2_Contesteffectflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_ContesteffectPokemon_V2_Contesteffectflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_contesteffect" */
 export type Pokemon_V2_ContesteffectPokemon_V2_MovesArgs = {
@@ -4248,7 +4221,6 @@ export type Pokemon_V2_ContesteffectPokemon_V2_MovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_contesteffect" */
 export type Pokemon_V2_ContesteffectPokemon_V2_Moves_AggregateArgs = {
@@ -4281,7 +4253,6 @@ export type Pokemon_V2_Contesteffect_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Contesteffect_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Contesteffect_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_contesteffect" */
 export type Pokemon_V2_Contesteffect_Aggregate_FieldsCountArgs = {
@@ -4343,7 +4314,7 @@ export enum Pokemon_V2_Contesteffect_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Jam = 'jam'
+  Jam = 'jam',
 }
 
 /** aggregate stddev on columns */
@@ -4437,7 +4408,6 @@ export type Pokemon_V2_Contesteffecteffecttext_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Contesteffecteffecttext_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Contesteffecteffecttext_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_contesteffecteffecttext" */
 export type Pokemon_V2_Contesteffecteffecttext_Aggregate_FieldsCountArgs = {
@@ -4541,7 +4511,7 @@ export enum Pokemon_V2_Contesteffecteffecttext_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -4685,7 +4655,6 @@ export type Pokemon_V2_Contesteffectflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Contesteffectflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_contesteffectflavortext" */
 export type Pokemon_V2_Contesteffectflavortext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
@@ -4788,7 +4757,7 @@ export enum Pokemon_V2_Contesteffectflavortext_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -4915,7 +4884,6 @@ export type Pokemon_V2_Contesttype = {
   pokemon_v2_moves_aggregate: Pokemon_V2_Move_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_BerryflavorsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavor_Select_Column>>;
@@ -4924,7 +4892,6 @@ export type Pokemon_V2_ContesttypePokemon_V2_BerryflavorsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berryflavor_Order_By>>;
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_Berryflavors_AggregateArgs = {
@@ -4935,7 +4902,6 @@ export type Pokemon_V2_ContesttypePokemon_V2_Berryflavors_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_ContesttypenamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
@@ -4944,7 +4910,6 @@ export type Pokemon_V2_ContesttypePokemon_V2_ContesttypenamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Contesttypename_Order_By>>;
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_Contesttypenames_AggregateArgs = {
@@ -4955,7 +4920,6 @@ export type Pokemon_V2_ContesttypePokemon_V2_Contesttypenames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_MovesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -4964,7 +4928,6 @@ export type Pokemon_V2_ContesttypePokemon_V2_MovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_contesttype" */
 export type Pokemon_V2_ContesttypePokemon_V2_Moves_AggregateArgs = {
@@ -4997,7 +4960,6 @@ export type Pokemon_V2_Contesttype_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Contesttype_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Contesttype_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_contesttype" */
 export type Pokemon_V2_Contesttype_Aggregate_FieldsCountArgs = {
@@ -5051,7 +5013,7 @@ export enum Pokemon_V2_Contesttype_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -5133,7 +5095,6 @@ export type Pokemon_V2_Contesttypename_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Contesttypename_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Contesttypename_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_contesttypename" */
 export type Pokemon_V2_Contesttypename_Aggregate_FieldsCountArgs = {
@@ -5253,7 +5214,7 @@ export enum Pokemon_V2_Contesttypename_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -5376,7 +5337,6 @@ export type Pokemon_V2_Egggroup = {
   pokemon_v2_pokemonegggroups_aggregate: Pokemon_V2_Pokemonegggroup_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_egggroup" */
 export type Pokemon_V2_EgggroupPokemon_V2_EgggroupnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
@@ -5385,7 +5345,6 @@ export type Pokemon_V2_EgggroupPokemon_V2_EgggroupnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Egggroupname_Order_By>>;
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_egggroup" */
 export type Pokemon_V2_EgggroupPokemon_V2_Egggroupnames_AggregateArgs = {
@@ -5396,7 +5355,6 @@ export type Pokemon_V2_EgggroupPokemon_V2_Egggroupnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_egggroup" */
 export type Pokemon_V2_EgggroupPokemon_V2_PokemonegggroupsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
@@ -5405,7 +5363,6 @@ export type Pokemon_V2_EgggroupPokemon_V2_PokemonegggroupsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_egggroup" */
 export type Pokemon_V2_EgggroupPokemon_V2_Pokemonegggroups_AggregateArgs = {
@@ -5438,7 +5395,6 @@ export type Pokemon_V2_Egggroup_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Egggroup_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Egggroup_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_egggroup" */
 export type Pokemon_V2_Egggroup_Aggregate_FieldsCountArgs = {
@@ -5490,7 +5446,7 @@ export enum Pokemon_V2_Egggroup_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -5570,7 +5526,6 @@ export type Pokemon_V2_Egggroupname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Egggroupname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Egggroupname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_egggroupname" */
 export type Pokemon_V2_Egggroupname_Aggregate_FieldsCountArgs = {
@@ -5674,7 +5629,7 @@ export enum Pokemon_V2_Egggroupname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -5806,25 +5761,28 @@ export type Pokemon_V2_Encounter = {
   version_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_encounter" */
 export type Pokemon_V2_EncounterPokemon_V2_EncounterconditionvaluemapsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_encounter" */
-export type Pokemon_V2_EncounterPokemon_V2_Encounterconditionvaluemaps_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
-};
+export type Pokemon_V2_EncounterPokemon_V2_Encounterconditionvaluemaps_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_encounter" */
 export type Pokemon_V2_Encounter_Aggregate = {
@@ -5848,7 +5806,6 @@ export type Pokemon_V2_Encounter_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encounter_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encounter_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encounter" */
 export type Pokemon_V2_Encounter_Aggregate_FieldsCountArgs = {
@@ -5990,7 +5947,7 @@ export enum Pokemon_V2_Encounter_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -6169,45 +6126,49 @@ export type Pokemon_V2_Encountercondition = {
   pokemon_v2_encounterconditionvalues_aggregate: Pokemon_V2_Encounterconditionvalue_Aggregate;
 };
 
+/** columns and relationships of "pokemon_v2_encountercondition" */
+export type Pokemon_V2_EncounterconditionPokemon_V2_EncounterconditionnamesArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountercondition" */
-export type Pokemon_V2_EncounterconditionPokemon_V2_EncounterconditionnamesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_encountercondition" */
-export type Pokemon_V2_EncounterconditionPokemon_V2_Encounterconditionnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncounterconditionPokemon_V2_Encounterconditionnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountercondition" */
-export type Pokemon_V2_EncounterconditionPokemon_V2_EncounterconditionvaluesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncounterconditionPokemon_V2_EncounterconditionvaluesArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvalue_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountercondition" */
-export type Pokemon_V2_EncounterconditionPokemon_V2_Encounterconditionvalues_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
-};
+export type Pokemon_V2_EncounterconditionPokemon_V2_Encounterconditionvalues_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvalue_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_encountercondition" */
 export type Pokemon_V2_Encountercondition_Aggregate = {
@@ -6231,7 +6192,6 @@ export type Pokemon_V2_Encountercondition_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encountercondition_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encountercondition_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encountercondition" */
 export type Pokemon_V2_Encountercondition_Aggregate_FieldsCountArgs = {
@@ -6283,7 +6243,7 @@ export enum Pokemon_V2_Encountercondition_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -6363,7 +6323,6 @@ export type Pokemon_V2_Encounterconditionname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encounterconditionname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encounterconditionname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encounterconditionname" */
 export type Pokemon_V2_Encounterconditionname_Aggregate_FieldsCountArgs = {
@@ -6467,7 +6426,7 @@ export enum Pokemon_V2_Encounterconditionname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -6594,45 +6553,53 @@ export type Pokemon_V2_Encounterconditionvalue = {
   pokemon_v2_encounterconditionvaluenames_aggregate: Pokemon_V2_Encounterconditionvaluename_Aggregate;
 };
 
+/** columns and relationships of "pokemon_v2_encounterconditionvalue" */
+export type Pokemon_V2_EncounterconditionvaluePokemon_V2_EncounterconditionvaluemapsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encounterconditionvalue" */
-export type Pokemon_V2_EncounterconditionvaluePokemon_V2_EncounterconditionvaluemapsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_encounterconditionvalue" */
-export type Pokemon_V2_EncounterconditionvaluePokemon_V2_Encounterconditionvaluemaps_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncounterconditionvaluePokemon_V2_Encounterconditionvaluemaps_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encounterconditionvalue" */
-export type Pokemon_V2_EncounterconditionvaluePokemon_V2_EncounterconditionvaluenamesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncounterconditionvaluePokemon_V2_EncounterconditionvaluenamesArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encounterconditionvalue" */
-export type Pokemon_V2_EncounterconditionvaluePokemon_V2_Encounterconditionvaluenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
-};
+export type Pokemon_V2_EncounterconditionvaluePokemon_V2_Encounterconditionvaluenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_encounterconditionvalue" */
 export type Pokemon_V2_Encounterconditionvalue_Aggregate = {
@@ -6656,7 +6623,6 @@ export type Pokemon_V2_Encounterconditionvalue_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encounterconditionvalue_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encounterconditionvalue_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encounterconditionvalue" */
 export type Pokemon_V2_Encounterconditionvalue_Aggregate_FieldsCountArgs = {
@@ -6756,7 +6722,7 @@ export enum Pokemon_V2_Encounterconditionvalue_Select_Column {
   /** column name */
   IsDefault = 'is_default',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -6885,7 +6851,6 @@ export type Pokemon_V2_Encounterconditionvaluemap_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_encounterconditionvaluemap" */
 export type Pokemon_V2_Encounterconditionvaluemap_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
@@ -6980,7 +6945,7 @@ export enum Pokemon_V2_Encounterconditionvaluemap_Select_Column {
   /** column name */
   EncounterId = 'encounter_id',
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** aggregate stddev on columns */
@@ -7124,7 +7089,6 @@ export type Pokemon_V2_Encounterconditionvaluename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Encounterconditionvaluename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_encounterconditionvaluename" */
 export type Pokemon_V2_Encounterconditionvaluename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
@@ -7227,7 +7191,7 @@ export enum Pokemon_V2_Encounterconditionvaluename_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -7355,7 +7319,6 @@ export type Pokemon_V2_Encountermethod = {
   pokemon_v2_locationareaencounterrates_aggregate: Pokemon_V2_Locationareaencounterrate_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_encountermethod" */
 export type Pokemon_V2_EncountermethodPokemon_V2_EncountermethodnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
@@ -7365,16 +7328,15 @@ export type Pokemon_V2_EncountermethodPokemon_V2_EncountermethodnamesArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_encountermethod" */
-export type Pokemon_V2_EncountermethodPokemon_V2_Encountermethodnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encountermethodname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncountermethodPokemon_V2_Encountermethodnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encountermethodname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountermethod" */
 export type Pokemon_V2_EncountermethodPokemon_V2_EncounterslotsArgs = {
@@ -7385,35 +7347,39 @@ export type Pokemon_V2_EncountermethodPokemon_V2_EncounterslotsArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_encountermethod" */
+export type Pokemon_V2_EncountermethodPokemon_V2_Encounterslots_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterslot_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountermethod" */
-export type Pokemon_V2_EncountermethodPokemon_V2_Encounterslots_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterslot_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_encountermethod" */
-export type Pokemon_V2_EncountermethodPokemon_V2_LocationareaencounterratesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
-};
-
+export type Pokemon_V2_EncountermethodPokemon_V2_LocationareaencounterratesArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_encountermethod" */
-export type Pokemon_V2_EncountermethodPokemon_V2_Locationareaencounterrates_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
-};
+export type Pokemon_V2_EncountermethodPokemon_V2_Locationareaencounterrates_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_encountermethod" */
 export type Pokemon_V2_Encountermethod_Aggregate = {
@@ -7437,7 +7403,6 @@ export type Pokemon_V2_Encountermethod_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encountermethod_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encountermethod_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encountermethod" */
 export type Pokemon_V2_Encountermethod_Aggregate_FieldsCountArgs = {
@@ -7498,7 +7463,7 @@ export enum Pokemon_V2_Encountermethod_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  Order = 'order'
+  Order = 'order',
 }
 
 /** aggregate stddev on columns */
@@ -7585,7 +7550,6 @@ export type Pokemon_V2_Encountermethodname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encountermethodname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encountermethodname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encountermethodname" */
 export type Pokemon_V2_Encountermethodname_Aggregate_FieldsCountArgs = {
@@ -7689,7 +7653,7 @@ export enum Pokemon_V2_Encountermethodname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -7815,7 +7779,6 @@ export type Pokemon_V2_Encounterslot = {
   version_group_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_encounterslot" */
 export type Pokemon_V2_EncounterslotPokemon_V2_EncountersArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -7824,7 +7787,6 @@ export type Pokemon_V2_EncounterslotPokemon_V2_EncountersArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encounter_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_encounterslot" */
 export type Pokemon_V2_EncounterslotPokemon_V2_Encounters_AggregateArgs = {
@@ -7857,7 +7819,6 @@ export type Pokemon_V2_Encounterslot_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Encounterslot_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Encounterslot_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_encounterslot" */
 export type Pokemon_V2_Encounterslot_Aggregate_FieldsCountArgs = {
@@ -7975,7 +7936,7 @@ export enum Pokemon_V2_Encounterslot_Select_Column {
   /** column name */
   Slot = 'slot',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -8124,7 +8085,6 @@ export type Pokemon_V2_Evolutionchain = {
   pokemon_v2_pokemonspecies_aggregate: Pokemon_V2_Pokemonspecies_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_evolutionchain" */
 export type Pokemon_V2_EvolutionchainPokemon_V2_PokemonspeciesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -8133,7 +8093,6 @@ export type Pokemon_V2_EvolutionchainPokemon_V2_PokemonspeciesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_evolutionchain" */
 export type Pokemon_V2_EvolutionchainPokemon_V2_Pokemonspecies_AggregateArgs = {
@@ -8166,7 +8125,6 @@ export type Pokemon_V2_Evolutionchain_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Evolutionchain_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Evolutionchain_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_evolutionchain" */
 export type Pokemon_V2_Evolutionchain_Aggregate_FieldsCountArgs = {
@@ -8252,7 +8210,7 @@ export enum Pokemon_V2_Evolutionchain_Select_Column {
   /** column name */
   BabyTriggerItemId = 'baby_trigger_item_id',
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** aggregate stddev on columns */
@@ -8361,7 +8319,6 @@ export type Pokemon_V2_Evolutiontrigger = {
   pokemon_v2_pokemonevolutions_aggregate: Pokemon_V2_Pokemonevolution_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_evolutiontrigger" */
 export type Pokemon_V2_EvolutiontriggerPokemon_V2_EvolutiontriggernamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
@@ -8371,16 +8328,15 @@ export type Pokemon_V2_EvolutiontriggerPokemon_V2_EvolutiontriggernamesArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_evolutiontrigger" */
-export type Pokemon_V2_EvolutiontriggerPokemon_V2_Evolutiontriggernames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Order_By>>;
-  where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
-};
-
+export type Pokemon_V2_EvolutiontriggerPokemon_V2_Evolutiontriggernames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Order_By>>;
+    where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_evolutiontrigger" */
 export type Pokemon_V2_EvolutiontriggerPokemon_V2_PokemonevolutionsArgs = {
@@ -8391,15 +8347,15 @@ export type Pokemon_V2_EvolutiontriggerPokemon_V2_PokemonevolutionsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_evolutiontrigger" */
-export type Pokemon_V2_EvolutiontriggerPokemon_V2_Pokemonevolutions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
+export type Pokemon_V2_EvolutiontriggerPokemon_V2_Pokemonevolutions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_evolutiontrigger" */
 export type Pokemon_V2_Evolutiontrigger_Aggregate = {
@@ -8423,7 +8379,6 @@ export type Pokemon_V2_Evolutiontrigger_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Evolutiontrigger_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Evolutiontrigger_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_evolutiontrigger" */
 export type Pokemon_V2_Evolutiontrigger_Aggregate_FieldsCountArgs = {
@@ -8475,7 +8430,7 @@ export enum Pokemon_V2_Evolutiontrigger_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -8555,7 +8510,6 @@ export type Pokemon_V2_Evolutiontriggername_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Evolutiontriggername_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Evolutiontriggername_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_evolutiontriggername" */
 export type Pokemon_V2_Evolutiontriggername_Aggregate_FieldsCountArgs = {
@@ -8659,7 +8613,7 @@ export enum Pokemon_V2_Evolutiontriggername_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -8801,7 +8755,6 @@ export type Pokemon_V2_Experience_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Experience_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_experience" */
 export type Pokemon_V2_Experience_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
@@ -8904,7 +8857,7 @@ export enum Pokemon_V2_Experience_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Level = 'level'
+  Level = 'level',
 }
 
 /** aggregate stddev on columns */
@@ -9037,7 +8990,6 @@ export type Pokemon_V2_Gender = {
   pokemon_v2_pokemonevolutions_aggregate: Pokemon_V2_Pokemonevolution_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_gender" */
 export type Pokemon_V2_GenderPokemon_V2_PokemonevolutionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -9046,7 +8998,6 @@ export type Pokemon_V2_GenderPokemon_V2_PokemonevolutionsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_gender" */
 export type Pokemon_V2_GenderPokemon_V2_Pokemonevolutions_AggregateArgs = {
@@ -9079,7 +9030,6 @@ export type Pokemon_V2_Gender_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Gender_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Gender_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_gender" */
 export type Pokemon_V2_Gender_Aggregate_FieldsCountArgs = {
@@ -9129,7 +9079,7 @@ export enum Pokemon_V2_Gender_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -9228,7 +9178,6 @@ export type Pokemon_V2_Generation = {
   region_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_AbilitiesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Ability_Select_Column>>;
@@ -9237,7 +9186,6 @@ export type Pokemon_V2_GenerationPokemon_V2_AbilitiesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Ability_Order_By>>;
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Abilities_AggregateArgs = {
@@ -9248,7 +9196,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Abilities_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_GenerationnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
@@ -9257,7 +9204,6 @@ export type Pokemon_V2_GenerationPokemon_V2_GenerationnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Generationname_Order_By>>;
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Generationnames_AggregateArgs = {
@@ -9268,7 +9214,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Generationnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_ItemgameindicesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
@@ -9277,7 +9222,6 @@ export type Pokemon_V2_GenerationPokemon_V2_ItemgameindicesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemgameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Itemgameindices_AggregateArgs = {
@@ -9288,7 +9232,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Itemgameindices_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_LocationgameindicesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
@@ -9298,16 +9241,15 @@ export type Pokemon_V2_GenerationPokemon_V2_LocationgameindicesArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
-export type Pokemon_V2_GenerationPokemon_V2_Locationgameindices_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationgameindex_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
-};
-
+export type Pokemon_V2_GenerationPokemon_V2_Locationgameindices_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationgameindex_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_MovesArgs = {
@@ -9318,7 +9260,6 @@ export type Pokemon_V2_GenerationPokemon_V2_MovesArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Moves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -9327,7 +9268,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Moves_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_PokemonformgenerationsArgs = {
@@ -9338,16 +9278,15 @@ export type Pokemon_V2_GenerationPokemon_V2_PokemonformgenerationsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
-export type Pokemon_V2_GenerationPokemon_V2_Pokemonformgenerations_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
-};
-
+export type Pokemon_V2_GenerationPokemon_V2_Pokemonformgenerations_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_PokemonspeciesArgs = {
@@ -9358,7 +9297,6 @@ export type Pokemon_V2_GenerationPokemon_V2_PokemonspeciesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Pokemonspecies_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -9367,7 +9305,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Pokemonspecies_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_PokemontypepastsArgs = {
@@ -9378,7 +9315,6 @@ export type Pokemon_V2_GenerationPokemon_V2_PokemontypepastsArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Pokemontypepasts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -9387,7 +9323,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Pokemontypepasts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemontypepast_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_TypegameindicesArgs = {
@@ -9398,7 +9333,6 @@ export type Pokemon_V2_GenerationPokemon_V2_TypegameindicesArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Typegameindices_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
@@ -9407,7 +9341,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Typegameindices_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Typegameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_TypesArgs = {
@@ -9418,7 +9351,6 @@ export type Pokemon_V2_GenerationPokemon_V2_TypesArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Types_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
@@ -9428,7 +9360,6 @@ export type Pokemon_V2_GenerationPokemon_V2_Types_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_VersiongroupsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroup_Select_Column>>;
@@ -9437,7 +9368,6 @@ export type Pokemon_V2_GenerationPokemon_V2_VersiongroupsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Versiongroup_Order_By>>;
   where?: Maybe<Pokemon_V2_Versiongroup_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_generation" */
 export type Pokemon_V2_GenerationPokemon_V2_Versiongroups_AggregateArgs = {
@@ -9470,7 +9400,6 @@ export type Pokemon_V2_Generation_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Generation_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Generation_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_generation" */
 export type Pokemon_V2_Generation_Aggregate_FieldsCountArgs = {
@@ -9584,7 +9513,7 @@ export enum Pokemon_V2_Generation_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  RegionId = 'region_id'
+  RegionId = 'region_id',
 }
 
 /** aggregate stddev on columns */
@@ -9714,7 +9643,6 @@ export type Pokemon_V2_Generationname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Generationname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_generationname" */
 export type Pokemon_V2_Generationname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
@@ -9817,7 +9745,7 @@ export enum Pokemon_V2_Generationname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -9949,7 +9877,6 @@ export type Pokemon_V2_Growthrate = {
   pokemon_v2_pokemonspecies_aggregate: Pokemon_V2_Pokemonspecies_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_ExperiencesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
@@ -9958,7 +9885,6 @@ export type Pokemon_V2_GrowthratePokemon_V2_ExperiencesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Experience_Order_By>>;
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_Experiences_AggregateArgs = {
@@ -9969,7 +9895,6 @@ export type Pokemon_V2_GrowthratePokemon_V2_Experiences_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_GrowthratedescriptionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
@@ -9979,16 +9904,15 @@ export type Pokemon_V2_GrowthratePokemon_V2_GrowthratedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_growthrate" */
-export type Pokemon_V2_GrowthratePokemon_V2_Growthratedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Growthratedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_GrowthratePokemon_V2_Growthratedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Growthratedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_MachinesArgs = {
@@ -9999,7 +9923,6 @@ export type Pokemon_V2_GrowthratePokemon_V2_MachinesArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_Machines_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -10009,7 +9932,6 @@ export type Pokemon_V2_GrowthratePokemon_V2_Machines_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_PokemonspeciesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -10018,7 +9940,6 @@ export type Pokemon_V2_GrowthratePokemon_V2_PokemonspeciesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_growthrate" */
 export type Pokemon_V2_GrowthratePokemon_V2_Pokemonspecies_AggregateArgs = {
@@ -10051,7 +9972,6 @@ export type Pokemon_V2_Growthrate_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Growthrate_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Growthrate_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_growthrate" */
 export type Pokemon_V2_Growthrate_Aggregate_FieldsCountArgs = {
@@ -10113,7 +10033,7 @@ export enum Pokemon_V2_Growthrate_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -10193,7 +10113,6 @@ export type Pokemon_V2_Growthratedescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Growthratedescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Growthratedescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_growthratedescription" */
 export type Pokemon_V2_Growthratedescription_Aggregate_FieldsCountArgs = {
@@ -10297,7 +10216,7 @@ export enum Pokemon_V2_Growthratedescription_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -10468,7 +10387,6 @@ export type Pokemon_V2_Item = {
   pokemon_v2_pokemonitems_aggregate: Pokemon_V2_Pokemonitem_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemonV2PokemonevolutionsByHeldItemIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -10478,16 +10396,15 @@ export type Pokemon_V2_ItemPokemonV2PokemonevolutionsByHeldItemIdArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
-export type Pokemon_V2_ItemPokemonV2PokemonevolutionsByHeldItemId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_ItemPokemonV2PokemonevolutionsByHeldItemId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_BerriesArgs = {
@@ -10498,7 +10415,6 @@ export type Pokemon_V2_ItemPokemon_V2_BerriesArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Berries_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
@@ -10507,7 +10423,6 @@ export type Pokemon_V2_ItemPokemon_V2_Berries_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berry_Order_By>>;
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_EvolutionchainsArgs = {
@@ -10518,7 +10433,6 @@ export type Pokemon_V2_ItemPokemon_V2_EvolutionchainsArgs = {
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Evolutionchains_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutionchain_Select_Column>>;
@@ -10527,7 +10441,6 @@ export type Pokemon_V2_ItemPokemon_V2_Evolutionchains_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Evolutionchain_Order_By>>;
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemattributemapsArgs = {
@@ -10538,7 +10451,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemattributemapsArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemattributemaps_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
@@ -10547,7 +10459,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemattributemaps_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemattributemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemeffecttextsArgs = {
@@ -10558,7 +10469,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemeffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemeffecttexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
@@ -10567,7 +10477,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemeffecttexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemflavortextsArgs = {
@@ -10578,7 +10487,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -10587,7 +10495,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemflavortexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemgameindicesArgs = {
@@ -10598,7 +10505,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemgameindicesArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemgameindices_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
@@ -10607,7 +10513,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemgameindices_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemgameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemnamesArgs = {
@@ -10618,7 +10523,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemnamesArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
@@ -10627,7 +10531,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemname_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_ItemspritesArgs = {
@@ -10638,7 +10541,6 @@ export type Pokemon_V2_ItemPokemon_V2_ItemspritesArgs = {
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Itemsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
@@ -10647,7 +10549,6 @@ export type Pokemon_V2_ItemPokemon_V2_Itemsprites_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemsprites_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_MachinesArgs = {
@@ -10658,7 +10559,6 @@ export type Pokemon_V2_ItemPokemon_V2_MachinesArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Machines_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -10667,7 +10567,6 @@ export type Pokemon_V2_ItemPokemon_V2_Machines_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Machine_Order_By>>;
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_PokemonevolutionsArgs = {
@@ -10678,7 +10577,6 @@ export type Pokemon_V2_ItemPokemon_V2_PokemonevolutionsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Pokemonevolutions_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -10688,7 +10586,6 @@ export type Pokemon_V2_ItemPokemon_V2_Pokemonevolutions_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_PokemonitemsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -10697,7 +10594,6 @@ export type Pokemon_V2_ItemPokemon_V2_PokemonitemsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonitem_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_item" */
 export type Pokemon_V2_ItemPokemon_V2_Pokemonitems_AggregateArgs = {
@@ -10730,7 +10626,6 @@ export type Pokemon_V2_Item_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Item_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Item_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_item" */
 export type Pokemon_V2_Item_Aggregate_FieldsCountArgs = {
@@ -10878,7 +10773,7 @@ export enum Pokemon_V2_Item_Select_Column {
   /** column name */
   ItemFlingEffectId = 'item_fling_effect_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -11033,7 +10928,6 @@ export type Pokemon_V2_Itemattribute = {
   pokemon_v2_itemattributenames_aggregate: Pokemon_V2_Itemattributename_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemattribute" */
 export type Pokemon_V2_ItemattributePokemon_V2_ItemattributedescriptionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
@@ -11043,16 +10937,17 @@ export type Pokemon_V2_ItemattributePokemon_V2_ItemattributedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemattribute" */
-export type Pokemon_V2_ItemattributePokemon_V2_Itemattributedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_ItemattributePokemon_V2_Itemattributedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_itemattribute" */
 export type Pokemon_V2_ItemattributePokemon_V2_ItemattributemapsArgs = {
@@ -11063,16 +10958,15 @@ export type Pokemon_V2_ItemattributePokemon_V2_ItemattributemapsArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemattribute" */
-export type Pokemon_V2_ItemattributePokemon_V2_Itemattributemaps_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemattributemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
-};
-
+export type Pokemon_V2_ItemattributePokemon_V2_Itemattributemaps_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemattributemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_itemattribute" */
 export type Pokemon_V2_ItemattributePokemon_V2_ItemattributenamesArgs = {
@@ -11083,15 +10977,15 @@ export type Pokemon_V2_ItemattributePokemon_V2_ItemattributenamesArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemattribute" */
-export type Pokemon_V2_ItemattributePokemon_V2_Itemattributenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemattributename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
-};
+export type Pokemon_V2_ItemattributePokemon_V2_Itemattributenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemattributename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_itemattribute" */
 export type Pokemon_V2_Itemattribute_Aggregate = {
@@ -11115,7 +11009,6 @@ export type Pokemon_V2_Itemattribute_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itemattribute_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itemattribute_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itemattribute" */
 export type Pokemon_V2_Itemattribute_Aggregate_FieldsCountArgs = {
@@ -11169,7 +11062,7 @@ export enum Pokemon_V2_Itemattribute_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -11249,7 +11142,6 @@ export type Pokemon_V2_Itemattributedescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itemattributedescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itemattributedescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itemattributedescription" */
 export type Pokemon_V2_Itemattributedescription_Aggregate_FieldsCountArgs = {
@@ -11353,7 +11245,7 @@ export enum Pokemon_V2_Itemattributedescription_Select_Column {
   /** column name */
   ItemAttributeId = 'item_attribute_id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -11496,7 +11388,6 @@ export type Pokemon_V2_Itemattributemap_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemattributemap_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemattributemap" */
 export type Pokemon_V2_Itemattributemap_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
@@ -11591,7 +11482,7 @@ export enum Pokemon_V2_Itemattributemap_Select_Column {
   /** column name */
   ItemAttributeId = 'item_attribute_id',
   /** column name */
-  ItemId = 'item_id'
+  ItemId = 'item_id',
 }
 
 /** aggregate stddev on columns */
@@ -11735,7 +11626,6 @@ export type Pokemon_V2_Itemattributename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemattributename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemattributename" */
 export type Pokemon_V2_Itemattributename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
@@ -11838,7 +11728,7 @@ export enum Pokemon_V2_Itemattributename_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -11964,7 +11854,6 @@ export type Pokemon_V2_Itemcategory = {
   pokemon_v2_items_aggregate: Pokemon_V2_Item_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemcategory" */
 export type Pokemon_V2_ItemcategoryPokemon_V2_ItemcategorynamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
@@ -11974,16 +11863,15 @@ export type Pokemon_V2_ItemcategoryPokemon_V2_ItemcategorynamesArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_itemcategory" */
-export type Pokemon_V2_ItemcategoryPokemon_V2_Itemcategorynames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemcategoryname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
-};
-
+export type Pokemon_V2_ItemcategoryPokemon_V2_Itemcategorynames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemcategoryname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_itemcategory" */
 export type Pokemon_V2_ItemcategoryPokemon_V2_ItemsArgs = {
@@ -11993,7 +11881,6 @@ export type Pokemon_V2_ItemcategoryPokemon_V2_ItemsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Item_Order_By>>;
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_itemcategory" */
 export type Pokemon_V2_ItemcategoryPokemon_V2_Items_AggregateArgs = {
@@ -12026,7 +11913,6 @@ export type Pokemon_V2_Itemcategory_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itemcategory_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itemcategory_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itemcategory" */
 export type Pokemon_V2_Itemcategory_Aggregate_FieldsCountArgs = {
@@ -12122,7 +12008,7 @@ export enum Pokemon_V2_Itemcategory_Select_Column {
   /** column name */
   ItemPocketId = 'item_pocket_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -12252,7 +12138,6 @@ export type Pokemon_V2_Itemcategoryname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemcategoryname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemcategoryname" */
 export type Pokemon_V2_Itemcategoryname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
@@ -12355,7 +12240,7 @@ export enum Pokemon_V2_Itemcategoryname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -12500,7 +12385,6 @@ export type Pokemon_V2_Itemeffecttext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemeffecttext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemeffecttext" */
 export type Pokemon_V2_Itemeffecttext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
@@ -12611,7 +12495,7 @@ export enum Pokemon_V2_Itemeffecttext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  ShortEffect = 'short_effect'
+  ShortEffect = 'short_effect',
 }
 
 /** aggregate stddev on columns */
@@ -12758,7 +12642,6 @@ export type Pokemon_V2_Itemflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemflavortext" */
 export type Pokemon_V2_Itemflavortext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -12873,7 +12756,7 @@ export enum Pokemon_V2_Itemflavortext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -13010,26 +12893,29 @@ export type Pokemon_V2_Itemflingeffect = {
   pokemon_v2_items_aggregate: Pokemon_V2_Item_Aggregate;
 };
 
+/** columns and relationships of "pokemon_v2_itemflingeffect" */
+export type Pokemon_V2_ItemflingeffectPokemon_V2_ItemflingeffecteffecttextsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_itemflingeffect" */
-export type Pokemon_V2_ItemflingeffectPokemon_V2_ItemflingeffecteffecttextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_itemflingeffect" */
-export type Pokemon_V2_ItemflingeffectPokemon_V2_Itemflingeffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_ItemflingeffectPokemon_V2_Itemflingeffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_itemflingeffect" */
 export type Pokemon_V2_ItemflingeffectPokemon_V2_ItemsArgs = {
@@ -13039,7 +12925,6 @@ export type Pokemon_V2_ItemflingeffectPokemon_V2_ItemsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Item_Order_By>>;
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_itemflingeffect" */
 export type Pokemon_V2_ItemflingeffectPokemon_V2_Items_AggregateArgs = {
@@ -13072,7 +12957,6 @@ export type Pokemon_V2_Itemflingeffect_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itemflingeffect_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itemflingeffect_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itemflingeffect" */
 export type Pokemon_V2_Itemflingeffect_Aggregate_FieldsCountArgs = {
@@ -13124,7 +13008,7 @@ export enum Pokemon_V2_Itemflingeffect_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -13204,7 +13088,6 @@ export type Pokemon_V2_Itemflingeffecteffecttext_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itemflingeffecteffecttext" */
 export type Pokemon_V2_Itemflingeffecteffecttext_Aggregate_FieldsCountArgs = {
@@ -13308,7 +13191,7 @@ export enum Pokemon_V2_Itemflingeffecteffecttext_Select_Column {
   /** column name */
   ItemFlingEffectId = 'item_fling_effect_id',
   /** column name */
-  LanguageId = 'language_id'
+  LanguageId = 'language_id',
 }
 
 /** aggregate stddev on columns */
@@ -13452,7 +13335,6 @@ export type Pokemon_V2_Itemgameindex_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemgameindex_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemgameindex" */
 export type Pokemon_V2_Itemgameindex_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
@@ -13557,7 +13439,7 @@ export enum Pokemon_V2_Itemgameindex_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  ItemId = 'item_id'
+  ItemId = 'item_id',
 }
 
 /** aggregate stddev on columns */
@@ -13715,7 +13597,6 @@ export type Pokemon_V2_Itemname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemname" */
 export type Pokemon_V2_Itemname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
@@ -13818,7 +13699,7 @@ export enum Pokemon_V2_Itemname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -13941,7 +13822,6 @@ export type Pokemon_V2_Itempocket = {
   pokemon_v2_itempocketnames_aggregate: Pokemon_V2_Itempocketname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_itempocket" */
 export type Pokemon_V2_ItempocketPokemon_V2_ItemcategoriesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategory_Select_Column>>;
@@ -13950,7 +13830,6 @@ export type Pokemon_V2_ItempocketPokemon_V2_ItemcategoriesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemcategory_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_itempocket" */
 export type Pokemon_V2_ItempocketPokemon_V2_Itemcategories_AggregateArgs = {
@@ -13961,7 +13840,6 @@ export type Pokemon_V2_ItempocketPokemon_V2_Itemcategories_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_itempocket" */
 export type Pokemon_V2_ItempocketPokemon_V2_ItempocketnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
@@ -13970,7 +13848,6 @@ export type Pokemon_V2_ItempocketPokemon_V2_ItempocketnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itempocketname_Order_By>>;
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_itempocket" */
 export type Pokemon_V2_ItempocketPokemon_V2_Itempocketnames_AggregateArgs = {
@@ -14003,7 +13880,6 @@ export type Pokemon_V2_Itempocket_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itempocket_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itempocket_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itempocket" */
 export type Pokemon_V2_Itempocket_Aggregate_FieldsCountArgs = {
@@ -14055,7 +13931,7 @@ export enum Pokemon_V2_Itempocket_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -14135,7 +14011,6 @@ export type Pokemon_V2_Itempocketname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Itempocketname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Itempocketname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_itempocketname" */
 export type Pokemon_V2_Itempocketname_Aggregate_FieldsCountArgs = {
@@ -14239,7 +14114,7 @@ export enum Pokemon_V2_Itempocketname_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -14380,7 +14255,6 @@ export type Pokemon_V2_Itemsprites_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Itemsprites_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_itemsprites" */
 export type Pokemon_V2_Itemsprites_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
@@ -14471,7 +14345,7 @@ export enum Pokemon_V2_Itemsprites_Select_Column {
   /** column name */
   ItemId = 'item_id',
   /** column name */
-  Sprites = 'sprites'
+  Sprites = 'sprites',
 }
 
 /** aggregate stddev on columns */
@@ -14820,7 +14694,6 @@ export type Pokemon_V2_Language = {
   pokemon_v2_versionnames_aggregate: Pokemon_V2_Versionname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemonV2LanguagenamesByLocalLanguageIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
@@ -14830,16 +14703,15 @@ export type Pokemon_V2_LanguagePokemonV2LanguagenamesByLocalLanguageIdArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemonV2LanguagenamesByLocalLanguageId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Languagename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemonV2LanguagenamesByLocalLanguageId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Languagename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_AbilitychangeeffecttextsArgs = {
@@ -14850,16 +14722,17 @@ export type Pokemon_V2_LanguagePokemon_V2_AbilitychangeeffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Abilitychangeeffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Abilitychangeeffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_AbilityeffecttextsArgs = {
@@ -14870,7 +14743,6 @@ export type Pokemon_V2_LanguagePokemon_V2_AbilityeffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Abilityeffecttexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
@@ -14879,7 +14751,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Abilityeffecttexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_AbilityflavortextsArgs = {
@@ -14890,7 +14761,6 @@ export type Pokemon_V2_LanguagePokemon_V2_AbilityflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Abilityflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -14899,7 +14769,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Abilityflavortexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_AbilitynamesArgs = {
@@ -14910,7 +14779,6 @@ export type Pokemon_V2_LanguagePokemon_V2_AbilitynamesArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Abilitynames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
@@ -14919,7 +14787,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Abilitynames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilityname_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_BerryfirmnessnamesArgs = {
@@ -14930,7 +14797,6 @@ export type Pokemon_V2_LanguagePokemon_V2_BerryfirmnessnamesArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Berryfirmnessnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
@@ -14939,7 +14805,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Berryfirmnessnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Order_By>>;
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_BerryflavornamesArgs = {
@@ -14950,7 +14815,6 @@ export type Pokemon_V2_LanguagePokemon_V2_BerryflavornamesArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Berryflavornames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
@@ -14960,26 +14824,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Berryflavornames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_CharacteristicdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Characteristicdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Characteristicdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Characteristicdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Characteristicdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ContesteffecteffecttextsArgs = {
@@ -14990,16 +14856,17 @@ export type Pokemon_V2_LanguagePokemon_V2_ContesteffecteffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Contesteffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Contesteffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ContesteffectflavortextsArgs = {
@@ -15010,16 +14877,17 @@ export type Pokemon_V2_LanguagePokemon_V2_ContesteffectflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Contesteffectflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Contesteffectflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ContesttypenamesArgs = {
@@ -15030,7 +14898,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ContesttypenamesArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Contesttypenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
@@ -15039,7 +14906,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Contesttypenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Contesttypename_Order_By>>;
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_EgggroupnamesArgs = {
@@ -15050,7 +14916,6 @@ export type Pokemon_V2_LanguagePokemon_V2_EgggroupnamesArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Egggroupnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
@@ -15059,7 +14924,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Egggroupnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Egggroupname_Order_By>>;
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_EncounterconditionnamesArgs = {
@@ -15070,36 +14934,38 @@ export type Pokemon_V2_LanguagePokemon_V2_EncounterconditionnamesArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Encounterconditionnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Encounterconditionnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_EncounterconditionvaluenamesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Encounterconditionvaluenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Encounterconditionvaluenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_EncountermethodnamesArgs = {
@@ -15110,7 +14976,6 @@ export type Pokemon_V2_LanguagePokemon_V2_EncountermethodnamesArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Encountermethodnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
@@ -15119,7 +14984,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Encountermethodnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encountermethodname_Order_By>>;
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_EvolutiontriggernamesArgs = {
@@ -15130,16 +14994,15 @@ export type Pokemon_V2_LanguagePokemon_V2_EvolutiontriggernamesArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Evolutiontriggernames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Order_By>>;
-  where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Evolutiontriggernames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Order_By>>;
+    where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_GenerationnamesArgs = {
@@ -15150,7 +15013,6 @@ export type Pokemon_V2_LanguagePokemon_V2_GenerationnamesArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Generationnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
@@ -15159,7 +15021,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Generationnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Generationname_Order_By>>;
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_GrowthratedescriptionsArgs = {
@@ -15170,16 +15031,15 @@ export type Pokemon_V2_LanguagePokemon_V2_GrowthratedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Growthratedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Growthratedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Growthratedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Growthratedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemattributedescriptionsArgs = {
@@ -15190,16 +15050,17 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemattributedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Itemattributedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Itemattributedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemattributenamesArgs = {
@@ -15210,7 +15071,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemattributenamesArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itemattributenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
@@ -15219,7 +15079,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Itemattributenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemattributename_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemcategorynamesArgs = {
@@ -15230,7 +15089,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemcategorynamesArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itemcategorynames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
@@ -15239,7 +15097,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Itemcategorynames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemcategoryname_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemeffecttextsArgs = {
@@ -15250,7 +15107,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemeffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itemeffecttexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
@@ -15259,7 +15115,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Itemeffecttexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemflavortextsArgs = {
@@ -15270,7 +15125,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itemflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -15280,26 +15134,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Itemflavortexts_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemflingeffecteffecttextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Itemflingeffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Itemflingeffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItemnamesArgs = {
@@ -15310,7 +15166,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItemnamesArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itemnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
@@ -15319,7 +15174,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Itemnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemname_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_ItempocketnamesArgs = {
@@ -15330,7 +15184,6 @@ export type Pokemon_V2_LanguagePokemon_V2_ItempocketnamesArgs = {
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Itempocketnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
@@ -15339,7 +15192,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Itempocketnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itempocketname_Order_By>>;
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_LanguagenamesArgs = {
@@ -15350,7 +15202,6 @@ export type Pokemon_V2_LanguagePokemon_V2_LanguagenamesArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Languagenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
@@ -15359,7 +15210,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Languagenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Languagename_Order_By>>;
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_LocationareanamesArgs = {
@@ -15370,7 +15220,6 @@ export type Pokemon_V2_LanguagePokemon_V2_LocationareanamesArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Locationareanames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
@@ -15379,7 +15228,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Locationareanames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Locationareaname_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_LocationnamesArgs = {
@@ -15390,7 +15238,6 @@ export type Pokemon_V2_LanguagePokemon_V2_LocationnamesArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Locationnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
@@ -15399,7 +15246,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Locationnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Locationname_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MoveattributedescriptionsArgs = {
@@ -15410,16 +15256,17 @@ export type Pokemon_V2_LanguagePokemon_V2_MoveattributedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Moveattributedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Moveattributedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MoveattributenamesArgs = {
@@ -15430,7 +15277,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MoveattributenamesArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Moveattributenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
@@ -15439,7 +15285,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Moveattributenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Moveattributename_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovebattlestylenamesArgs = {
@@ -15450,7 +15295,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovebattlestylenamesArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movebattlestylenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
@@ -15460,26 +15304,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Movebattlestylenames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovedamageclassdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Movedamageclassdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Movedamageclassdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovedamageclassnamesArgs = {
@@ -15490,7 +15336,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovedamageclassnamesArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movedamageclassnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
@@ -15500,26 +15345,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Movedamageclassnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MoveeffectchangeeffecttextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Moveeffectchangeeffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Moveeffectchangeeffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MoveeffecteffecttextsArgs = {
@@ -15530,16 +15377,15 @@ export type Pokemon_V2_LanguagePokemon_V2_MoveeffecteffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Moveeffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Moveeffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MoveflavortextsArgs = {
@@ -15550,7 +15396,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MoveflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Moveflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -15560,26 +15405,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Moveflavortexts_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovelearnmethoddescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Movelearnmethoddescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Movelearnmethoddescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovelearnmethodnamesArgs = {
@@ -15590,7 +15437,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovelearnmethodnamesArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movelearnmethodnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
@@ -15599,7 +15445,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Movelearnmethodnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Order_By>>;
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovemetaailmentnamesArgs = {
@@ -15610,7 +15455,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovemetaailmentnamesArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movemetaailmentnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
@@ -15620,26 +15464,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Movemetaailmentnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovemetacategorydescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Movemetacategorydescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Movemetacategorydescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovenamesArgs = {
@@ -15650,7 +15496,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovenamesArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
@@ -15659,7 +15504,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Movenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movename_Order_By>>;
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovetargetdescriptionsArgs = {
@@ -15670,16 +15514,15 @@ export type Pokemon_V2_LanguagePokemon_V2_MovetargetdescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Movetargetdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movetargetdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Movetargetdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movetargetdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_MovetargetnamesArgs = {
@@ -15690,7 +15533,6 @@ export type Pokemon_V2_LanguagePokemon_V2_MovetargetnamesArgs = {
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Movetargetnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
@@ -15699,7 +15541,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Movetargetnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movetargetname_Order_By>>;
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_NaturenamesArgs = {
@@ -15710,7 +15551,6 @@ export type Pokemon_V2_LanguagePokemon_V2_NaturenamesArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Naturenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
@@ -15719,7 +15559,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Naturenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Naturename_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PalparkareanamesArgs = {
@@ -15730,7 +15569,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PalparkareanamesArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Palparkareanames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
@@ -15739,7 +15577,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Palparkareanames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Palparkareaname_Order_By>>;
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokeathlonstatnamesArgs = {
@@ -15750,7 +15587,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokeathlonstatnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokeathlonstatnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
@@ -15759,7 +15595,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokeathlonstatnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokedexdescriptionsArgs = {
@@ -15770,7 +15605,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokedexdescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokedexdescriptions_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
@@ -15779,7 +15613,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokedexdescriptions_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedexdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokedexnamesArgs = {
@@ -15790,7 +15623,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokedexnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokedexnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
@@ -15799,7 +15631,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokedexnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedexname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemoncolornamesArgs = {
@@ -15810,7 +15641,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemoncolornamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokemoncolornames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
@@ -15819,7 +15649,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokemoncolornames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonformnamesArgs = {
@@ -15830,7 +15659,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemonformnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokemonformnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
@@ -15839,7 +15667,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokemonformnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonformname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonhabitatnamesArgs = {
@@ -15850,7 +15677,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemonhabitatnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokemonhabitatnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
@@ -15859,7 +15685,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokemonhabitatnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonshapenamesArgs = {
@@ -15870,7 +15695,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemonshapenamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokemonshapenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
@@ -15880,26 +15704,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokemonshapenames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonspeciesdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonspeciesflavortextsArgs = {
@@ -15910,16 +15736,17 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemonspeciesflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_PokemonspeciesnamesArgs = {
@@ -15930,7 +15757,6 @@ export type Pokemon_V2_LanguagePokemon_V2_PokemonspeciesnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
@@ -15939,7 +15765,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Pokemonspeciesnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_RegionnamesArgs = {
@@ -15950,7 +15775,6 @@ export type Pokemon_V2_LanguagePokemon_V2_RegionnamesArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Regionnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
@@ -15959,7 +15783,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Regionnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Regionname_Order_By>>;
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_StatnamesArgs = {
@@ -15970,7 +15793,6 @@ export type Pokemon_V2_LanguagePokemon_V2_StatnamesArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Statnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
@@ -15980,26 +15802,28 @@ export type Pokemon_V2_LanguagePokemon_V2_Statnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_SupercontesteffectflavortextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
-export type Pokemon_V2_LanguagePokemon_V2_Supercontesteffectflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_LanguagePokemon_V2_Supercontesteffectflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_TypenamesArgs = {
@@ -16010,7 +15834,6 @@ export type Pokemon_V2_LanguagePokemon_V2_TypenamesArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Typenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
@@ -16020,7 +15843,6 @@ export type Pokemon_V2_LanguagePokemon_V2_Typenames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_VersionnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
@@ -16029,7 +15851,6 @@ export type Pokemon_V2_LanguagePokemon_V2_VersionnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Versionname_Order_By>>;
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_language" */
 export type Pokemon_V2_LanguagePokemon_V2_Versionnames_AggregateArgs = {
@@ -16062,7 +15883,6 @@ export type Pokemon_V2_Language_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Language_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Language_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_language" */
 export type Pokemon_V2_Language_Aggregate_FieldsCountArgs = {
@@ -16255,7 +16075,7 @@ export enum Pokemon_V2_Language_Select_Column {
   /** column name */
   Official = 'official',
   /** column name */
-  Order = 'order'
+  Order = 'order',
 }
 
 /** aggregate stddev on columns */
@@ -16342,7 +16162,6 @@ export type Pokemon_V2_Languagename_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Languagename_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Languagename_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_languagename" */
 export type Pokemon_V2_Languagename_Aggregate_FieldsCountArgs = {
@@ -16446,7 +16265,7 @@ export enum Pokemon_V2_Languagename_Select_Column {
   /** column name */
   LocalLanguageId = 'local_language_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -16580,7 +16399,6 @@ export type Pokemon_V2_Location = {
   region_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_LocationareasArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationarea_Select_Column>>;
@@ -16589,7 +16407,6 @@ export type Pokemon_V2_LocationPokemon_V2_LocationareasArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Locationarea_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_Locationareas_AggregateArgs = {
@@ -16600,7 +16417,6 @@ export type Pokemon_V2_LocationPokemon_V2_Locationareas_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_LocationgameindicesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
@@ -16609,7 +16425,6 @@ export type Pokemon_V2_LocationPokemon_V2_LocationgameindicesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Locationgameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_Locationgameindices_AggregateArgs = {
@@ -16620,7 +16435,6 @@ export type Pokemon_V2_LocationPokemon_V2_Locationgameindices_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_LocationnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
@@ -16629,7 +16443,6 @@ export type Pokemon_V2_LocationPokemon_V2_LocationnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Locationname_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_Locationnames_AggregateArgs = {
@@ -16640,7 +16453,6 @@ export type Pokemon_V2_LocationPokemon_V2_Locationnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_PokemonevolutionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -16649,7 +16461,6 @@ export type Pokemon_V2_LocationPokemon_V2_PokemonevolutionsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_location" */
 export type Pokemon_V2_LocationPokemon_V2_Pokemonevolutions_AggregateArgs = {
@@ -16682,7 +16493,6 @@ export type Pokemon_V2_Location_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Location_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Location_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_location" */
 export type Pokemon_V2_Location_Aggregate_FieldsCountArgs = {
@@ -16782,7 +16592,7 @@ export enum Pokemon_V2_Location_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  RegionId = 'region_id'
+  RegionId = 'region_id',
 }
 
 /** aggregate stddev on columns */
@@ -16899,7 +16709,6 @@ export type Pokemon_V2_Locationarea = {
   pokemon_v2_locationareanames_aggregate: Pokemon_V2_Locationareaname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_locationarea" */
 export type Pokemon_V2_LocationareaPokemon_V2_EncountersArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -16908,7 +16717,6 @@ export type Pokemon_V2_LocationareaPokemon_V2_EncountersArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encounter_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_locationarea" */
 export type Pokemon_V2_LocationareaPokemon_V2_Encounters_AggregateArgs = {
@@ -16919,26 +16727,28 @@ export type Pokemon_V2_LocationareaPokemon_V2_Encounters_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_locationarea" */
 export type Pokemon_V2_LocationareaPokemon_V2_LocationareaencounterratesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_locationarea" */
-export type Pokemon_V2_LocationareaPokemon_V2_Locationareaencounterrates_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
-};
-
+export type Pokemon_V2_LocationareaPokemon_V2_Locationareaencounterrates_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_locationarea" */
 export type Pokemon_V2_LocationareaPokemon_V2_LocationareanamesArgs = {
@@ -16949,15 +16759,15 @@ export type Pokemon_V2_LocationareaPokemon_V2_LocationareanamesArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_locationarea" */
-export type Pokemon_V2_LocationareaPokemon_V2_Locationareanames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
-};
+export type Pokemon_V2_LocationareaPokemon_V2_Locationareanames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_locationarea" */
 export type Pokemon_V2_Locationarea_Aggregate = {
@@ -16981,7 +16791,6 @@ export type Pokemon_V2_Locationarea_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Locationarea_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Locationarea_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_locationarea" */
 export type Pokemon_V2_Locationarea_Aggregate_FieldsCountArgs = {
@@ -17089,7 +16898,7 @@ export enum Pokemon_V2_Locationarea_Select_Column {
   /** column name */
   LocationId = 'location_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -17236,7 +17045,6 @@ export type Pokemon_V2_Locationareaencounterrate_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Locationareaencounterrate_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_locationareaencounterrate" */
 export type Pokemon_V2_Locationareaencounterrate_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
@@ -17353,7 +17161,7 @@ export enum Pokemon_V2_Locationareaencounterrate_Select_Column {
   /** column name */
   Rate = 'rate',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -17525,7 +17333,6 @@ export type Pokemon_V2_Locationareaname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Locationareaname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_locationareaname" */
 export type Pokemon_V2_Locationareaname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
@@ -17628,7 +17435,7 @@ export enum Pokemon_V2_Locationareaname_Select_Column {
   /** column name */
   LocationAreaId = 'location_area_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -17772,7 +17579,6 @@ export type Pokemon_V2_Locationgameindex_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Locationgameindex_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_locationgameindex" */
 export type Pokemon_V2_Locationgameindex_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
@@ -17877,7 +17683,7 @@ export enum Pokemon_V2_Locationgameindex_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  LocationId = 'location_id'
+  LocationId = 'location_id',
 }
 
 /** aggregate stddev on columns */
@@ -18035,7 +17841,6 @@ export type Pokemon_V2_Locationname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Locationname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_locationname" */
 export type Pokemon_V2_Locationname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
@@ -18138,7 +17943,7 @@ export enum Pokemon_V2_Locationname_Select_Column {
   /** column name */
   LocationId = 'location_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -18288,7 +18093,6 @@ export type Pokemon_V2_Machine_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Machine_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_machine" */
 export type Pokemon_V2_Machine_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -18417,7 +18221,7 @@ export enum Pokemon_V2_Machine_Select_Column {
   /** column name */
   MoveId = 'move_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -18657,7 +18461,6 @@ export type Pokemon_V2_Move = {
   type_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemonV2ContestcombosBySecondMoveIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
@@ -18667,16 +18470,15 @@ export type Pokemon_V2_MovePokemonV2ContestcombosBySecondMoveIdArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
-export type Pokemon_V2_MovePokemonV2ContestcombosBySecondMoveId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contestcombo_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovePokemonV2ContestcombosBySecondMoveId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contestcombo_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemonV2SupercontestcombosBySecondMoveIdArgs = {
@@ -18687,16 +18489,15 @@ export type Pokemon_V2_MovePokemonV2SupercontestcombosBySecondMoveIdArgs = {
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
-export type Pokemon_V2_MovePokemonV2SupercontestcombosBySecondMoveId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Supercontestcombo_Order_By>>;
-  where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovePokemonV2SupercontestcombosBySecondMoveId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Supercontestcombo_Order_By>>;
+    where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_ContestcombosArgs = {
@@ -18707,7 +18508,6 @@ export type Pokemon_V2_MovePokemon_V2_ContestcombosArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Contestcombos_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
@@ -18716,7 +18516,6 @@ export type Pokemon_V2_MovePokemon_V2_Contestcombos_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Contestcombo_Order_By>>;
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MachinesArgs = {
@@ -18727,7 +18526,6 @@ export type Pokemon_V2_MovePokemon_V2_MachinesArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Machines_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -18736,7 +18534,6 @@ export type Pokemon_V2_MovePokemon_V2_Machines_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Machine_Order_By>>;
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MoveattributemapsArgs = {
@@ -18747,7 +18544,6 @@ export type Pokemon_V2_MovePokemon_V2_MoveattributemapsArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Moveattributemaps_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
@@ -18756,7 +18552,6 @@ export type Pokemon_V2_MovePokemon_V2_Moveattributemaps_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Moveattributemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MovechangesArgs = {
@@ -18767,7 +18562,6 @@ export type Pokemon_V2_MovePokemon_V2_MovechangesArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Movechanges_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -18776,7 +18570,6 @@ export type Pokemon_V2_MovePokemon_V2_Movechanges_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movechange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MoveflavortextsArgs = {
@@ -18787,7 +18580,6 @@ export type Pokemon_V2_MovePokemon_V2_MoveflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Moveflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -18796,7 +18588,6 @@ export type Pokemon_V2_MovePokemon_V2_Moveflavortexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Moveflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MovemetaArgs = {
@@ -18807,7 +18598,6 @@ export type Pokemon_V2_MovePokemon_V2_MovemetaArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Movemeta_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
@@ -18816,7 +18606,6 @@ export type Pokemon_V2_MovePokemon_V2_Movemeta_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movemeta_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MovemetastatchangesArgs = {
@@ -18827,7 +18616,6 @@ export type Pokemon_V2_MovePokemon_V2_MovemetastatchangesArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Movemetastatchanges_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
@@ -18836,7 +18624,6 @@ export type Pokemon_V2_MovePokemon_V2_Movemetastatchanges_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movemetastatchange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_MovenamesArgs = {
@@ -18847,7 +18634,6 @@ export type Pokemon_V2_MovePokemon_V2_MovenamesArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Movenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
@@ -18856,7 +18642,6 @@ export type Pokemon_V2_MovePokemon_V2_Movenames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movename_Order_By>>;
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_PokemonevolutionsArgs = {
@@ -18867,7 +18652,6 @@ export type Pokemon_V2_MovePokemon_V2_PokemonevolutionsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Pokemonevolutions_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -18876,7 +18660,6 @@ export type Pokemon_V2_MovePokemon_V2_Pokemonevolutions_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_PokemonmovesArgs = {
@@ -18887,7 +18670,6 @@ export type Pokemon_V2_MovePokemon_V2_PokemonmovesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Pokemonmoves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -18897,7 +18679,6 @@ export type Pokemon_V2_MovePokemon_V2_Pokemonmoves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_SupercontestcombosArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
@@ -18906,7 +18687,6 @@ export type Pokemon_V2_MovePokemon_V2_SupercontestcombosArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Supercontestcombo_Order_By>>;
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_move" */
 export type Pokemon_V2_MovePokemon_V2_Supercontestcombos_AggregateArgs = {
@@ -18939,7 +18719,6 @@ export type Pokemon_V2_Move_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Move_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Move_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_move" */
 export type Pokemon_V2_Move_Aggregate_FieldsCountArgs = {
@@ -19193,7 +18972,7 @@ export enum Pokemon_V2_Move_Select_Column {
   /** column name */
   SuperContestEffectId = 'super_contest_effect_id',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -19474,7 +19253,6 @@ export type Pokemon_V2_Moveattribute = {
   pokemon_v2_moveattributenames_aggregate: Pokemon_V2_Moveattributename_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveattribute" */
 export type Pokemon_V2_MoveattributePokemon_V2_MoveattributedescriptionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
@@ -19484,16 +19262,17 @@ export type Pokemon_V2_MoveattributePokemon_V2_MoveattributedescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveattribute" */
-export type Pokemon_V2_MoveattributePokemon_V2_Moveattributedescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_MoveattributePokemon_V2_Moveattributedescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_moveattribute" */
 export type Pokemon_V2_MoveattributePokemon_V2_MoveattributemapsArgs = {
@@ -19504,16 +19283,15 @@ export type Pokemon_V2_MoveattributePokemon_V2_MoveattributemapsArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveattribute" */
-export type Pokemon_V2_MoveattributePokemon_V2_Moveattributemaps_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveattributemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
-};
-
+export type Pokemon_V2_MoveattributePokemon_V2_Moveattributemaps_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveattributemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_moveattribute" */
 export type Pokemon_V2_MoveattributePokemon_V2_MoveattributenamesArgs = {
@@ -19524,15 +19302,15 @@ export type Pokemon_V2_MoveattributePokemon_V2_MoveattributenamesArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveattribute" */
-export type Pokemon_V2_MoveattributePokemon_V2_Moveattributenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveattributename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
-};
+export type Pokemon_V2_MoveattributePokemon_V2_Moveattributenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveattributename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_moveattribute" */
 export type Pokemon_V2_Moveattribute_Aggregate = {
@@ -19556,7 +19334,6 @@ export type Pokemon_V2_Moveattribute_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Moveattribute_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Moveattribute_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_moveattribute" */
 export type Pokemon_V2_Moveattribute_Aggregate_FieldsCountArgs = {
@@ -19610,7 +19387,7 @@ export enum Pokemon_V2_Moveattribute_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -19690,7 +19467,6 @@ export type Pokemon_V2_Moveattributedescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Moveattributedescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Moveattributedescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_moveattributedescription" */
 export type Pokemon_V2_Moveattributedescription_Aggregate_FieldsCountArgs = {
@@ -19794,7 +19570,7 @@ export enum Pokemon_V2_Moveattributedescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveAttributeId = 'move_attribute_id'
+  MoveAttributeId = 'move_attribute_id',
 }
 
 /** aggregate stddev on columns */
@@ -19937,7 +19713,6 @@ export type Pokemon_V2_Moveattributemap_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Moveattributemap_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_moveattributemap" */
 export type Pokemon_V2_Moveattributemap_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
@@ -20032,7 +19807,7 @@ export enum Pokemon_V2_Moveattributemap_Select_Column {
   /** column name */
   MoveAttributeId = 'move_attribute_id',
   /** column name */
-  MoveId = 'move_id'
+  MoveId = 'move_id',
 }
 
 /** aggregate stddev on columns */
@@ -20176,7 +19951,6 @@ export type Pokemon_V2_Moveattributename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Moveattributename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_moveattributename" */
 export type Pokemon_V2_Moveattributename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
@@ -20279,7 +20053,7 @@ export enum Pokemon_V2_Moveattributename_Select_Column {
   /** column name */
   MoveAttributeId = 'move_attribute_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -20402,7 +20176,6 @@ export type Pokemon_V2_Movebattlestyle = {
   pokemon_v2_naturebattlestylepreferences_aggregate: Pokemon_V2_Naturebattlestylepreference_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_movebattlestyle" */
 export type Pokemon_V2_MovebattlestylePokemon_V2_MovebattlestylenamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
@@ -20412,35 +20185,39 @@ export type Pokemon_V2_MovebattlestylePokemon_V2_MovebattlestylenamesArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_movebattlestyle" */
+export type Pokemon_V2_MovebattlestylePokemon_V2_Movebattlestylenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movebattlestylename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movebattlestyle" */
-export type Pokemon_V2_MovebattlestylePokemon_V2_Movebattlestylenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movebattlestylename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_movebattlestyle" */
-export type Pokemon_V2_MovebattlestylePokemon_V2_NaturebattlestylepreferencesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
-  where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovebattlestylePokemon_V2_NaturebattlestylepreferencesArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
+    where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movebattlestyle" */
-export type Pokemon_V2_MovebattlestylePokemon_V2_Naturebattlestylepreferences_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
-  where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
-};
+export type Pokemon_V2_MovebattlestylePokemon_V2_Naturebattlestylepreferences_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
+    where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_movebattlestyle" */
 export type Pokemon_V2_Movebattlestyle_Aggregate = {
@@ -20464,7 +20241,6 @@ export type Pokemon_V2_Movebattlestyle_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movebattlestyle_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movebattlestyle_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movebattlestyle" */
 export type Pokemon_V2_Movebattlestyle_Aggregate_FieldsCountArgs = {
@@ -20516,7 +20292,7 @@ export enum Pokemon_V2_Movebattlestyle_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -20596,7 +20372,6 @@ export type Pokemon_V2_Movebattlestylename_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movebattlestylename_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movebattlestylename_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movebattlestylename" */
 export type Pokemon_V2_Movebattlestylename_Aggregate_FieldsCountArgs = {
@@ -20700,7 +20475,7 @@ export enum Pokemon_V2_Movebattlestylename_Select_Column {
   /** column name */
   MoveBattleStyleId = 'move_battle_style_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -20852,7 +20627,6 @@ export type Pokemon_V2_Movechange_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movechange_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movechange_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movechange" */
 export type Pokemon_V2_Movechange_Aggregate_FieldsCountArgs = {
@@ -21012,7 +20786,7 @@ export enum Pokemon_V2_Movechange_Select_Column {
   /** column name */
   TypeId = 'type_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -21231,26 +21005,29 @@ export type Pokemon_V2_Movedamageclass = {
   pokemon_v2_types_aggregate: Pokemon_V2_Type_Aggregate;
 };
 
+/** columns and relationships of "pokemon_v2_movedamageclass" */
+export type Pokemon_V2_MovedamageclassPokemon_V2_MovedamageclassdescriptionsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movedamageclass" */
-export type Pokemon_V2_MovedamageclassPokemon_V2_MovedamageclassdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_movedamageclass" */
-export type Pokemon_V2_MovedamageclassPokemon_V2_Movedamageclassdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovedamageclassPokemon_V2_Movedamageclassdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_MovedamageclassnamesArgs = {
@@ -21261,16 +21038,15 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_MovedamageclassnamesArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movedamageclass" */
-export type Pokemon_V2_MovedamageclassPokemon_V2_Movedamageclassnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movedamageclassname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovedamageclassPokemon_V2_Movedamageclassnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movedamageclassname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_MovesArgs = {
@@ -21281,7 +21057,6 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_MovesArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_Moves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -21290,7 +21065,6 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_Moves_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_StatsArgs = {
@@ -21301,7 +21075,6 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_StatsArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_Stats_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Stat_Select_Column>>;
@@ -21311,7 +21084,6 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_Stats_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_TypesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
@@ -21320,7 +21092,6 @@ export type Pokemon_V2_MovedamageclassPokemon_V2_TypesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Type_Order_By>>;
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_MovedamageclassPokemon_V2_Types_AggregateArgs = {
@@ -21353,7 +21124,6 @@ export type Pokemon_V2_Movedamageclass_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movedamageclass_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movedamageclass_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movedamageclass" */
 export type Pokemon_V2_Movedamageclass_Aggregate_FieldsCountArgs = {
@@ -21411,7 +21181,7 @@ export enum Pokemon_V2_Movedamageclass_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -21491,7 +21261,6 @@ export type Pokemon_V2_Movedamageclassdescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movedamageclassdescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movedamageclassdescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movedamageclassdescription" */
 export type Pokemon_V2_Movedamageclassdescription_Aggregate_FieldsCountArgs = {
@@ -21595,7 +21364,7 @@ export enum Pokemon_V2_Movedamageclassdescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveDamageClassId = 'move_damage_class_id'
+  MoveDamageClassId = 'move_damage_class_id',
 }
 
 /** aggregate stddev on columns */
@@ -21739,7 +21508,6 @@ export type Pokemon_V2_Movedamageclassname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Movedamageclassname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_movedamageclassname" */
 export type Pokemon_V2_Movedamageclassname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
@@ -21842,7 +21610,7 @@ export enum Pokemon_V2_Movedamageclassname_Select_Column {
   /** column name */
   MoveDamageClassId = 'move_damage_class_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -21972,7 +21740,6 @@ export type Pokemon_V2_Moveeffect = {
   pokemon_v2_moves_aggregate: Pokemon_V2_Move_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_MovechangesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -21981,7 +21748,6 @@ export type Pokemon_V2_MoveeffectPokemon_V2_MovechangesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movechange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_Movechanges_AggregateArgs = {
@@ -21992,7 +21758,6 @@ export type Pokemon_V2_MoveeffectPokemon_V2_Movechanges_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_MoveeffectchangesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
@@ -22001,7 +21766,6 @@ export type Pokemon_V2_MoveeffectPokemon_V2_MoveeffectchangesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Moveeffectchange_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_Moveeffectchanges_AggregateArgs = {
@@ -22012,7 +21776,6 @@ export type Pokemon_V2_MoveeffectPokemon_V2_Moveeffectchanges_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_MoveeffecteffecttextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
@@ -22022,16 +21785,15 @@ export type Pokemon_V2_MoveeffectPokemon_V2_MoveeffecteffecttextsArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_moveeffect" */
-export type Pokemon_V2_MoveeffectPokemon_V2_Moveeffecteffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
-};
-
+export type Pokemon_V2_MoveeffectPokemon_V2_Moveeffecteffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_MovesArgs = {
@@ -22041,7 +21803,6 @@ export type Pokemon_V2_MoveeffectPokemon_V2_MovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_MoveeffectPokemon_V2_Moves_AggregateArgs = {
@@ -22074,7 +21835,6 @@ export type Pokemon_V2_Moveeffect_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Moveeffect_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Moveeffect_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_moveeffect" */
 export type Pokemon_V2_Moveeffect_Aggregate_FieldsCountArgs = {
@@ -22124,7 +21884,7 @@ export type Pokemon_V2_Moveeffect_Order_By = {
 /** select columns of table "pokemon_v2_moveeffect" */
 export enum Pokemon_V2_Moveeffect_Select_Column {
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** aggregate stddev on columns */
@@ -22185,25 +21945,29 @@ export type Pokemon_V2_Moveeffectchange = {
   version_group_id?: Maybe<Scalars['Int']>;
 };
 
+/** columns and relationships of "pokemon_v2_moveeffectchange" */
+export type Pokemon_V2_MoveeffectchangePokemon_V2_MoveeffectchangeeffecttextsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_moveeffectchange" */
-export type Pokemon_V2_MoveeffectchangePokemon_V2_MoveeffectchangeeffecttextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_moveeffectchange" */
-export type Pokemon_V2_MoveeffectchangePokemon_V2_Moveeffectchangeeffecttexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
-};
+export type Pokemon_V2_MoveeffectchangePokemon_V2_Moveeffectchangeeffecttexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_moveeffectchange" */
 export type Pokemon_V2_Moveeffectchange_Aggregate = {
@@ -22227,7 +21991,6 @@ export type Pokemon_V2_Moveeffectchange_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Moveeffectchange_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Moveeffectchange_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_moveeffectchange" */
 export type Pokemon_V2_Moveeffectchange_Aggregate_FieldsCountArgs = {
@@ -22325,7 +22088,7 @@ export enum Pokemon_V2_Moveeffectchange_Select_Column {
   /** column name */
   MoveEffectId = 'move_effect_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -22469,7 +22232,6 @@ export type Pokemon_V2_Moveeffectchangeeffecttext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_moveeffectchangeeffecttext" */
 export type Pokemon_V2_Moveeffectchangeeffecttext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
@@ -22572,7 +22334,7 @@ export enum Pokemon_V2_Moveeffectchangeeffecttext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveEffectChangeId = 'move_effect_change_id'
+  MoveEffectChangeId = 'move_effect_change_id',
 }
 
 /** aggregate stddev on columns */
@@ -22717,7 +22479,6 @@ export type Pokemon_V2_Moveeffecteffecttext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Moveeffecteffecttext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_moveeffecteffecttext" */
 export type Pokemon_V2_Moveeffecteffecttext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
@@ -22828,7 +22589,7 @@ export enum Pokemon_V2_Moveeffecteffecttext_Select_Column {
   /** column name */
   MoveEffectId = 'move_effect_id',
   /** column name */
-  ShortEffect = 'short_effect'
+  ShortEffect = 'short_effect',
 }
 
 /** aggregate stddev on columns */
@@ -22975,7 +22736,6 @@ export type Pokemon_V2_Moveflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Moveflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_moveflavortext" */
 export type Pokemon_V2_Moveflavortext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -23090,7 +22850,7 @@ export enum Pokemon_V2_Moveflavortext_Select_Column {
   /** column name */
   MoveId = 'move_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -23235,26 +22995,29 @@ export type Pokemon_V2_Movelearnmethod = {
   pokemon_v2_versiongroupmovelearnmethods_aggregate: Pokemon_V2_Versiongroupmovelearnmethod_Aggregate;
 };
 
+/** columns and relationships of "pokemon_v2_movelearnmethod" */
+export type Pokemon_V2_MovelearnmethodPokemon_V2_MovelearnmethoddescriptionsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
-export type Pokemon_V2_MovelearnmethodPokemon_V2_MovelearnmethoddescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_movelearnmethod" */
-export type Pokemon_V2_MovelearnmethodPokemon_V2_Movelearnmethoddescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovelearnmethodPokemon_V2_Movelearnmethoddescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
 export type Pokemon_V2_MovelearnmethodPokemon_V2_MovelearnmethodnamesArgs = {
@@ -23265,16 +23028,15 @@ export type Pokemon_V2_MovelearnmethodPokemon_V2_MovelearnmethodnamesArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
-export type Pokemon_V2_MovelearnmethodPokemon_V2_Movelearnmethodnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovelearnmethodPokemon_V2_Movelearnmethodnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
 export type Pokemon_V2_MovelearnmethodPokemon_V2_PokemonmovesArgs = {
@@ -23285,7 +23047,6 @@ export type Pokemon_V2_MovelearnmethodPokemon_V2_PokemonmovesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
 export type Pokemon_V2_MovelearnmethodPokemon_V2_Pokemonmoves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -23295,25 +23056,29 @@ export type Pokemon_V2_MovelearnmethodPokemon_V2_Pokemonmoves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_movelearnmethod" */
+export type Pokemon_V2_MovelearnmethodPokemon_V2_VersiongroupmovelearnmethodsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movelearnmethod" */
-export type Pokemon_V2_MovelearnmethodPokemon_V2_VersiongroupmovelearnmethodsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_movelearnmethod" */
-export type Pokemon_V2_MovelearnmethodPokemon_V2_Versiongroupmovelearnmethods_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
-};
+export type Pokemon_V2_MovelearnmethodPokemon_V2_Versiongroupmovelearnmethods_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_movelearnmethod" */
 export type Pokemon_V2_Movelearnmethod_Aggregate = {
@@ -23337,7 +23102,6 @@ export type Pokemon_V2_Movelearnmethod_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movelearnmethod_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movelearnmethod_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movelearnmethod" */
 export type Pokemon_V2_Movelearnmethod_Aggregate_FieldsCountArgs = {
@@ -23393,7 +23157,7 @@ export enum Pokemon_V2_Movelearnmethod_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -23473,7 +23237,6 @@ export type Pokemon_V2_Movelearnmethoddescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movelearnmethoddescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movelearnmethoddescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movelearnmethoddescription" */
 export type Pokemon_V2_Movelearnmethoddescription_Aggregate_FieldsCountArgs = {
@@ -23577,7 +23340,7 @@ export enum Pokemon_V2_Movelearnmethoddescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveLearnMethodId = 'move_learn_method_id'
+  MoveLearnMethodId = 'move_learn_method_id',
 }
 
 /** aggregate stddev on columns */
@@ -23721,7 +23484,6 @@ export type Pokemon_V2_Movelearnmethodname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Movelearnmethodname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_movelearnmethodname" */
 export type Pokemon_V2_Movelearnmethodname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
@@ -23824,7 +23586,7 @@ export enum Pokemon_V2_Movelearnmethodname_Select_Column {
   /** column name */
   MoveLearnMethodId = 'move_learn_method_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -23979,7 +23741,6 @@ export type Pokemon_V2_Movemeta_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movemeta_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movemeta_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movemeta" */
 export type Pokemon_V2_Movemeta_Aggregate_FieldsCountArgs = {
@@ -24187,7 +23948,7 @@ export enum Pokemon_V2_Movemeta_Select_Column {
   /** column name */
   MoveMetaCategoryId = 'move_meta_category_id',
   /** column name */
-  StatChance = 'stat_chance'
+  StatChance = 'stat_chance',
 }
 
 /** aggregate stddev on columns */
@@ -24464,7 +24225,6 @@ export type Pokemon_V2_Movemetaailment = {
   pokemon_v2_movemetaailmentnames_aggregate: Pokemon_V2_Movemetaailmentname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_movemetaailment" */
 export type Pokemon_V2_MovemetaailmentPokemon_V2_MovemetaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
@@ -24473,7 +24233,6 @@ export type Pokemon_V2_MovemetaailmentPokemon_V2_MovemetaArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movemeta_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movemetaailment" */
 export type Pokemon_V2_MovemetaailmentPokemon_V2_Movemeta_AggregateArgs = {
@@ -24484,7 +24243,6 @@ export type Pokemon_V2_MovemetaailmentPokemon_V2_Movemeta_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movemetaailment" */
 export type Pokemon_V2_MovemetaailmentPokemon_V2_MovemetaailmentnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
@@ -24494,15 +24252,15 @@ export type Pokemon_V2_MovemetaailmentPokemon_V2_MovemetaailmentnamesArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movemetaailment" */
-export type Pokemon_V2_MovemetaailmentPokemon_V2_Movemetaailmentnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
-};
+export type Pokemon_V2_MovemetaailmentPokemon_V2_Movemetaailmentnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_movemetaailment" */
 export type Pokemon_V2_Movemetaailment_Aggregate = {
@@ -24526,7 +24284,6 @@ export type Pokemon_V2_Movemetaailment_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movemetaailment_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movemetaailment_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movemetaailment" */
 export type Pokemon_V2_Movemetaailment_Aggregate_FieldsCountArgs = {
@@ -24578,7 +24335,7 @@ export enum Pokemon_V2_Movemetaailment_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -24658,7 +24415,6 @@ export type Pokemon_V2_Movemetaailmentname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movemetaailmentname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movemetaailmentname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movemetaailmentname" */
 export type Pokemon_V2_Movemetaailmentname_Aggregate_FieldsCountArgs = {
@@ -24762,7 +24518,7 @@ export enum Pokemon_V2_Movemetaailmentname_Select_Column {
   /** column name */
   MoveMetaAilmentId = 'move_meta_ailment_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -24885,7 +24641,6 @@ export type Pokemon_V2_Movemetacategory = {
   pokemon_v2_movemetacategorydescriptions_aggregate: Pokemon_V2_Movemetacategorydescription_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_movemetacategory" */
 export type Pokemon_V2_MovemetacategoryPokemon_V2_MovemetaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
@@ -24894,7 +24649,6 @@ export type Pokemon_V2_MovemetacategoryPokemon_V2_MovemetaArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movemeta_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movemetacategory" */
 export type Pokemon_V2_MovemetacategoryPokemon_V2_Movemeta_AggregateArgs = {
@@ -24905,25 +24659,29 @@ export type Pokemon_V2_MovemetacategoryPokemon_V2_Movemeta_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_movemetacategory" */
+export type Pokemon_V2_MovemetacategoryPokemon_V2_MovemetacategorydescriptionsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movemetacategory" */
-export type Pokemon_V2_MovemetacategoryPokemon_V2_MovemetacategorydescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_movemetacategory" */
-export type Pokemon_V2_MovemetacategoryPokemon_V2_Movemetacategorydescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
-};
+export type Pokemon_V2_MovemetacategoryPokemon_V2_Movemetacategorydescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_movemetacategory" */
 export type Pokemon_V2_Movemetacategory_Aggregate = {
@@ -24947,7 +24705,6 @@ export type Pokemon_V2_Movemetacategory_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movemetacategory_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movemetacategory_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movemetacategory" */
 export type Pokemon_V2_Movemetacategory_Aggregate_FieldsCountArgs = {
@@ -24999,7 +24756,7 @@ export enum Pokemon_V2_Movemetacategory_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -25079,7 +24836,6 @@ export type Pokemon_V2_Movemetacategorydescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movemetacategorydescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movemetacategorydescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movemetacategorydescription" */
 export type Pokemon_V2_Movemetacategorydescription_Aggregate_FieldsCountArgs = {
@@ -25183,7 +24939,7 @@ export enum Pokemon_V2_Movemetacategorydescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveMetaCategoryId = 'move_meta_category_id'
+  MoveMetaCategoryId = 'move_meta_category_id',
 }
 
 /** aggregate stddev on columns */
@@ -25327,7 +25083,6 @@ export type Pokemon_V2_Movemetastatchange_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Movemetastatchange_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_movemetastatchange" */
 export type Pokemon_V2_Movemetastatchange_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
@@ -25432,7 +25187,7 @@ export enum Pokemon_V2_Movemetastatchange_Select_Column {
   /** column name */
   MoveId = 'move_id',
   /** column name */
-  StatId = 'stat_id'
+  StatId = 'stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -25590,7 +25345,6 @@ export type Pokemon_V2_Movename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Movename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_movename" */
 export type Pokemon_V2_Movename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
@@ -25693,7 +25447,7 @@ export enum Pokemon_V2_Movename_Select_Column {
   /** column name */
   MoveId = 'move_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -25820,7 +25574,6 @@ export type Pokemon_V2_Movetarget = {
   pokemon_v2_movetargetnames_aggregate: Pokemon_V2_Movetargetname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_movetarget" */
 export type Pokemon_V2_MovetargetPokemon_V2_MovesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -25829,7 +25582,6 @@ export type Pokemon_V2_MovetargetPokemon_V2_MovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movetarget" */
 export type Pokemon_V2_MovetargetPokemon_V2_Moves_AggregateArgs = {
@@ -25840,7 +25592,6 @@ export type Pokemon_V2_MovetargetPokemon_V2_Moves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movetarget" */
 export type Pokemon_V2_MovetargetPokemon_V2_MovetargetdescriptionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
@@ -25850,16 +25601,15 @@ export type Pokemon_V2_MovetargetPokemon_V2_MovetargetdescriptionsArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_movetarget" */
-export type Pokemon_V2_MovetargetPokemon_V2_Movetargetdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movetargetdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_MovetargetPokemon_V2_Movetargetdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movetargetdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_movetarget" */
 export type Pokemon_V2_MovetargetPokemon_V2_MovetargetnamesArgs = {
@@ -25869,7 +25619,6 @@ export type Pokemon_V2_MovetargetPokemon_V2_MovetargetnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movetargetname_Order_By>>;
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_movetarget" */
 export type Pokemon_V2_MovetargetPokemon_V2_Movetargetnames_AggregateArgs = {
@@ -25902,7 +25651,6 @@ export type Pokemon_V2_Movetarget_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movetarget_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movetarget_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movetarget" */
 export type Pokemon_V2_Movetarget_Aggregate_FieldsCountArgs = {
@@ -25956,7 +25704,7 @@ export enum Pokemon_V2_Movetarget_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -26036,7 +25784,6 @@ export type Pokemon_V2_Movetargetdescription_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Movetargetdescription_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Movetargetdescription_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_movetargetdescription" */
 export type Pokemon_V2_Movetargetdescription_Aggregate_FieldsCountArgs = {
@@ -26140,7 +25887,7 @@ export enum Pokemon_V2_Movetargetdescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  MoveTargetId = 'move_target_id'
+  MoveTargetId = 'move_target_id',
 }
 
 /** aggregate stddev on columns */
@@ -26284,7 +26031,6 @@ export type Pokemon_V2_Movetargetname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Movetargetname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_movetargetname" */
 export type Pokemon_V2_Movetargetname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
@@ -26387,7 +26133,7 @@ export enum Pokemon_V2_Movetargetname_Select_Column {
   /** column name */
   MoveTargetId = 'move_target_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -26527,26 +26273,28 @@ export type Pokemon_V2_Nature = {
   pokemon_v2_stat?: Maybe<Pokemon_V2_Stat>;
 };
 
-
 /** columns and relationships of "pokemon_v2_nature" */
 export type Pokemon_V2_NaturePokemon_V2_NaturebattlestylepreferencesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_nature" */
-export type Pokemon_V2_NaturePokemon_V2_Naturebattlestylepreferences_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
-  where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
-};
-
+export type Pokemon_V2_NaturePokemon_V2_Naturebattlestylepreferences_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
+    where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_nature" */
 export type Pokemon_V2_NaturePokemon_V2_NaturenamesArgs = {
@@ -26557,7 +26305,6 @@ export type Pokemon_V2_NaturePokemon_V2_NaturenamesArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_nature" */
 export type Pokemon_V2_NaturePokemon_V2_Naturenames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
@@ -26567,7 +26314,6 @@ export type Pokemon_V2_NaturePokemon_V2_Naturenames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_nature" */
 export type Pokemon_V2_NaturePokemon_V2_NaturepokeathlonstatsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
@@ -26576,7 +26322,6 @@ export type Pokemon_V2_NaturePokemon_V2_NaturepokeathlonstatsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_nature" */
 export type Pokemon_V2_NaturePokemon_V2_Naturepokeathlonstats_AggregateArgs = {
@@ -26609,7 +26354,6 @@ export type Pokemon_V2_Nature_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Nature_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Nature_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_nature" */
 export type Pokemon_V2_Nature_Aggregate_FieldsCountArgs = {
@@ -26753,7 +26497,7 @@ export enum Pokemon_V2_Nature_Select_Column {
   /** column name */
   LikesFlavorId = 'likes_flavor_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -26940,7 +26684,6 @@ export type Pokemon_V2_Naturebattlestylepreference_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Naturebattlestylepreference_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_naturebattlestylepreference" */
 export type Pokemon_V2_Naturebattlestylepreference_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
@@ -27055,7 +26798,7 @@ export enum Pokemon_V2_Naturebattlestylepreference_Select_Column {
   /** column name */
   MoveBattleStyleId = 'move_battle_style_id',
   /** column name */
-  NatureId = 'nature_id'
+  NatureId = 'nature_id',
 }
 
 /** aggregate stddev on columns */
@@ -27227,7 +26970,6 @@ export type Pokemon_V2_Naturename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Naturename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_naturename" */
 export type Pokemon_V2_Naturename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
@@ -27330,7 +27072,7 @@ export enum Pokemon_V2_Naturename_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  NatureId = 'nature_id'
+  NatureId = 'nature_id',
 }
 
 /** aggregate stddev on columns */
@@ -27474,7 +27216,6 @@ export type Pokemon_V2_Naturepokeathlonstat_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Naturepokeathlonstat_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_naturepokeathlonstat" */
 export type Pokemon_V2_Naturepokeathlonstat_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
@@ -27579,7 +27320,7 @@ export enum Pokemon_V2_Naturepokeathlonstat_Select_Column {
   /** column name */
   NatureId = 'nature_id',
   /** column name */
-  PokeathlonStatId = 'pokeathlon_stat_id'
+  PokeathlonStatId = 'pokeathlon_stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -27738,7 +27479,6 @@ export type Pokemon_V2_Palpark_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Palpark_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_palpark" */
 export type Pokemon_V2_Palpark_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
@@ -27853,7 +27593,7 @@ export enum Pokemon_V2_Palpark_Select_Column {
   /** column name */
   PokemonSpeciesId = 'pokemon_species_id',
   /** column name */
-  Rate = 'rate'
+  Rate = 'rate',
 }
 
 /** aggregate stddev on columns */
@@ -28004,7 +27744,6 @@ export type Pokemon_V2_Palparkarea = {
   pokemon_v2_palparks_aggregate: Pokemon_V2_Palpark_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_palparkarea" */
 export type Pokemon_V2_PalparkareaPokemon_V2_PalparkareanamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
@@ -28013,7 +27752,6 @@ export type Pokemon_V2_PalparkareaPokemon_V2_PalparkareanamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Palparkareaname_Order_By>>;
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_palparkarea" */
 export type Pokemon_V2_PalparkareaPokemon_V2_Palparkareanames_AggregateArgs = {
@@ -28024,7 +27762,6 @@ export type Pokemon_V2_PalparkareaPokemon_V2_Palparkareanames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_palparkarea" */
 export type Pokemon_V2_PalparkareaPokemon_V2_PalparksArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
@@ -28033,7 +27770,6 @@ export type Pokemon_V2_PalparkareaPokemon_V2_PalparksArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Palpark_Order_By>>;
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_palparkarea" */
 export type Pokemon_V2_PalparkareaPokemon_V2_Palparks_AggregateArgs = {
@@ -28066,7 +27802,6 @@ export type Pokemon_V2_Palparkarea_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Palparkarea_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Palparkarea_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_palparkarea" */
 export type Pokemon_V2_Palparkarea_Aggregate_FieldsCountArgs = {
@@ -28118,7 +27853,7 @@ export enum Pokemon_V2_Palparkarea_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -28198,7 +27933,6 @@ export type Pokemon_V2_Palparkareaname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Palparkareaname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Palparkareaname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_palparkareaname" */
 export type Pokemon_V2_Palparkareaname_Aggregate_FieldsCountArgs = {
@@ -28302,7 +28036,7 @@ export enum Pokemon_V2_Palparkareaname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PalParkAreaId = 'pal_park_area_id'
+  PalParkAreaId = 'pal_park_area_id',
 }
 
 /** aggregate stddev on columns */
@@ -28425,7 +28159,6 @@ export type Pokemon_V2_Pokeathlonstat = {
   pokemon_v2_pokeathlonstatnames_aggregate: Pokemon_V2_Pokeathlonstatname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokeathlonstat" */
 export type Pokemon_V2_PokeathlonstatPokemon_V2_NaturepokeathlonstatsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
@@ -28435,16 +28168,15 @@ export type Pokemon_V2_PokeathlonstatPokemon_V2_NaturepokeathlonstatsArgs = {
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokeathlonstat" */
-export type Pokemon_V2_PokeathlonstatPokemon_V2_Naturepokeathlonstats_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Order_By>>;
-  where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokeathlonstatPokemon_V2_Naturepokeathlonstats_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Order_By>>;
+    where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokeathlonstat" */
 export type Pokemon_V2_PokeathlonstatPokemon_V2_PokeathlonstatnamesArgs = {
@@ -28455,15 +28187,15 @@ export type Pokemon_V2_PokeathlonstatPokemon_V2_PokeathlonstatnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokeathlonstat" */
-export type Pokemon_V2_PokeathlonstatPokemon_V2_Pokeathlonstatnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
-};
+export type Pokemon_V2_PokeathlonstatPokemon_V2_Pokeathlonstatnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_pokeathlonstat" */
 export type Pokemon_V2_Pokeathlonstat_Aggregate = {
@@ -28487,7 +28219,6 @@ export type Pokemon_V2_Pokeathlonstat_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokeathlonstat_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokeathlonstat_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokeathlonstat" */
 export type Pokemon_V2_Pokeathlonstat_Aggregate_FieldsCountArgs = {
@@ -28539,7 +28270,7 @@ export enum Pokemon_V2_Pokeathlonstat_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -28619,7 +28350,6 @@ export type Pokemon_V2_Pokeathlonstatname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokeathlonstatname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokeathlonstatname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokeathlonstatname" */
 export type Pokemon_V2_Pokeathlonstatname_Aggregate_FieldsCountArgs = {
@@ -28723,7 +28453,7 @@ export enum Pokemon_V2_Pokeathlonstatname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokeathlonStatId = 'pokeathlon_stat_id'
+  PokeathlonStatId = 'pokeathlon_stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -28858,7 +28588,6 @@ export type Pokemon_V2_Pokedex = {
   region_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_PokedexdescriptionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
@@ -28867,7 +28596,6 @@ export type Pokemon_V2_PokedexPokemon_V2_PokedexdescriptionsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedexdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_Pokedexdescriptions_AggregateArgs = {
@@ -28878,7 +28606,6 @@ export type Pokemon_V2_PokedexPokemon_V2_Pokedexdescriptions_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_PokedexnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
@@ -28887,7 +28614,6 @@ export type Pokemon_V2_PokedexPokemon_V2_PokedexnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedexname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_Pokedexnames_AggregateArgs = {
@@ -28898,7 +28624,6 @@ export type Pokemon_V2_PokedexPokemon_V2_Pokedexnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_PokedexversiongroupsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
@@ -28907,7 +28632,6 @@ export type Pokemon_V2_PokedexPokemon_V2_PokedexversiongroupsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_Pokedexversiongroups_AggregateArgs = {
@@ -28918,7 +28642,6 @@ export type Pokemon_V2_PokedexPokemon_V2_Pokedexversiongroups_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_PokemondexnumbersArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
@@ -28927,7 +28650,6 @@ export type Pokemon_V2_PokedexPokemon_V2_PokemondexnumbersArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokedex" */
 export type Pokemon_V2_PokedexPokemon_V2_Pokemondexnumbers_AggregateArgs = {
@@ -28960,7 +28682,6 @@ export type Pokemon_V2_Pokedex_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokedex_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokedex_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokedex" */
 export type Pokemon_V2_Pokedex_Aggregate_FieldsCountArgs = {
@@ -29064,7 +28785,7 @@ export enum Pokemon_V2_Pokedex_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  RegionId = 'region_id'
+  RegionId = 'region_id',
 }
 
 /** aggregate stddev on columns */
@@ -29194,7 +28915,6 @@ export type Pokemon_V2_Pokedexdescription_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokedexdescription_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokedexdescription" */
 export type Pokemon_V2_Pokedexdescription_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
@@ -29297,7 +29017,7 @@ export enum Pokemon_V2_Pokedexdescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  PokedexId = 'pokedex_id'
+  PokedexId = 'pokedex_id',
 }
 
 /** aggregate stddev on columns */
@@ -29441,7 +29161,6 @@ export type Pokemon_V2_Pokedexname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokedexname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokedexname" */
 export type Pokemon_V2_Pokedexname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
@@ -29544,7 +29263,7 @@ export enum Pokemon_V2_Pokedexname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokedexId = 'pokedex_id'
+  PokedexId = 'pokedex_id',
 }
 
 /** aggregate stddev on columns */
@@ -29687,7 +29406,6 @@ export type Pokemon_V2_Pokedexversiongroup_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokedexversiongroup_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokedexversiongroup" */
 export type Pokemon_V2_Pokedexversiongroup_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
@@ -29782,7 +29500,7 @@ export enum Pokemon_V2_Pokedexversiongroup_Select_Column {
   /** column name */
   PokedexId = 'pokedex_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -29945,7 +29663,6 @@ export type Pokemon_V2_Pokemon = {
   weight?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_EncountersArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -29954,7 +29671,6 @@ export type Pokemon_V2_PokemonPokemon_V2_EncountersArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encounter_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Encounters_AggregateArgs = {
@@ -29965,7 +29681,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Encounters_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonabilitiesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
@@ -29974,7 +29689,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonabilitiesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonability_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonabilities_AggregateArgs = {
@@ -29985,7 +29699,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonabilities_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonformsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
@@ -29994,7 +29707,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonformsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonform_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonforms_AggregateArgs = {
@@ -30005,7 +29717,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonforms_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemongameindicesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
@@ -30014,7 +29725,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemongameindicesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemongameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemongameindices_AggregateArgs = {
@@ -30025,7 +29735,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemongameindices_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonitemsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -30034,7 +29743,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonitemsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonitem_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonitems_AggregateArgs = {
@@ -30045,7 +29753,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonitems_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonmovesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -30054,7 +29761,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonmovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonmove_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonmoves_AggregateArgs = {
@@ -30065,7 +29771,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonmoves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
@@ -30074,7 +29779,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonspritesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonsprites_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonsprites_AggregateArgs = {
@@ -30085,7 +29789,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemonstatsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
@@ -30094,7 +29797,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemonstatsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonstat_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemonstats_AggregateArgs = {
@@ -30105,7 +29807,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemonstats_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemontypepastsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -30114,7 +29815,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemontypepastsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemontypepast_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemontypepasts_AggregateArgs = {
@@ -30125,7 +29825,6 @@ export type Pokemon_V2_PokemonPokemon_V2_Pokemontypepasts_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_PokemontypesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
@@ -30134,7 +29833,6 @@ export type Pokemon_V2_PokemonPokemon_V2_PokemontypesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemontype_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemon" */
 export type Pokemon_V2_PokemonPokemon_V2_Pokemontypes_AggregateArgs = {
@@ -30167,7 +29865,6 @@ export type Pokemon_V2_Pokemon_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemon_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemon_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemon" */
 export type Pokemon_V2_Pokemon_Aggregate_FieldsCountArgs = {
@@ -30323,7 +30020,7 @@ export enum Pokemon_V2_Pokemon_Select_Column {
   /** column name */
   PokemonSpeciesId = 'pokemon_species_id',
   /** column name */
-  Weight = 'weight'
+  Weight = 'weight',
 }
 
 /** aggregate stddev on columns */
@@ -30510,7 +30207,6 @@ export type Pokemon_V2_Pokemonability_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonability_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonability" */
 export type Pokemon_V2_Pokemonability_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
@@ -30619,7 +30315,7 @@ export enum Pokemon_V2_Pokemonability_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  Slot = 'slot'
+  Slot = 'slot',
 }
 
 /** aggregate stddev on columns */
@@ -30756,7 +30452,6 @@ export type Pokemon_V2_Pokemoncolor = {
   pokemon_v2_pokemonspecies_aggregate: Pokemon_V2_Pokemonspecies_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemoncolor" */
 export type Pokemon_V2_PokemoncolorPokemon_V2_PokemoncolornamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
@@ -30766,16 +30461,15 @@ export type Pokemon_V2_PokemoncolorPokemon_V2_PokemoncolornamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemoncolor" */
-export type Pokemon_V2_PokemoncolorPokemon_V2_Pokemoncolornames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemoncolorPokemon_V2_Pokemoncolornames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemoncolor" */
 export type Pokemon_V2_PokemoncolorPokemon_V2_PokemonspeciesArgs = {
@@ -30785,7 +30479,6 @@ export type Pokemon_V2_PokemoncolorPokemon_V2_PokemonspeciesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemoncolor" */
 export type Pokemon_V2_PokemoncolorPokemon_V2_Pokemonspecies_AggregateArgs = {
@@ -30818,7 +30511,6 @@ export type Pokemon_V2_Pokemoncolor_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemoncolor_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemoncolor_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemoncolor" */
 export type Pokemon_V2_Pokemoncolor_Aggregate_FieldsCountArgs = {
@@ -30870,7 +30562,7 @@ export enum Pokemon_V2_Pokemoncolor_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -30950,7 +30642,6 @@ export type Pokemon_V2_Pokemoncolorname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemoncolorname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemoncolorname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemoncolorname" */
 export type Pokemon_V2_Pokemoncolorname_Aggregate_FieldsCountArgs = {
@@ -31054,7 +30745,7 @@ export enum Pokemon_V2_Pokemoncolorname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokemonColorId = 'pokemon_color_id'
+  PokemonColorId = 'pokemon_color_id',
 }
 
 /** aggregate stddev on columns */
@@ -31198,7 +30889,6 @@ export type Pokemon_V2_Pokemondexnumber_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemondexnumber_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemondexnumber" */
 export type Pokemon_V2_Pokemondexnumber_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
@@ -31303,7 +30993,7 @@ export enum Pokemon_V2_Pokemondexnumber_Select_Column {
   /** column name */
   PokedexNumber = 'pokedex_number',
   /** column name */
-  PokemonSpeciesId = 'pokemon_species_id'
+  PokemonSpeciesId = 'pokemon_species_id',
 }
 
 /** aggregate stddev on columns */
@@ -31460,7 +31150,6 @@ export type Pokemon_V2_Pokemonegggroup_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonegggroup_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonegggroup" */
 export type Pokemon_V2_Pokemonegggroup_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
@@ -31555,7 +31244,7 @@ export enum Pokemon_V2_Pokemonegggroup_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  PokemonSpeciesId = 'pokemon_species_id'
+  PokemonSpeciesId = 'pokemon_species_id',
 }
 
 /** aggregate stddev on columns */
@@ -31732,7 +31421,6 @@ export type Pokemon_V2_Pokemonevolution_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonevolution_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonevolution_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonevolution" */
 export type Pokemon_V2_Pokemonevolution_Aggregate_FieldsCountArgs = {
@@ -32002,7 +31690,7 @@ export enum Pokemon_V2_Pokemonevolution_Select_Column {
   /** column name */
   TradeSpeciesId = 'trade_species_id',
   /** column name */
-  TurnUpsideDown = 'turn_upside_down'
+  TurnUpsideDown = 'turn_upside_down',
 }
 
 /** aggregate stddev on columns */
@@ -32341,7 +32029,6 @@ export type Pokemon_V2_Pokemonform = {
   version_group_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_PokemonformgenerationsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
@@ -32351,16 +32038,15 @@ export type Pokemon_V2_PokemonformPokemon_V2_PokemonformgenerationsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonform" */
-export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformgenerations_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformgenerations_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_PokemonformnamesArgs = {
@@ -32371,7 +32057,6 @@ export type Pokemon_V2_PokemonformPokemon_V2_PokemonformnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformnames_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
@@ -32380,7 +32065,6 @@ export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformnames_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonformname_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_PokemonformspritesArgs = {
@@ -32391,16 +32075,15 @@ export type Pokemon_V2_PokemonformPokemon_V2_PokemonformspritesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonform" */
-export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformsprites_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformsprites_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_PokemonformtypesArgs = {
@@ -32410,7 +32093,6 @@ export type Pokemon_V2_PokemonformPokemon_V2_PokemonformtypesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonformtype_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_PokemonformPokemon_V2_Pokemonformtypes_AggregateArgs = {
@@ -32443,7 +32125,6 @@ export type Pokemon_V2_Pokemonform_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonform_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonform_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonform" */
 export type Pokemon_V2_Pokemonform_Aggregate_FieldsCountArgs = {
@@ -32595,7 +32276,7 @@ export enum Pokemon_V2_Pokemonform_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -32767,7 +32448,6 @@ export type Pokemon_V2_Pokemonformgeneration_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonformgeneration_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonformgeneration" */
 export type Pokemon_V2_Pokemonformgeneration_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
@@ -32872,7 +32552,7 @@ export enum Pokemon_V2_Pokemonformgeneration_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  PokemonFormId = 'pokemon_form_id'
+  PokemonFormId = 'pokemon_form_id',
 }
 
 /** aggregate stddev on columns */
@@ -33031,7 +32711,6 @@ export type Pokemon_V2_Pokemonformname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonformname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonformname" */
 export type Pokemon_V2_Pokemonformname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
@@ -33142,7 +32821,7 @@ export enum Pokemon_V2_Pokemonformname_Select_Column {
   /** column name */
   PokemonFormId = 'pokemon_form_id',
   /** column name */
-  PokemonName = 'pokemon_name'
+  PokemonName = 'pokemon_name',
 }
 
 /** aggregate stddev on columns */
@@ -33283,7 +32962,6 @@ export type Pokemon_V2_Pokemonformsprites_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonformsprites_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonformsprites" */
 export type Pokemon_V2_Pokemonformsprites_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
@@ -33374,7 +33052,7 @@ export enum Pokemon_V2_Pokemonformsprites_Select_Column {
   /** column name */
   PokemonFormId = 'pokemon_form_id',
   /** column name */
-  Sprites = 'sprites'
+  Sprites = 'sprites',
 }
 
 /** aggregate stddev on columns */
@@ -33504,7 +33182,6 @@ export type Pokemon_V2_Pokemonformtype_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonformtype_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonformtype" */
 export type Pokemon_V2_Pokemonformtype_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
@@ -33609,7 +33286,7 @@ export enum Pokemon_V2_Pokemonformtype_Select_Column {
   /** column name */
   Slot = 'slot',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -33767,7 +33444,6 @@ export type Pokemon_V2_Pokemongameindex_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemongameindex_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemongameindex" */
 export type Pokemon_V2_Pokemongameindex_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
@@ -33872,7 +33548,7 @@ export enum Pokemon_V2_Pokemongameindex_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -34009,7 +33685,6 @@ export type Pokemon_V2_Pokemonhabitat = {
   pokemon_v2_pokemonspecies_aggregate: Pokemon_V2_Pokemonspecies_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonhabitat" */
 export type Pokemon_V2_PokemonhabitatPokemon_V2_PokemonhabitatnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
@@ -34019,16 +33694,15 @@ export type Pokemon_V2_PokemonhabitatPokemon_V2_PokemonhabitatnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonhabitat" */
-export type Pokemon_V2_PokemonhabitatPokemon_V2_Pokemonhabitatnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonhabitatPokemon_V2_Pokemonhabitatnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonhabitat" */
 export type Pokemon_V2_PokemonhabitatPokemon_V2_PokemonspeciesArgs = {
@@ -34038,7 +33712,6 @@ export type Pokemon_V2_PokemonhabitatPokemon_V2_PokemonspeciesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonhabitat" */
 export type Pokemon_V2_PokemonhabitatPokemon_V2_Pokemonspecies_AggregateArgs = {
@@ -34071,7 +33744,6 @@ export type Pokemon_V2_Pokemonhabitat_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonhabitat_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonhabitat_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonhabitat" */
 export type Pokemon_V2_Pokemonhabitat_Aggregate_FieldsCountArgs = {
@@ -34123,7 +33795,7 @@ export enum Pokemon_V2_Pokemonhabitat_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -34203,7 +33875,6 @@ export type Pokemon_V2_Pokemonhabitatname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonhabitatname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonhabitatname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonhabitatname" */
 export type Pokemon_V2_Pokemonhabitatname_Aggregate_FieldsCountArgs = {
@@ -34307,7 +33978,7 @@ export enum Pokemon_V2_Pokemonhabitatname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokemonHabitatId = 'pokemon_habitat_id'
+  PokemonHabitatId = 'pokemon_habitat_id',
 }
 
 /** aggregate stddev on columns */
@@ -34454,7 +34125,6 @@ export type Pokemon_V2_Pokemonitem_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonitem_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonitem" */
 export type Pokemon_V2_Pokemonitem_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -34571,7 +34241,7 @@ export enum Pokemon_V2_Pokemonitem_Select_Column {
   /** column name */
   Rarity = 'rarity',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -34750,7 +34420,6 @@ export type Pokemon_V2_Pokemonmove_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonmove_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonmove" */
 export type Pokemon_V2_Pokemonmove_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -34889,7 +34558,7 @@ export enum Pokemon_V2_Pokemonmove_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -35068,7 +34737,6 @@ export type Pokemon_V2_Pokemonshape = {
   pokemon_v2_pokemonspecies_aggregate: Pokemon_V2_Pokemonspecies_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonshape" */
 export type Pokemon_V2_PokemonshapePokemon_V2_PokemonshapenamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
@@ -35078,16 +34746,15 @@ export type Pokemon_V2_PokemonshapePokemon_V2_PokemonshapenamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonshape" */
-export type Pokemon_V2_PokemonshapePokemon_V2_Pokemonshapenames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonshapename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonshapePokemon_V2_Pokemonshapenames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonshapename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonshape" */
 export type Pokemon_V2_PokemonshapePokemon_V2_PokemonspeciesArgs = {
@@ -35097,7 +34764,6 @@ export type Pokemon_V2_PokemonshapePokemon_V2_PokemonspeciesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspecies_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonshape" */
 export type Pokemon_V2_PokemonshapePokemon_V2_Pokemonspecies_AggregateArgs = {
@@ -35130,7 +34796,6 @@ export type Pokemon_V2_Pokemonshape_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonshape_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonshape_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonshape" */
 export type Pokemon_V2_Pokemonshape_Aggregate_FieldsCountArgs = {
@@ -35182,7 +34847,7 @@ export enum Pokemon_V2_Pokemonshape_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -35263,7 +34928,6 @@ export type Pokemon_V2_Pokemonshapename_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonshapename_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonshapename_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonshapename" */
 export type Pokemon_V2_Pokemonshapename_Aggregate_FieldsCountArgs = {
@@ -35375,7 +35039,7 @@ export enum Pokemon_V2_Pokemonshapename_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokemonShapeId = 'pokemon_shape_id'
+  PokemonShapeId = 'pokemon_shape_id',
 }
 
 /** aggregate stddev on columns */
@@ -35565,46 +35229,45 @@ export type Pokemon_V2_Pokemonspecies = {
   pokemon_v2_pokemonspecy?: Maybe<Pokemon_V2_Pokemonspecies>;
 };
 
+/** columns and relationships of "pokemon_v2_pokemonspecies" */
+export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByPartySpeciesIdArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByPartySpeciesIdArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByPartySpeciesId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByPartySpeciesId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByTradeSpeciesIdArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByTradeSpeciesIdArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByTradeSpeciesId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemonV2PokemonevolutionsByTradeSpeciesId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PalparksArgs = {
@@ -35615,7 +35278,6 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PalparksArgs = {
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_Palparks_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
@@ -35624,7 +35286,6 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_Palparks_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Palpark_Order_By>>;
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemondexnumbersArgs = {
@@ -35635,16 +35296,15 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemondexnumbersArgs = {
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemondexnumbers_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemondexnumbers_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonegggroupsArgs = {
@@ -35655,16 +35315,15 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonegggroupsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonegggroups_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonegggroups_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonevolutionsArgs = {
@@ -35675,16 +35334,15 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonevolutionsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonevolutions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonevolutions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonsArgs = {
@@ -35695,7 +35353,6 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonsArgs = {
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemons_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemon_Select_Column>>;
@@ -35704,7 +35361,6 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemons_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemon_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesArgs = {
@@ -35715,7 +35371,6 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspecies_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -35725,46 +35380,53 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspecies_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_pokemonspecies" */
+export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesdescriptionsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesdescriptionsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesdescriptions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesdescriptions_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesflavortextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesflavortextsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesnamesArgs = {
@@ -35775,15 +35437,15 @@ export type Pokemon_V2_PokemonspeciesPokemon_V2_PokemonspeciesnamesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_pokemonspecies" */
-export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesnames_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
-};
+export type Pokemon_V2_PokemonspeciesPokemon_V2_Pokemonspeciesnames_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_Pokemonspecies_Aggregate = {
@@ -35807,7 +35469,6 @@ export type Pokemon_V2_Pokemonspecies_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Pokemonspecies_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Pokemonspecies_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_pokemonspecies" */
 export type Pokemon_V2_Pokemonspecies_Aggregate_FieldsCountArgs = {
@@ -36063,7 +35724,7 @@ export enum Pokemon_V2_Pokemonspecies_Select_Column {
   /** column name */
   PokemonHabitatId = 'pokemon_habitat_id',
   /** column name */
-  PokemonShapeId = 'pokemon_shape_id'
+  PokemonShapeId = 'pokemon_shape_id',
 }
 
 /** aggregate stddev on columns */
@@ -36347,7 +36008,6 @@ export type Pokemon_V2_Pokemonspeciesdescription_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonspeciesdescription" */
 export type Pokemon_V2_Pokemonspeciesdescription_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
@@ -36450,7 +36110,7 @@ export enum Pokemon_V2_Pokemonspeciesdescription_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  PokemonSpeciesId = 'pokemon_species_id'
+  PokemonSpeciesId = 'pokemon_species_id',
 }
 
 /** aggregate stddev on columns */
@@ -36597,7 +36257,6 @@ export type Pokemon_V2_Pokemonspeciesflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonspeciesflavortext" */
 export type Pokemon_V2_Pokemonspeciesflavortext_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
@@ -36712,7 +36371,7 @@ export enum Pokemon_V2_Pokemonspeciesflavortext_Select_Column {
   /** column name */
   PokemonSpeciesId = 'pokemon_species_id',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -36871,7 +36530,6 @@ export type Pokemon_V2_Pokemonspeciesname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonspeciesname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonspeciesname" */
 export type Pokemon_V2_Pokemonspeciesname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
@@ -36982,7 +36640,7 @@ export enum Pokemon_V2_Pokemonspeciesname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  PokemonSpeciesId = 'pokemon_species_id'
+  PokemonSpeciesId = 'pokemon_species_id',
 }
 
 /** aggregate stddev on columns */
@@ -37123,7 +36781,6 @@ export type Pokemon_V2_Pokemonsprites_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonsprites_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonsprites" */
 export type Pokemon_V2_Pokemonsprites_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
@@ -37214,7 +36871,7 @@ export enum Pokemon_V2_Pokemonsprites_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  Sprites = 'sprites'
+  Sprites = 'sprites',
 }
 
 /** aggregate stddev on columns */
@@ -37345,7 +37002,6 @@ export type Pokemon_V2_Pokemonstat_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemonstat_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemonstat" */
 export type Pokemon_V2_Pokemonstat_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
@@ -37460,7 +37116,7 @@ export enum Pokemon_V2_Pokemonstat_Select_Column {
   /** column name */
   PokemonId = 'pokemon_id',
   /** column name */
-  StatId = 'stat_id'
+  StatId = 'stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -37632,7 +37288,6 @@ export type Pokemon_V2_Pokemontype_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemontype_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemontype" */
 export type Pokemon_V2_Pokemontype_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
@@ -37737,7 +37392,7 @@ export enum Pokemon_V2_Pokemontype_Select_Column {
   /** column name */
   Slot = 'slot',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -37898,7 +37553,6 @@ export type Pokemon_V2_Pokemontypepast_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Pokemontypepast_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_pokemontypepast" */
 export type Pokemon_V2_Pokemontypepast_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -38015,7 +37669,7 @@ export enum Pokemon_V2_Pokemontypepast_Select_Column {
   /** column name */
   Slot = 'slot',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -38178,7 +37832,6 @@ export type Pokemon_V2_Region = {
   pokemon_v2_versiongroupregions_aggregate: Pokemon_V2_Versiongroupregion_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_GenerationsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generation_Select_Column>>;
@@ -38187,7 +37840,6 @@ export type Pokemon_V2_RegionPokemon_V2_GenerationsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Generation_Order_By>>;
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_Generations_AggregateArgs = {
@@ -38198,7 +37850,6 @@ export type Pokemon_V2_RegionPokemon_V2_Generations_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_LocationsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Location_Select_Column>>;
@@ -38207,7 +37858,6 @@ export type Pokemon_V2_RegionPokemon_V2_LocationsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Location_Order_By>>;
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_Locations_AggregateArgs = {
@@ -38218,7 +37868,6 @@ export type Pokemon_V2_RegionPokemon_V2_Locations_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_PokedexesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedex_Select_Column>>;
@@ -38227,7 +37876,6 @@ export type Pokemon_V2_RegionPokemon_V2_PokedexesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokedex_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_Pokedexes_AggregateArgs = {
@@ -38238,7 +37886,6 @@ export type Pokemon_V2_RegionPokemon_V2_Pokedexes_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_RegionnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
@@ -38247,7 +37894,6 @@ export type Pokemon_V2_RegionPokemon_V2_RegionnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Regionname_Order_By>>;
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_Regionnames_AggregateArgs = {
@@ -38258,7 +37904,6 @@ export type Pokemon_V2_RegionPokemon_V2_Regionnames_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_VersiongroupregionsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
@@ -38267,7 +37912,6 @@ export type Pokemon_V2_RegionPokemon_V2_VersiongroupregionsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Versiongroupregion_Order_By>>;
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_region" */
 export type Pokemon_V2_RegionPokemon_V2_Versiongroupregions_AggregateArgs = {
@@ -38300,7 +37944,6 @@ export type Pokemon_V2_Region_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Region_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Region_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_region" */
 export type Pokemon_V2_Region_Aggregate_FieldsCountArgs = {
@@ -38358,7 +38001,7 @@ export enum Pokemon_V2_Region_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -38438,7 +38081,6 @@ export type Pokemon_V2_Regionname_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Regionname_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Regionname_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_regionname" */
 export type Pokemon_V2_Regionname_Aggregate_FieldsCountArgs = {
@@ -38542,7 +38184,7 @@ export enum Pokemon_V2_Regionname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  RegionId = 'region_id'
+  RegionId = 'region_id',
 }
 
 /** aggregate stddev on columns */
@@ -38686,7 +38328,6 @@ export type Pokemon_V2_Stat = {
   pokemon_v2_statnames_aggregate: Pokemon_V2_Statname_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemonV2NaturesByIncreasedStatIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -38695,7 +38336,6 @@ export type Pokemon_V2_StatPokemonV2NaturesByIncreasedStatIdArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Nature_Order_By>>;
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemonV2NaturesByIncreasedStatId_AggregateArgs = {
@@ -38706,7 +38346,6 @@ export type Pokemon_V2_StatPokemonV2NaturesByIncreasedStatId_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_CharacteristicsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Characteristic_Select_Column>>;
@@ -38715,7 +38354,6 @@ export type Pokemon_V2_StatPokemon_V2_CharacteristicsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Characteristic_Order_By>>;
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_Characteristics_AggregateArgs = {
@@ -38726,7 +38364,6 @@ export type Pokemon_V2_StatPokemon_V2_Characteristics_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_MovemetastatchangesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
@@ -38735,7 +38372,6 @@ export type Pokemon_V2_StatPokemon_V2_MovemetastatchangesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movemetastatchange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_Movemetastatchanges_AggregateArgs = {
@@ -38746,7 +38382,6 @@ export type Pokemon_V2_StatPokemon_V2_Movemetastatchanges_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_NaturesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -38755,7 +38390,6 @@ export type Pokemon_V2_StatPokemon_V2_NaturesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Nature_Order_By>>;
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_Natures_AggregateArgs = {
@@ -38766,7 +38400,6 @@ export type Pokemon_V2_StatPokemon_V2_Natures_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_PokemonstatsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
@@ -38775,7 +38408,6 @@ export type Pokemon_V2_StatPokemon_V2_PokemonstatsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonstat_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_Pokemonstats_AggregateArgs = {
@@ -38786,7 +38418,6 @@ export type Pokemon_V2_StatPokemon_V2_Pokemonstats_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_StatnamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
@@ -38795,7 +38426,6 @@ export type Pokemon_V2_StatPokemon_V2_StatnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Statname_Order_By>>;
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_stat" */
 export type Pokemon_V2_StatPokemon_V2_Statnames_AggregateArgs = {
@@ -38828,7 +38458,6 @@ export type Pokemon_V2_Stat_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Stat_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Stat_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_stat" */
 export type Pokemon_V2_Stat_Aggregate_FieldsCountArgs = {
@@ -38946,7 +38575,7 @@ export enum Pokemon_V2_Stat_Select_Column {
   /** column name */
   MoveDamageClassId = 'move_damage_class_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -39090,7 +38719,6 @@ export type Pokemon_V2_Statname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Statname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_statname" */
 export type Pokemon_V2_Statname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
@@ -39193,7 +38821,7 @@ export enum Pokemon_V2_Statname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  StatId = 'stat_id'
+  StatId = 'stat_id',
 }
 
 /** aggregate stddev on columns */
@@ -39336,7 +38964,6 @@ export type Pokemon_V2_Supercontestcombo_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Supercontestcombo_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_supercontestcombo" */
 export type Pokemon_V2_Supercontestcombo_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
@@ -39431,7 +39058,7 @@ export enum Pokemon_V2_Supercontestcombo_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  SecondMoveId = 'second_move_id'
+  SecondMoveId = 'second_move_id',
 }
 
 /** aggregate stddev on columns */
@@ -39554,7 +39181,6 @@ export type Pokemon_V2_Supercontesteffect = {
   pokemon_v2_supercontesteffectflavortexts_aggregate: Pokemon_V2_Supercontesteffectflavortext_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_supercontesteffect" */
 export type Pokemon_V2_SupercontesteffectPokemon_V2_MovesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -39563,7 +39189,6 @@ export type Pokemon_V2_SupercontesteffectPokemon_V2_MovesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_supercontesteffect" */
 export type Pokemon_V2_SupercontesteffectPokemon_V2_Moves_AggregateArgs = {
@@ -39574,25 +39199,29 @@ export type Pokemon_V2_SupercontesteffectPokemon_V2_Moves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_supercontesteffect" */
+export type Pokemon_V2_SupercontesteffectPokemon_V2_SupercontesteffectflavortextsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_supercontesteffect" */
-export type Pokemon_V2_SupercontesteffectPokemon_V2_SupercontesteffectflavortextsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_supercontesteffect" */
-export type Pokemon_V2_SupercontesteffectPokemon_V2_Supercontesteffectflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
-};
+export type Pokemon_V2_SupercontesteffectPokemon_V2_Supercontesteffectflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
+  };
 
 /** aggregated selection of "pokemon_v2_supercontesteffect" */
 export type Pokemon_V2_Supercontesteffect_Aggregate = {
@@ -39616,7 +39245,6 @@ export type Pokemon_V2_Supercontesteffect_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Supercontesteffect_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Supercontesteffect_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_supercontesteffect" */
 export type Pokemon_V2_Supercontesteffect_Aggregate_FieldsCountArgs = {
@@ -39669,7 +39297,7 @@ export enum Pokemon_V2_Supercontesteffect_Select_Column {
   /** column name */
   Appeal = 'appeal',
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** aggregate stddev on columns */
@@ -39757,12 +39385,14 @@ export type Pokemon_V2_Supercontesteffectflavortext_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_supercontesteffectflavortext" */
-export type Pokemon_V2_Supercontesteffectflavortext_Aggregate_FieldsCountArgs = {
-  columns?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
-  distinct?: Maybe<Scalars['Boolean']>;
-};
+export type Pokemon_V2_Supercontesteffectflavortext_Aggregate_FieldsCountArgs =
+  {
+    columns?: Maybe<
+      Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+    >;
+    distinct?: Maybe<Scalars['Boolean']>;
+  };
 
 /** order by aggregate values of table "pokemon_v2_supercontesteffectflavortext" */
 export type Pokemon_V2_Supercontesteffectflavortext_Aggregate_Order_By = {
@@ -39860,7 +39490,7 @@ export enum Pokemon_V2_Supercontesteffectflavortext_Select_Column {
   /** column name */
   LanguageId = 'language_id',
   /** column name */
-  SuperContestEffectId = 'super_contest_effect_id'
+  SuperContestEffectId = 'super_contest_effect_id',
 }
 
 /** aggregate stddev on columns */
@@ -40029,7 +39659,6 @@ export type Pokemon_V2_Type = {
   pokemon_v2_typenames_aggregate: Pokemon_V2_Typename_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemonV2PokemonevolutionsByPartyTypeIdArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -40039,16 +39668,15 @@ export type Pokemon_V2_TypePokemonV2PokemonevolutionsByPartyTypeIdArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
-export type Pokemon_V2_TypePokemonV2PokemonevolutionsByPartyTypeId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
-};
-
+export type Pokemon_V2_TypePokemonV2PokemonevolutionsByPartyTypeId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemonV2TypeefficaciesByTargetTypeIdArgs = {
@@ -40059,16 +39687,15 @@ export type Pokemon_V2_TypePokemonV2TypeefficaciesByTargetTypeIdArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
-export type Pokemon_V2_TypePokemonV2TypeefficaciesByTargetTypeId_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Typeefficacy_Order_By>>;
-  where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
-};
-
+export type Pokemon_V2_TypePokemonV2TypeefficaciesByTargetTypeId_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Typeefficacy_Order_By>>;
+    where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_BerriesArgs = {
@@ -40079,7 +39706,6 @@ export type Pokemon_V2_TypePokemon_V2_BerriesArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Berries_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
@@ -40088,7 +39714,6 @@ export type Pokemon_V2_TypePokemon_V2_Berries_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Berry_Order_By>>;
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_MovechangesArgs = {
@@ -40099,7 +39724,6 @@ export type Pokemon_V2_TypePokemon_V2_MovechangesArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Movechanges_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -40108,7 +39732,6 @@ export type Pokemon_V2_TypePokemon_V2_Movechanges_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movechange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_MovesArgs = {
@@ -40119,7 +39742,6 @@ export type Pokemon_V2_TypePokemon_V2_MovesArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Moves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -40128,7 +39750,6 @@ export type Pokemon_V2_TypePokemon_V2_Moves_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Move_Order_By>>;
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_PokemonevolutionsArgs = {
@@ -40139,7 +39760,6 @@ export type Pokemon_V2_TypePokemon_V2_PokemonevolutionsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Pokemonevolutions_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -40148,7 +39768,6 @@ export type Pokemon_V2_TypePokemon_V2_Pokemonevolutions_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonevolution_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_PokemonformtypesArgs = {
@@ -40159,7 +39778,6 @@ export type Pokemon_V2_TypePokemon_V2_PokemonformtypesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Pokemonformtypes_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
@@ -40168,7 +39786,6 @@ export type Pokemon_V2_TypePokemon_V2_Pokemonformtypes_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonformtype_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_PokemontypepastsArgs = {
@@ -40179,7 +39796,6 @@ export type Pokemon_V2_TypePokemon_V2_PokemontypepastsArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Pokemontypepasts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -40188,7 +39804,6 @@ export type Pokemon_V2_TypePokemon_V2_Pokemontypepasts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemontypepast_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_PokemontypesArgs = {
@@ -40199,7 +39814,6 @@ export type Pokemon_V2_TypePokemon_V2_PokemontypesArgs = {
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Pokemontypes_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
@@ -40208,7 +39822,6 @@ export type Pokemon_V2_TypePokemon_V2_Pokemontypes_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemontype_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_TypeefficaciesArgs = {
@@ -40219,7 +39832,6 @@ export type Pokemon_V2_TypePokemon_V2_TypeefficaciesArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Typeefficacies_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
@@ -40228,7 +39840,6 @@ export type Pokemon_V2_TypePokemon_V2_Typeefficacies_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Typeefficacy_Order_By>>;
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_TypegameindicesArgs = {
@@ -40239,7 +39850,6 @@ export type Pokemon_V2_TypePokemon_V2_TypegameindicesArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Typegameindices_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
@@ -40249,7 +39859,6 @@ export type Pokemon_V2_TypePokemon_V2_Typegameindices_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_TypenamesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
@@ -40258,7 +39867,6 @@ export type Pokemon_V2_TypePokemon_V2_TypenamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Typename_Order_By>>;
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_type" */
 export type Pokemon_V2_TypePokemon_V2_Typenames_AggregateArgs = {
@@ -40291,7 +39899,6 @@ export type Pokemon_V2_Type_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Type_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Type_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_type" */
 export type Pokemon_V2_Type_Aggregate_FieldsCountArgs = {
@@ -40419,7 +40026,7 @@ export enum Pokemon_V2_Type_Select_Column {
   /** column name */
   MoveDamageClassId = 'move_damage_class_id',
   /** column name */
-  Name = 'name'
+  Name = 'name',
 }
 
 /** aggregate stddev on columns */
@@ -40563,7 +40170,6 @@ export type Pokemon_V2_Typeefficacy_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Typeefficacy_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_typeefficacy" */
 export type Pokemon_V2_Typeefficacy_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
@@ -40668,7 +40274,7 @@ export enum Pokemon_V2_Typeefficacy_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  TargetTypeId = 'target_type_id'
+  TargetTypeId = 'target_type_id',
 }
 
 /** aggregate stddev on columns */
@@ -40826,7 +40432,6 @@ export type Pokemon_V2_Typegameindex_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Typegameindex_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_typegameindex" */
 export type Pokemon_V2_Typegameindex_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
@@ -40931,7 +40536,7 @@ export enum Pokemon_V2_Typegameindex_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -41089,7 +40694,6 @@ export type Pokemon_V2_Typename_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Typename_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_typename" */
 export type Pokemon_V2_Typename_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
@@ -41192,7 +40796,7 @@ export enum Pokemon_V2_Typename_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  TypeId = 'type_id'
+  TypeId = 'type_id',
 }
 
 /** aggregate stddev on columns */
@@ -41334,7 +40938,6 @@ export type Pokemon_V2_Version = {
   version_group_id?: Maybe<Scalars['Int']>;
 };
 
-
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_EncountersArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -41343,7 +40946,6 @@ export type Pokemon_V2_VersionPokemon_V2_EncountersArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encounter_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_Encounters_AggregateArgs = {
@@ -41354,26 +40956,28 @@ export type Pokemon_V2_VersionPokemon_V2_Encounters_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_LocationareaencounterratesArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_version" */
-export type Pokemon_V2_VersionPokemon_V2_Locationareaencounterrates_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersionPokemon_V2_Locationareaencounterrates_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_PokemongameindicesArgs = {
@@ -41384,7 +40988,6 @@ export type Pokemon_V2_VersionPokemon_V2_PokemongameindicesArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_Pokemongameindices_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
@@ -41393,7 +40996,6 @@ export type Pokemon_V2_VersionPokemon_V2_Pokemongameindices_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemongameindex_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_PokemonitemsArgs = {
@@ -41404,7 +41006,6 @@ export type Pokemon_V2_VersionPokemon_V2_PokemonitemsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_Pokemonitems_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -41413,7 +41014,6 @@ export type Pokemon_V2_VersionPokemon_V2_Pokemonitems_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonitem_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_PokemonspeciesflavortextsArgs = {
@@ -41424,16 +41024,17 @@ export type Pokemon_V2_VersionPokemon_V2_PokemonspeciesflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_version" */
-export type Pokemon_V2_VersionPokemon_V2_Pokemonspeciesflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersionPokemon_V2_Pokemonspeciesflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_VersionnamesArgs = {
@@ -41443,7 +41044,6 @@ export type Pokemon_V2_VersionPokemon_V2_VersionnamesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Versionname_Order_By>>;
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_version" */
 export type Pokemon_V2_VersionPokemon_V2_Versionnames_AggregateArgs = {
@@ -41476,7 +41076,6 @@ export type Pokemon_V2_Version_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Version_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Version_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_version" */
 export type Pokemon_V2_Version_Aggregate_FieldsCountArgs = {
@@ -41580,7 +41179,7 @@ export enum Pokemon_V2_Version_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -41741,7 +41340,6 @@ export type Pokemon_V2_Versiongroup = {
   pokemon_v2_versions_aggregate: Pokemon_V2_Version_Aggregate;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_AbilitychangesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
@@ -41750,7 +41348,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_AbilitychangesArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Abilitychange_Order_By>>;
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Abilitychanges_AggregateArgs = {
@@ -41761,7 +41358,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Abilitychanges_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_AbilityflavortextsArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -41771,16 +41367,15 @@ export type Pokemon_V2_VersiongroupPokemon_V2_AbilityflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_Abilityflavortexts_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Abilityflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersiongroupPokemon_V2_Abilityflavortexts_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Abilityflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_EncounterslotsArgs = {
@@ -41791,7 +41386,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_EncounterslotsArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Encounterslots_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
@@ -41800,7 +41394,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Encounterslots_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Encounterslot_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_ItemflavortextsArgs = {
@@ -41811,7 +41404,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_ItemflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Itemflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -41820,7 +41412,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Itemflavortexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Itemflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_MachinesArgs = {
@@ -41831,7 +41422,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_MachinesArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Machines_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -41840,7 +41430,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Machines_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Machine_Order_By>>;
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_MovechangesArgs = {
@@ -41851,7 +41440,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_MovechangesArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Movechanges_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -41860,7 +41448,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Movechanges_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Movechange_Order_By>>;
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_MoveeffectchangesArgs = {
@@ -41871,16 +41458,15 @@ export type Pokemon_V2_VersiongroupPokemon_V2_MoveeffectchangesArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_Moveeffectchanges_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffectchange_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersiongroupPokemon_V2_Moveeffectchanges_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffectchange_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_MoveflavortextsArgs = {
@@ -41891,7 +41477,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_MoveflavortextsArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Moveflavortexts_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -41900,7 +41485,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Moveflavortexts_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Moveflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_PokedexversiongroupsArgs = {
@@ -41911,16 +41495,15 @@ export type Pokemon_V2_VersiongroupPokemon_V2_PokedexversiongroupsArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_Pokedexversiongroups_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersiongroupPokemon_V2_Pokedexversiongroups_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_PokemonformsArgs = {
@@ -41931,7 +41514,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_PokemonformsArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Pokemonforms_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
@@ -41940,7 +41522,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Pokemonforms_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Pokemonform_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_PokemonmovesArgs = {
@@ -41951,7 +41532,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_PokemonmovesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Pokemonmoves_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -41961,26 +41541,29 @@ export type Pokemon_V2_VersiongroupPokemon_V2_Pokemonmoves_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
+/** columns and relationships of "pokemon_v2_versiongroup" */
+export type Pokemon_V2_VersiongroupPokemon_V2_VersiongroupmovelearnmethodsArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_VersiongroupmovelearnmethodsArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
-};
-
-
-/** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_Versiongroupmovelearnmethods_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersiongroupPokemon_V2_Versiongroupmovelearnmethods_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_VersiongroupregionsArgs = {
@@ -41991,16 +41574,15 @@ export type Pokemon_V2_VersiongroupPokemon_V2_VersiongroupregionsArgs = {
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
 
-
 /** columns and relationships of "pokemon_v2_versiongroup" */
-export type Pokemon_V2_VersiongroupPokemon_V2_Versiongroupregions_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupregion_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
-};
-
+export type Pokemon_V2_VersiongroupPokemon_V2_Versiongroupregions_AggregateArgs =
+  {
+    distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupregion_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
+  };
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_VersionsArgs = {
@@ -42010,7 +41592,6 @@ export type Pokemon_V2_VersiongroupPokemon_V2_VersionsArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Version_Order_By>>;
   where?: Maybe<Pokemon_V2_Version_Bool_Exp>;
 };
-
 
 /** columns and relationships of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_VersiongroupPokemon_V2_Versions_AggregateArgs = {
@@ -42043,7 +41624,6 @@ export type Pokemon_V2_Versiongroup_Aggregate_Fields = {
   var_samp?: Maybe<Pokemon_V2_Versiongroup_Var_Samp_Fields>;
   variance?: Maybe<Pokemon_V2_Versiongroup_Variance_Fields>;
 };
-
 
 /** aggregate fields of "pokemon_v2_versiongroup" */
 export type Pokemon_V2_Versiongroup_Aggregate_FieldsCountArgs = {
@@ -42173,7 +41753,7 @@ export enum Pokemon_V2_Versiongroup_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  Order = 'order'
+  Order = 'order',
 }
 
 /** aggregate stddev on columns */
@@ -42316,7 +41896,6 @@ export type Pokemon_V2_Versiongroupmovelearnmethod_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_versiongroupmovelearnmethod" */
 export type Pokemon_V2_Versiongroupmovelearnmethod_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
@@ -42411,7 +41990,7 @@ export enum Pokemon_V2_Versiongroupmovelearnmethod_Select_Column {
   /** column name */
   MoveLearnMethodId = 'move_learn_method_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -42554,7 +42133,6 @@ export type Pokemon_V2_Versiongroupregion_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Versiongroupregion_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_versiongroupregion" */
 export type Pokemon_V2_Versiongroupregion_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
@@ -42649,7 +42227,7 @@ export enum Pokemon_V2_Versiongroupregion_Select_Column {
   /** column name */
   RegionId = 'region_id',
   /** column name */
-  VersionGroupId = 'version_group_id'
+  VersionGroupId = 'version_group_id',
 }
 
 /** aggregate stddev on columns */
@@ -42793,7 +42371,6 @@ export type Pokemon_V2_Versionname_Aggregate_Fields = {
   variance?: Maybe<Pokemon_V2_Versionname_Variance_Fields>;
 };
 
-
 /** aggregate fields of "pokemon_v2_versionname" */
 export type Pokemon_V2_Versionname_Aggregate_FieldsCountArgs = {
   columns?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
@@ -42896,7 +42473,7 @@ export enum Pokemon_V2_Versionname_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
-  VersionId = 'version_id'
+  VersionId = 'version_id',
 }
 
 /** aggregate stddev on columns */
@@ -43908,7 +43485,6 @@ export type Query_Root = {
   pokemon_v2_versionname_by_pk?: Maybe<Pokemon_V2_Versionname>;
 };
 
-
 export type Query_RootPokemon_V2_AbilityArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Ability_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -43916,7 +43492,6 @@ export type Query_RootPokemon_V2_AbilityArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Ability_Order_By>>;
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Ability_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Ability_Select_Column>>;
@@ -43926,11 +43501,9 @@ export type Query_RootPokemon_V2_Ability_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Ability_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_AbilitychangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
@@ -43940,7 +43513,6 @@ export type Query_RootPokemon_V2_AbilitychangeArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilitychange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -43949,11 +43521,9 @@ export type Query_RootPokemon_V2_Abilitychange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilitychange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_AbilitychangeeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
@@ -43963,7 +43533,6 @@ export type Query_RootPokemon_V2_AbilitychangeeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilitychangeeffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -43972,11 +43541,9 @@ export type Query_RootPokemon_V2_Abilitychangeeffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilitychangeeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_AbilityeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
@@ -43986,7 +43553,6 @@ export type Query_RootPokemon_V2_AbilityeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityeffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -43995,11 +43561,9 @@ export type Query_RootPokemon_V2_Abilityeffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_AbilityflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -44009,7 +43573,6 @@ export type Query_RootPokemon_V2_AbilityflavortextArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44018,11 +43581,9 @@ export type Query_RootPokemon_V2_Abilityflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_AbilitynameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
@@ -44032,7 +43593,6 @@ export type Query_RootPokemon_V2_AbilitynameArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44041,11 +43601,9 @@ export type Query_RootPokemon_V2_Abilityname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Abilityname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
@@ -44055,7 +43613,6 @@ export type Query_RootPokemon_V2_BerryArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berry_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44064,11 +43621,9 @@ export type Query_RootPokemon_V2_Berry_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berry_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryfirmnessArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmness_Select_Column>>;
@@ -44078,7 +43633,6 @@ export type Query_RootPokemon_V2_BerryfirmnessArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmness_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryfirmness_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmness_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44087,11 +43641,9 @@ export type Query_RootPokemon_V2_Berryfirmness_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmness_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryfirmness_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryfirmnessnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
@@ -44101,7 +43653,6 @@ export type Query_RootPokemon_V2_BerryfirmnessnameArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryfirmnessname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44110,11 +43661,9 @@ export type Query_RootPokemon_V2_Berryfirmnessname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryfirmnessname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryflavorArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavor_Select_Column>>;
@@ -44124,7 +43673,6 @@ export type Query_RootPokemon_V2_BerryflavorArgs = {
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavor_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavor_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44133,11 +43681,9 @@ export type Query_RootPokemon_V2_Berryflavor_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavor_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryflavormapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
@@ -44147,7 +43693,6 @@ export type Query_RootPokemon_V2_BerryflavormapArgs = {
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavormap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44156,11 +43701,9 @@ export type Query_RootPokemon_V2_Berryflavormap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavormap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_BerryflavornameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
@@ -44170,7 +43713,6 @@ export type Query_RootPokemon_V2_BerryflavornameArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavorname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44179,11 +43721,9 @@ export type Query_RootPokemon_V2_Berryflavorname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Berryflavorname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_CharacteristicArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Characteristic_Select_Column>>;
@@ -44193,7 +43733,6 @@ export type Query_RootPokemon_V2_CharacteristicArgs = {
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Characteristic_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Characteristic_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44202,34 +43741,33 @@ export type Query_RootPokemon_V2_Characteristic_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Characteristic_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_CharacteristicdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Characteristicdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Characteristicdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Characteristicdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Characteristicdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContestcomboArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
@@ -44239,7 +43777,6 @@ export type Query_RootPokemon_V2_ContestcomboArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contestcombo_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44248,11 +43785,9 @@ export type Query_RootPokemon_V2_Contestcombo_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contestcombo_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContesteffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffect_Select_Column>>;
@@ -44262,7 +43797,6 @@ export type Query_RootPokemon_V2_ContesteffectArgs = {
   where?: Maybe<Pokemon_V2_Contesteffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44271,11 +43805,9 @@ export type Query_RootPokemon_V2_Contesteffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesteffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffect_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContesteffecteffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
@@ -44285,7 +43817,6 @@ export type Query_RootPokemon_V2_ContesteffecteffecttextArgs = {
   where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffecteffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44294,11 +43825,9 @@ export type Query_RootPokemon_V2_Contesteffecteffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContesteffectflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
@@ -44308,7 +43837,6 @@ export type Query_RootPokemon_V2_ContesteffectflavortextArgs = {
   where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffectflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44317,11 +43845,9 @@ export type Query_RootPokemon_V2_Contesteffectflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesteffectflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContesttypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttype_Select_Column>>;
@@ -44331,7 +43857,6 @@ export type Query_RootPokemon_V2_ContesttypeArgs = {
   where?: Maybe<Pokemon_V2_Contesttype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesttype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44340,11 +43865,9 @@ export type Query_RootPokemon_V2_Contesttype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesttype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesttype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ContesttypenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
@@ -44354,7 +43877,6 @@ export type Query_RootPokemon_V2_ContesttypenameArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesttypename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44363,11 +43885,9 @@ export type Query_RootPokemon_V2_Contesttypename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Contesttypename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EgggroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroup_Select_Column>>;
@@ -44377,7 +43897,6 @@ export type Query_RootPokemon_V2_EgggroupArgs = {
   where?: Maybe<Pokemon_V2_Egggroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Egggroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44386,11 +43905,9 @@ export type Query_RootPokemon_V2_Egggroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Egggroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Egggroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EgggroupnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
@@ -44400,7 +43917,6 @@ export type Query_RootPokemon_V2_EgggroupnameArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Egggroupname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44409,11 +43925,9 @@ export type Query_RootPokemon_V2_Egggroupname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Egggroupname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncounterArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -44423,7 +43937,6 @@ export type Query_RootPokemon_V2_EncounterArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounter_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44432,11 +43945,9 @@ export type Query_RootPokemon_V2_Encounter_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounter_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncounterconditionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountercondition_Select_Column>>;
@@ -44446,7 +43957,6 @@ export type Query_RootPokemon_V2_EncounterconditionArgs = {
   where?: Maybe<Pokemon_V2_Encountercondition_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountercondition_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountercondition_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44455,11 +43965,9 @@ export type Query_RootPokemon_V2_Encountercondition_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountercondition_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountercondition_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncounterconditionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
@@ -44469,7 +43977,6 @@ export type Query_RootPokemon_V2_EncounterconditionnameArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterconditionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44478,11 +43985,9 @@ export type Query_RootPokemon_V2_Encounterconditionname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterconditionname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncounterconditionvalueArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
@@ -44492,7 +43997,6 @@ export type Query_RootPokemon_V2_EncounterconditionvalueArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterconditionvalue_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44501,57 +44005,57 @@ export type Query_RootPokemon_V2_Encounterconditionvalue_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterconditionvalue_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_EncounterconditionvaluemapArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Encounterconditionvaluemap_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Encounterconditionvaluemap_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_EncounterconditionvaluenameArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Encounterconditionvaluename_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Encounterconditionvaluename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncountermethodArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethod_Select_Column>>;
@@ -44561,7 +44065,6 @@ export type Query_RootPokemon_V2_EncountermethodArgs = {
   where?: Maybe<Pokemon_V2_Encountermethod_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountermethod_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethod_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44570,11 +44073,9 @@ export type Query_RootPokemon_V2_Encountermethod_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountermethod_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountermethod_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncountermethodnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
@@ -44584,7 +44085,6 @@ export type Query_RootPokemon_V2_EncountermethodnameArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountermethodname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44593,11 +44093,9 @@ export type Query_RootPokemon_V2_Encountermethodname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encountermethodname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EncounterslotArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
@@ -44607,7 +44105,6 @@ export type Query_RootPokemon_V2_EncounterslotArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterslot_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44616,11 +44113,9 @@ export type Query_RootPokemon_V2_Encounterslot_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Encounterslot_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EvolutionchainArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutionchain_Select_Column>>;
@@ -44630,7 +44125,6 @@ export type Query_RootPokemon_V2_EvolutionchainArgs = {
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutionchain_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutionchain_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44639,11 +44133,9 @@ export type Query_RootPokemon_V2_Evolutionchain_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutionchain_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EvolutiontriggerArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontrigger_Select_Column>>;
@@ -44653,7 +44145,6 @@ export type Query_RootPokemon_V2_EvolutiontriggerArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontrigger_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutiontrigger_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontrigger_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44662,11 +44153,9 @@ export type Query_RootPokemon_V2_Evolutiontrigger_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontrigger_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutiontrigger_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_EvolutiontriggernameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
@@ -44676,7 +44165,6 @@ export type Query_RootPokemon_V2_EvolutiontriggernameArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutiontriggername_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44685,11 +44173,9 @@ export type Query_RootPokemon_V2_Evolutiontriggername_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Evolutiontriggername_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ExperienceArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
@@ -44699,7 +44185,6 @@ export type Query_RootPokemon_V2_ExperienceArgs = {
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Experience_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44708,11 +44193,9 @@ export type Query_RootPokemon_V2_Experience_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Experience_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_GenderArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Gender_Select_Column>>;
@@ -44722,7 +44205,6 @@ export type Query_RootPokemon_V2_GenderArgs = {
   where?: Maybe<Pokemon_V2_Gender_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Gender_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Gender_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44731,11 +44213,9 @@ export type Query_RootPokemon_V2_Gender_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Gender_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Gender_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_GenerationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generation_Select_Column>>;
@@ -44745,7 +44225,6 @@ export type Query_RootPokemon_V2_GenerationArgs = {
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Generation_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44754,11 +44233,9 @@ export type Query_RootPokemon_V2_Generation_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Generation_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_GenerationnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
@@ -44768,7 +44245,6 @@ export type Query_RootPokemon_V2_GenerationnameArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Generationname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44777,11 +44253,9 @@ export type Query_RootPokemon_V2_Generationname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Generationname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_GrowthrateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthrate_Select_Column>>;
@@ -44791,7 +44265,6 @@ export type Query_RootPokemon_V2_GrowthrateArgs = {
   where?: Maybe<Pokemon_V2_Growthrate_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Growthrate_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthrate_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44800,11 +44273,9 @@ export type Query_RootPokemon_V2_Growthrate_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Growthrate_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Growthrate_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_GrowthratedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
@@ -44814,7 +44285,6 @@ export type Query_RootPokemon_V2_GrowthratedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Growthratedescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44823,11 +44293,9 @@ export type Query_RootPokemon_V2_Growthratedescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Growthratedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Item_Select_Column>>;
@@ -44837,7 +44305,6 @@ export type Query_RootPokemon_V2_ItemArgs = {
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Item_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Item_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44846,11 +44313,9 @@ export type Query_RootPokemon_V2_Item_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Item_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemattributeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattribute_Select_Column>>;
@@ -44860,7 +44325,6 @@ export type Query_RootPokemon_V2_ItemattributeArgs = {
   where?: Maybe<Pokemon_V2_Itemattribute_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44869,11 +44333,9 @@ export type Query_RootPokemon_V2_Itemattribute_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattribute_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattribute_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemattributedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
@@ -44883,7 +44345,6 @@ export type Query_RootPokemon_V2_ItemattributedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributedescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44892,11 +44353,9 @@ export type Query_RootPokemon_V2_Itemattributedescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemattributemapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
@@ -44906,7 +44365,6 @@ export type Query_RootPokemon_V2_ItemattributemapArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributemap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44915,11 +44373,9 @@ export type Query_RootPokemon_V2_Itemattributemap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributemap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemattributenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
@@ -44929,7 +44385,6 @@ export type Query_RootPokemon_V2_ItemattributenameArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44938,11 +44393,9 @@ export type Query_RootPokemon_V2_Itemattributename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemattributename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemcategoryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategory_Select_Column>>;
@@ -44952,7 +44405,6 @@ export type Query_RootPokemon_V2_ItemcategoryArgs = {
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemcategory_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategory_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44961,11 +44413,9 @@ export type Query_RootPokemon_V2_Itemcategory_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemcategory_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemcategorynameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
@@ -44975,7 +44425,6 @@ export type Query_RootPokemon_V2_ItemcategorynameArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemcategoryname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -44984,11 +44433,9 @@ export type Query_RootPokemon_V2_Itemcategoryname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemcategoryname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
@@ -44998,7 +44445,6 @@ export type Query_RootPokemon_V2_ItemeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemeffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45007,11 +44453,9 @@ export type Query_RootPokemon_V2_Itemeffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -45021,7 +44465,6 @@ export type Query_RootPokemon_V2_ItemflavortextArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45030,11 +44473,9 @@ export type Query_RootPokemon_V2_Itemflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemflingeffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffect_Select_Column>>;
@@ -45044,7 +44485,6 @@ export type Query_RootPokemon_V2_ItemflingeffectArgs = {
   where?: Maybe<Pokemon_V2_Itemflingeffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemflingeffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45053,34 +44493,33 @@ export type Query_RootPokemon_V2_Itemflingeffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemflingeffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemflingeffect_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_ItemflingeffecteffecttextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Itemflingeffecteffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Itemflingeffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemgameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
@@ -45090,7 +44529,6 @@ export type Query_RootPokemon_V2_ItemgameindexArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemgameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45099,11 +44537,9 @@ export type Query_RootPokemon_V2_Itemgameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemgameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
@@ -45113,7 +44549,6 @@ export type Query_RootPokemon_V2_ItemnameArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45122,11 +44557,9 @@ export type Query_RootPokemon_V2_Itemname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItempocketArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocket_Select_Column>>;
@@ -45136,7 +44569,6 @@ export type Query_RootPokemon_V2_ItempocketArgs = {
   where?: Maybe<Pokemon_V2_Itempocket_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itempocket_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocket_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45145,11 +44577,9 @@ export type Query_RootPokemon_V2_Itempocket_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itempocket_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itempocket_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItempocketnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
@@ -45159,7 +44589,6 @@ export type Query_RootPokemon_V2_ItempocketnameArgs = {
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itempocketname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45168,11 +44597,9 @@ export type Query_RootPokemon_V2_Itempocketname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itempocketname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_ItemspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
@@ -45182,7 +44609,6 @@ export type Query_RootPokemon_V2_ItemspritesArgs = {
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45191,11 +44617,9 @@ export type Query_RootPokemon_V2_Itemsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Itemsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LanguageArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Language_Select_Column>>;
@@ -45205,7 +44629,6 @@ export type Query_RootPokemon_V2_LanguageArgs = {
   where?: Maybe<Pokemon_V2_Language_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Language_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Language_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45214,11 +44637,9 @@ export type Query_RootPokemon_V2_Language_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Language_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Language_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LanguagenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
@@ -45228,7 +44649,6 @@ export type Query_RootPokemon_V2_LanguagenameArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Languagename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45237,11 +44657,9 @@ export type Query_RootPokemon_V2_Languagename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Languagename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LocationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Location_Select_Column>>;
@@ -45251,7 +44669,6 @@ export type Query_RootPokemon_V2_LocationArgs = {
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Location_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Location_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45260,11 +44677,9 @@ export type Query_RootPokemon_V2_Location_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Location_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LocationareaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationarea_Select_Column>>;
@@ -45274,7 +44689,6 @@ export type Query_RootPokemon_V2_LocationareaArgs = {
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationarea_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationarea_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45283,34 +44697,33 @@ export type Query_RootPokemon_V2_Locationarea_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationarea_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_LocationareaencounterrateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Locationareaencounterrate_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Locationareaencounterrate_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LocationareanameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
@@ -45320,7 +44733,6 @@ export type Query_RootPokemon_V2_LocationareanameArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationareaname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45329,11 +44741,9 @@ export type Query_RootPokemon_V2_Locationareaname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationareaname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LocationgameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
@@ -45343,7 +44753,6 @@ export type Query_RootPokemon_V2_LocationgameindexArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationgameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45352,11 +44761,9 @@ export type Query_RootPokemon_V2_Locationgameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationgameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_LocationnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
@@ -45366,7 +44773,6 @@ export type Query_RootPokemon_V2_LocationnameArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45375,11 +44781,9 @@ export type Query_RootPokemon_V2_Locationname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Locationname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MachineArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -45389,7 +44793,6 @@ export type Query_RootPokemon_V2_MachineArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Machine_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45398,11 +44801,9 @@ export type Query_RootPokemon_V2_Machine_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Machine_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -45412,7 +44813,6 @@ export type Query_RootPokemon_V2_MoveArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Move_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45421,11 +44821,9 @@ export type Query_RootPokemon_V2_Move_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Move_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveattributeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattribute_Select_Column>>;
@@ -45435,7 +44833,6 @@ export type Query_RootPokemon_V2_MoveattributeArgs = {
   where?: Maybe<Pokemon_V2_Moveattribute_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45444,11 +44841,9 @@ export type Query_RootPokemon_V2_Moveattribute_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattribute_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattribute_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveattributedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
@@ -45458,7 +44853,6 @@ export type Query_RootPokemon_V2_MoveattributedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributedescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45467,11 +44861,9 @@ export type Query_RootPokemon_V2_Moveattributedescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveattributemapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
@@ -45481,7 +44873,6 @@ export type Query_RootPokemon_V2_MoveattributemapArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributemap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45490,11 +44881,9 @@ export type Query_RootPokemon_V2_Moveattributemap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributemap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveattributenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
@@ -45504,7 +44893,6 @@ export type Query_RootPokemon_V2_MoveattributenameArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45513,11 +44901,9 @@ export type Query_RootPokemon_V2_Moveattributename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveattributename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovebattlestyleArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestyle_Select_Column>>;
@@ -45527,7 +44913,6 @@ export type Query_RootPokemon_V2_MovebattlestyleArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestyle_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movebattlestyle_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestyle_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45536,11 +44921,9 @@ export type Query_RootPokemon_V2_Movebattlestyle_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestyle_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movebattlestyle_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovebattlestylenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
@@ -45550,7 +44933,6 @@ export type Query_RootPokemon_V2_MovebattlestylenameArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movebattlestylename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45559,11 +44941,9 @@ export type Query_RootPokemon_V2_Movebattlestylename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movebattlestylename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovechangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -45573,7 +44953,6 @@ export type Query_RootPokemon_V2_MovechangeArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movechange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45582,11 +44961,9 @@ export type Query_RootPokemon_V2_Movechange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movechange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovedamageclassArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclass_Select_Column>>;
@@ -45596,7 +44973,6 @@ export type Query_RootPokemon_V2_MovedamageclassArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclass_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movedamageclass_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclass_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45605,34 +44981,33 @@ export type Query_RootPokemon_V2_Movedamageclass_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclass_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movedamageclass_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_MovedamageclassdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movedamageclassdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movedamageclassdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovedamageclassnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
@@ -45642,7 +45017,6 @@ export type Query_RootPokemon_V2_MovedamageclassnameArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movedamageclassname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45651,11 +45025,9 @@ export type Query_RootPokemon_V2_Movedamageclassname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movedamageclassname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveeffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffect_Select_Column>>;
@@ -45665,7 +45037,6 @@ export type Query_RootPokemon_V2_MoveeffectArgs = {
   where?: Maybe<Pokemon_V2_Moveeffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45674,11 +45045,9 @@ export type Query_RootPokemon_V2_Moveeffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffect_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveeffectchangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
@@ -45688,7 +45057,6 @@ export type Query_RootPokemon_V2_MoveeffectchangeArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffectchange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45697,34 +45065,33 @@ export type Query_RootPokemon_V2_Moveeffectchange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffectchange_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_MoveeffectchangeeffecttextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Moveeffectchangeeffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Moveeffectchangeeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveeffecteffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
@@ -45734,7 +45101,6 @@ export type Query_RootPokemon_V2_MoveeffecteffecttextArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffecteffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45743,11 +45109,9 @@ export type Query_RootPokemon_V2_Moveeffecteffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveeffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MoveflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -45757,7 +45121,6 @@ export type Query_RootPokemon_V2_MoveflavortextArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45766,11 +45129,9 @@ export type Query_RootPokemon_V2_Moveflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Moveflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovelearnmethodArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethod_Select_Column>>;
@@ -45780,7 +45141,6 @@ export type Query_RootPokemon_V2_MovelearnmethodArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethod_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movelearnmethod_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethod_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45789,34 +45149,33 @@ export type Query_RootPokemon_V2_Movelearnmethod_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethod_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movelearnmethod_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_MovelearnmethoddescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movelearnmethoddescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movelearnmethoddescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovelearnmethodnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
@@ -45826,7 +45185,6 @@ export type Query_RootPokemon_V2_MovelearnmethodnameArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movelearnmethodname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45835,11 +45193,9 @@ export type Query_RootPokemon_V2_Movelearnmethodname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movelearnmethodname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovemetaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
@@ -45849,7 +45205,6 @@ export type Query_RootPokemon_V2_MovemetaArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemeta_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45858,11 +45213,9 @@ export type Query_RootPokemon_V2_Movemeta_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemeta_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovemetaailmentArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailment_Select_Column>>;
@@ -45872,7 +45225,6 @@ export type Query_RootPokemon_V2_MovemetaailmentArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailment_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetaailment_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45881,11 +45233,9 @@ export type Query_RootPokemon_V2_Movemetaailment_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailment_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetaailment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovemetaailmentnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
@@ -45895,7 +45245,6 @@ export type Query_RootPokemon_V2_MovemetaailmentnameArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetaailmentname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45904,11 +45253,9 @@ export type Query_RootPokemon_V2_Movemetaailmentname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetaailmentname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovemetacategoryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategory_Select_Column>>;
@@ -45918,7 +45265,6 @@ export type Query_RootPokemon_V2_MovemetacategoryArgs = {
   where?: Maybe<Pokemon_V2_Movemetacategory_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetacategory_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategory_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45927,34 +45273,33 @@ export type Query_RootPokemon_V2_Movemetacategory_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetacategory_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetacategory_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_MovemetacategorydescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movemetacategorydescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Movemetacategorydescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovemetastatchangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
@@ -45964,7 +45309,6 @@ export type Query_RootPokemon_V2_MovemetastatchangeArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetastatchange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45973,11 +45317,9 @@ export type Query_RootPokemon_V2_Movemetastatchange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movemetastatchange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
@@ -45987,7 +45329,6 @@ export type Query_RootPokemon_V2_MovenameArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -45996,11 +45337,9 @@ export type Query_RootPokemon_V2_Movename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovetargetArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetarget_Select_Column>>;
@@ -46010,7 +45349,6 @@ export type Query_RootPokemon_V2_MovetargetArgs = {
   where?: Maybe<Pokemon_V2_Movetarget_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetarget_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetarget_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46019,11 +45357,9 @@ export type Query_RootPokemon_V2_Movetarget_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetarget_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetarget_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovetargetdescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
@@ -46033,7 +45369,6 @@ export type Query_RootPokemon_V2_MovetargetdescriptionArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetargetdescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46042,11 +45377,9 @@ export type Query_RootPokemon_V2_Movetargetdescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetargetdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_MovetargetnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
@@ -46056,7 +45389,6 @@ export type Query_RootPokemon_V2_MovetargetnameArgs = {
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetargetname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46065,11 +45397,9 @@ export type Query_RootPokemon_V2_Movetargetname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Movetargetname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_NatureArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -46079,7 +45409,6 @@ export type Query_RootPokemon_V2_NatureArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Nature_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46088,34 +45417,33 @@ export type Query_RootPokemon_V2_Nature_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Nature_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_NaturebattlestylepreferenceArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Naturebattlestylepreference_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Naturebattlestylepreference_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_NaturenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
@@ -46125,7 +45453,6 @@ export type Query_RootPokemon_V2_NaturenameArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Naturename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46134,11 +45461,9 @@ export type Query_RootPokemon_V2_Naturename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Naturename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_NaturepokeathlonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
@@ -46148,7 +45473,6 @@ export type Query_RootPokemon_V2_NaturepokeathlonstatArgs = {
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Naturepokeathlonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46157,11 +45481,9 @@ export type Query_RootPokemon_V2_Naturepokeathlonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Naturepokeathlonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PalparkArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
@@ -46171,7 +45493,6 @@ export type Query_RootPokemon_V2_PalparkArgs = {
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palpark_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46180,11 +45501,9 @@ export type Query_RootPokemon_V2_Palpark_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palpark_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PalparkareaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkarea_Select_Column>>;
@@ -46194,7 +45513,6 @@ export type Query_RootPokemon_V2_PalparkareaArgs = {
   where?: Maybe<Pokemon_V2_Palparkarea_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palparkarea_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkarea_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46203,11 +45521,9 @@ export type Query_RootPokemon_V2_Palparkarea_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palparkarea_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palparkarea_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PalparkareanameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
@@ -46217,7 +45533,6 @@ export type Query_RootPokemon_V2_PalparkareanameArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palparkareaname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46226,11 +45541,9 @@ export type Query_RootPokemon_V2_Palparkareaname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Palparkareaname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokeathlonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstat_Select_Column>>;
@@ -46240,7 +45553,6 @@ export type Query_RootPokemon_V2_PokeathlonstatArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokeathlonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46249,11 +45561,9 @@ export type Query_RootPokemon_V2_Pokeathlonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokeathlonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokeathlonstatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
@@ -46263,7 +45573,6 @@ export type Query_RootPokemon_V2_PokeathlonstatnameArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokeathlonstatname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46272,11 +45581,9 @@ export type Query_RootPokemon_V2_Pokeathlonstatname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokeathlonstatname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokedexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedex_Select_Column>>;
@@ -46286,7 +45593,6 @@ export type Query_RootPokemon_V2_PokedexArgs = {
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46295,11 +45601,9 @@ export type Query_RootPokemon_V2_Pokedex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokedexdescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
@@ -46309,7 +45613,6 @@ export type Query_RootPokemon_V2_PokedexdescriptionArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexdescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46318,11 +45621,9 @@ export type Query_RootPokemon_V2_Pokedexdescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokedexnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
@@ -46332,7 +45633,6 @@ export type Query_RootPokemon_V2_PokedexnameArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46341,11 +45641,9 @@ export type Query_RootPokemon_V2_Pokedexname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokedexversiongroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
@@ -46355,7 +45653,6 @@ export type Query_RootPokemon_V2_PokedexversiongroupArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexversiongroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46364,11 +45661,9 @@ export type Query_RootPokemon_V2_Pokedexversiongroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokedexversiongroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemon_Select_Column>>;
@@ -46378,7 +45673,6 @@ export type Query_RootPokemon_V2_PokemonArgs = {
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemon_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemon_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46387,11 +45681,9 @@ export type Query_RootPokemon_V2_Pokemon_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemon_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonabilityArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
@@ -46401,7 +45693,6 @@ export type Query_RootPokemon_V2_PokemonabilityArgs = {
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonability_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46410,11 +45701,9 @@ export type Query_RootPokemon_V2_Pokemonability_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonability_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemoncolorArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolor_Select_Column>>;
@@ -46424,7 +45713,6 @@ export type Query_RootPokemon_V2_PokemoncolorArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolor_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemoncolor_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolor_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46433,11 +45721,9 @@ export type Query_RootPokemon_V2_Pokemoncolor_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolor_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemoncolor_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemoncolornameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
@@ -46447,7 +45733,6 @@ export type Query_RootPokemon_V2_PokemoncolornameArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemoncolorname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46456,11 +45741,9 @@ export type Query_RootPokemon_V2_Pokemoncolorname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemoncolorname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemondexnumberArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
@@ -46470,7 +45753,6 @@ export type Query_RootPokemon_V2_PokemondexnumberArgs = {
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemondexnumber_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46479,11 +45761,9 @@ export type Query_RootPokemon_V2_Pokemondexnumber_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemondexnumber_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonegggroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
@@ -46493,7 +45773,6 @@ export type Query_RootPokemon_V2_PokemonegggroupArgs = {
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonegggroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46502,11 +45781,9 @@ export type Query_RootPokemon_V2_Pokemonegggroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonegggroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonevolutionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -46516,7 +45793,6 @@ export type Query_RootPokemon_V2_PokemonevolutionArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonevolution_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46525,11 +45801,9 @@ export type Query_RootPokemon_V2_Pokemonevolution_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonevolution_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonformArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
@@ -46539,7 +45813,6 @@ export type Query_RootPokemon_V2_PokemonformArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonform_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46548,11 +45821,9 @@ export type Query_RootPokemon_V2_Pokemonform_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonform_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonformgenerationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
@@ -46562,7 +45833,6 @@ export type Query_RootPokemon_V2_PokemonformgenerationArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformgeneration_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46571,11 +45841,9 @@ export type Query_RootPokemon_V2_Pokemonformgeneration_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformgeneration_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonformnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
@@ -46585,7 +45853,6 @@ export type Query_RootPokemon_V2_PokemonformnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46594,11 +45861,9 @@ export type Query_RootPokemon_V2_Pokemonformname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonformspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
@@ -46608,7 +45873,6 @@ export type Query_RootPokemon_V2_PokemonformspritesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46617,11 +45881,9 @@ export type Query_RootPokemon_V2_Pokemonformsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonformtypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
@@ -46631,7 +45893,6 @@ export type Query_RootPokemon_V2_PokemonformtypeArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformtype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46640,11 +45901,9 @@ export type Query_RootPokemon_V2_Pokemonformtype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonformtype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemongameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
@@ -46654,7 +45913,6 @@ export type Query_RootPokemon_V2_PokemongameindexArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemongameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46663,11 +45921,9 @@ export type Query_RootPokemon_V2_Pokemongameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemongameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonhabitatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitat_Select_Column>>;
@@ -46677,7 +45933,6 @@ export type Query_RootPokemon_V2_PokemonhabitatArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonhabitat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46686,11 +45941,9 @@ export type Query_RootPokemon_V2_Pokemonhabitat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonhabitat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonhabitatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
@@ -46700,7 +45953,6 @@ export type Query_RootPokemon_V2_PokemonhabitatnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonhabitatname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46709,11 +45961,9 @@ export type Query_RootPokemon_V2_Pokemonhabitatname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonhabitatname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonitemArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -46723,7 +45973,6 @@ export type Query_RootPokemon_V2_PokemonitemArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonitem_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46732,11 +45981,9 @@ export type Query_RootPokemon_V2_Pokemonitem_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonitem_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonmoveArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -46746,7 +45993,6 @@ export type Query_RootPokemon_V2_PokemonmoveArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonmove_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46755,11 +46001,9 @@ export type Query_RootPokemon_V2_Pokemonmove_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonmove_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonshapeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshape_Select_Column>>;
@@ -46769,7 +46013,6 @@ export type Query_RootPokemon_V2_PokemonshapeArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshape_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonshape_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshape_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46778,11 +46021,9 @@ export type Query_RootPokemon_V2_Pokemonshape_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshape_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonshape_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonshapenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
@@ -46792,7 +46033,6 @@ export type Query_RootPokemon_V2_PokemonshapenameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonshapename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46801,11 +46041,9 @@ export type Query_RootPokemon_V2_Pokemonshapename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonshapename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonspeciesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -46815,7 +46053,6 @@ export type Query_RootPokemon_V2_PokemonspeciesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspecies_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46824,34 +46061,33 @@ export type Query_RootPokemon_V2_Pokemonspecies_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspecies_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_PokemonspeciesdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Pokemonspeciesdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Pokemonspeciesdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonspeciesflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
@@ -46861,7 +46097,6 @@ export type Query_RootPokemon_V2_PokemonspeciesflavortextArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspeciesflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46870,11 +46105,9 @@ export type Query_RootPokemon_V2_Pokemonspeciesflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspeciesflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonspeciesnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
@@ -46884,7 +46117,6 @@ export type Query_RootPokemon_V2_PokemonspeciesnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspeciesname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46893,11 +46125,9 @@ export type Query_RootPokemon_V2_Pokemonspeciesname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonspeciesname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
@@ -46907,7 +46137,6 @@ export type Query_RootPokemon_V2_PokemonspritesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46916,11 +46145,9 @@ export type Query_RootPokemon_V2_Pokemonsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
@@ -46930,7 +46157,6 @@ export type Query_RootPokemon_V2_PokemonstatArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46939,11 +46165,9 @@ export type Query_RootPokemon_V2_Pokemonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemontypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
@@ -46953,7 +46177,6 @@ export type Query_RootPokemon_V2_PokemontypeArgs = {
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemontype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46962,11 +46185,9 @@ export type Query_RootPokemon_V2_Pokemontype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemontype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_PokemontypepastArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -46976,7 +46197,6 @@ export type Query_RootPokemon_V2_PokemontypepastArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemontypepast_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -46985,11 +46205,9 @@ export type Query_RootPokemon_V2_Pokemontypepast_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Pokemontypepast_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_RegionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Region_Select_Column>>;
@@ -46999,7 +46217,6 @@ export type Query_RootPokemon_V2_RegionArgs = {
   where?: Maybe<Pokemon_V2_Region_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Region_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Region_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47008,11 +46225,9 @@ export type Query_RootPokemon_V2_Region_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Region_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Region_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_RegionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
@@ -47022,7 +46237,6 @@ export type Query_RootPokemon_V2_RegionnameArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Regionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47031,11 +46245,9 @@ export type Query_RootPokemon_V2_Regionname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Regionname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_StatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Stat_Select_Column>>;
@@ -47045,7 +46257,6 @@ export type Query_RootPokemon_V2_StatArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Stat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Stat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47054,11 +46265,9 @@ export type Query_RootPokemon_V2_Stat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Stat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_StatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
@@ -47068,7 +46277,6 @@ export type Query_RootPokemon_V2_StatnameArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Statname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47077,11 +46285,9 @@ export type Query_RootPokemon_V2_Statname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Statname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_SupercontestcomboArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
@@ -47091,7 +46297,6 @@ export type Query_RootPokemon_V2_SupercontestcomboArgs = {
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Supercontestcombo_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47100,11 +46305,9 @@ export type Query_RootPokemon_V2_Supercontestcombo_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Supercontestcombo_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_SupercontesteffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffect_Select_Column>>;
@@ -47114,7 +46317,6 @@ export type Query_RootPokemon_V2_SupercontesteffectArgs = {
   where?: Maybe<Pokemon_V2_Supercontesteffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Supercontesteffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47123,34 +46325,33 @@ export type Query_RootPokemon_V2_Supercontesteffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Supercontesteffect_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Supercontesteffect_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_SupercontesteffectflavortextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Supercontesteffectflavortext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Supercontesteffectflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_TypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
@@ -47160,7 +46361,6 @@ export type Query_RootPokemon_V2_TypeArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Type_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47169,11 +46369,9 @@ export type Query_RootPokemon_V2_Type_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Type_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_TypeefficacyArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
@@ -47183,7 +46381,6 @@ export type Query_RootPokemon_V2_TypeefficacyArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typeefficacy_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47192,11 +46389,9 @@ export type Query_RootPokemon_V2_Typeefficacy_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typeefficacy_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_TypegameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
@@ -47206,7 +46401,6 @@ export type Query_RootPokemon_V2_TypegameindexArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typegameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47215,11 +46409,9 @@ export type Query_RootPokemon_V2_Typegameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typegameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_TypenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
@@ -47229,7 +46421,6 @@ export type Query_RootPokemon_V2_TypenameArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47238,11 +46429,9 @@ export type Query_RootPokemon_V2_Typename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Typename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_VersionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Version_Select_Column>>;
@@ -47252,7 +46441,6 @@ export type Query_RootPokemon_V2_VersionArgs = {
   where?: Maybe<Pokemon_V2_Version_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Version_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Version_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47261,11 +46449,9 @@ export type Query_RootPokemon_V2_Version_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Version_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Version_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_VersiongroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroup_Select_Column>>;
@@ -47275,7 +46461,6 @@ export type Query_RootPokemon_V2_VersiongroupArgs = {
   where?: Maybe<Pokemon_V2_Versiongroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Versiongroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47284,34 +46469,33 @@ export type Query_RootPokemon_V2_Versiongroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Versiongroup_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Versiongroup_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Query_RootPokemon_V2_VersiongroupmovelearnmethodArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
   where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Versiongroupmovelearnmethod_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
   where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Versiongroupmovelearnmethod_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_VersiongroupregionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
@@ -47321,7 +46505,6 @@ export type Query_RootPokemon_V2_VersiongroupregionArgs = {
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Versiongroupregion_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47330,11 +46513,9 @@ export type Query_RootPokemon_V2_Versiongroupregion_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Versiongroupregion_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Query_RootPokemon_V2_VersionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
@@ -47344,7 +46525,6 @@ export type Query_RootPokemon_V2_VersionnameArgs = {
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-
 export type Query_RootPokemon_V2_Versionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -47352,7 +46532,6 @@ export type Query_RootPokemon_V2_Versionname_AggregateArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Versionname_Order_By>>;
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
-
 
 export type Query_RootPokemon_V2_Versionname_By_PkArgs = {
   id: Scalars['Int'];
@@ -48262,7 +47441,6 @@ export type Subscription_Root = {
   pokemon_v2_versionname_by_pk?: Maybe<Pokemon_V2_Versionname>;
 };
 
-
 export type Subscription_RootPokemon_V2_AbilityArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Ability_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48270,7 +47448,6 @@ export type Subscription_RootPokemon_V2_AbilityArgs = {
   order_by?: Maybe<Array<Pokemon_V2_Ability_Order_By>>;
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
-
 
 export type Subscription_RootPokemon_V2_Ability_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Ability_Select_Column>>;
@@ -48280,11 +47457,9 @@ export type Subscription_RootPokemon_V2_Ability_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Ability_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Ability_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_AbilitychangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
@@ -48294,7 +47469,6 @@ export type Subscription_RootPokemon_V2_AbilitychangeArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilitychange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48303,11 +47477,9 @@ export type Subscription_RootPokemon_V2_Abilitychange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilitychange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilitychange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_AbilitychangeeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
@@ -48317,20 +47489,20 @@ export type Subscription_RootPokemon_V2_AbilitychangeeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Abilitychangeeffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Abilitychangeeffecttext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Abilitychangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Abilitychangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Abilitychangeeffecttext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Abilitychangeeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_AbilityeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
@@ -48340,7 +47512,6 @@ export type Subscription_RootPokemon_V2_AbilityeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityeffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityeffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48349,11 +47520,9 @@ export type Subscription_RootPokemon_V2_Abilityeffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityeffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_AbilityflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
@@ -48363,7 +47532,6 @@ export type Subscription_RootPokemon_V2_AbilityflavortextArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48372,11 +47540,9 @@ export type Subscription_RootPokemon_V2_Abilityflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_AbilitynameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
@@ -48386,7 +47552,6 @@ export type Subscription_RootPokemon_V2_AbilitynameArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Abilityname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48395,11 +47560,9 @@ export type Subscription_RootPokemon_V2_Abilityname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Abilityname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Abilityname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
@@ -48409,7 +47572,6 @@ export type Subscription_RootPokemon_V2_BerryArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berry_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berry_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48418,11 +47580,9 @@ export type Subscription_RootPokemon_V2_Berry_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berry_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berry_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryfirmnessArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmness_Select_Column>>;
@@ -48432,7 +47592,6 @@ export type Subscription_RootPokemon_V2_BerryfirmnessArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmness_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryfirmness_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmness_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48441,11 +47600,9 @@ export type Subscription_RootPokemon_V2_Berryfirmness_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmness_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryfirmness_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryfirmnessnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
@@ -48455,7 +47612,6 @@ export type Subscription_RootPokemon_V2_BerryfirmnessnameArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryfirmnessname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryfirmnessname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48464,11 +47620,9 @@ export type Subscription_RootPokemon_V2_Berryfirmnessname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryfirmnessname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryfirmnessname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryflavorArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavor_Select_Column>>;
@@ -48478,7 +47632,6 @@ export type Subscription_RootPokemon_V2_BerryflavorArgs = {
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavor_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavor_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48487,11 +47640,9 @@ export type Subscription_RootPokemon_V2_Berryflavor_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavor_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavor_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryflavormapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
@@ -48501,7 +47652,6 @@ export type Subscription_RootPokemon_V2_BerryflavormapArgs = {
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavormap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavormap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48510,11 +47660,9 @@ export type Subscription_RootPokemon_V2_Berryflavormap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavormap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavormap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_BerryflavornameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
@@ -48524,7 +47672,6 @@ export type Subscription_RootPokemon_V2_BerryflavornameArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavorname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Berryflavorname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48533,11 +47680,9 @@ export type Subscription_RootPokemon_V2_Berryflavorname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Berryflavorname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Berryflavorname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_CharacteristicArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Characteristic_Select_Column>>;
@@ -48547,7 +47692,6 @@ export type Subscription_RootPokemon_V2_CharacteristicArgs = {
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Characteristic_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Characteristic_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48556,34 +47700,34 @@ export type Subscription_RootPokemon_V2_Characteristic_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Characteristic_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Characteristic_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_CharacteristicdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Characteristicdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Characteristicdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Characteristicdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Characteristicdescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Characteristicdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Characteristicdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Characteristicdescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Characteristicdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContestcomboArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
@@ -48593,7 +47737,6 @@ export type Subscription_RootPokemon_V2_ContestcomboArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contestcombo_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contestcombo_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48602,11 +47745,9 @@ export type Subscription_RootPokemon_V2_Contestcombo_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contestcombo_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contestcombo_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContesteffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffect_Select_Column>>;
@@ -48616,7 +47757,6 @@ export type Subscription_RootPokemon_V2_ContesteffectArgs = {
   where?: Maybe<Pokemon_V2_Contesteffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesteffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48625,11 +47765,9 @@ export type Subscription_RootPokemon_V2_Contesteffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesteffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesteffect_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContesteffecteffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
@@ -48639,20 +47777,20 @@ export type Subscription_RootPokemon_V2_ContesteffecteffecttextArgs = {
   where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Contesteffecteffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Contesteffecteffecttext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffecteffecttext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Contesteffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContesteffectflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
@@ -48662,20 +47800,20 @@ export type Subscription_RootPokemon_V2_ContesteffectflavortextArgs = {
   where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Contesteffectflavortext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Contesteffectflavortext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Contesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Contesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Contesteffectflavortext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Contesteffectflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContesttypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttype_Select_Column>>;
@@ -48685,7 +47823,6 @@ export type Subscription_RootPokemon_V2_ContesttypeArgs = {
   where?: Maybe<Pokemon_V2_Contesttype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesttype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48694,11 +47831,9 @@ export type Subscription_RootPokemon_V2_Contesttype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesttype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesttype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ContesttypenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
@@ -48708,7 +47843,6 @@ export type Subscription_RootPokemon_V2_ContesttypenameArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesttypename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Contesttypename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48717,11 +47851,9 @@ export type Subscription_RootPokemon_V2_Contesttypename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Contesttypename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Contesttypename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EgggroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroup_Select_Column>>;
@@ -48731,7 +47863,6 @@ export type Subscription_RootPokemon_V2_EgggroupArgs = {
   where?: Maybe<Pokemon_V2_Egggroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Egggroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48740,11 +47871,9 @@ export type Subscription_RootPokemon_V2_Egggroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Egggroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Egggroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EgggroupnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
@@ -48754,7 +47883,6 @@ export type Subscription_RootPokemon_V2_EgggroupnameArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Egggroupname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Egggroupname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48763,11 +47891,9 @@ export type Subscription_RootPokemon_V2_Egggroupname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Egggroupname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Egggroupname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncounterArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
@@ -48777,7 +47903,6 @@ export type Subscription_RootPokemon_V2_EncounterArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounter_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounter_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48786,11 +47911,9 @@ export type Subscription_RootPokemon_V2_Encounter_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounter_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounter_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncounterconditionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountercondition_Select_Column>>;
@@ -48800,7 +47923,6 @@ export type Subscription_RootPokemon_V2_EncounterconditionArgs = {
   where?: Maybe<Pokemon_V2_Encountercondition_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountercondition_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountercondition_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48809,11 +47931,9 @@ export type Subscription_RootPokemon_V2_Encountercondition_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountercondition_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountercondition_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncounterconditionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
@@ -48823,7 +47943,6 @@ export type Subscription_RootPokemon_V2_EncounterconditionnameArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounterconditionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48832,11 +47951,9 @@ export type Subscription_RootPokemon_V2_Encounterconditionname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounterconditionname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncounterconditionvalueArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
@@ -48846,66 +47963,71 @@ export type Subscription_RootPokemon_V2_EncounterconditionvalueArgs = {
   where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Encounterconditionvalue_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Encounterconditionvalue_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvalue_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvalue_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvalue_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Encounterconditionvalue_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_EncounterconditionvaluemapArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Encounterconditionvaluemap_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Encounterconditionvaluemap_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluemap_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluemap_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluemap_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Encounterconditionvaluemap_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_EncounterconditionvaluenameArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
   where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
 };
 
+export type Subscription_RootPokemon_V2_Encounterconditionvaluename_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
+    where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
+  };
 
-export type Subscription_RootPokemon_V2_Encounterconditionvaluename_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Encounterconditionvaluename_Order_By>>;
-  where?: Maybe<Pokemon_V2_Encounterconditionvaluename_Bool_Exp>;
-};
-
-
-export type Subscription_RootPokemon_V2_Encounterconditionvaluename_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
+export type Subscription_RootPokemon_V2_Encounterconditionvaluename_By_PkArgs =
+  {
+    id: Scalars['Int'];
+  };
 
 export type Subscription_RootPokemon_V2_EncountermethodArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethod_Select_Column>>;
@@ -48915,7 +48037,6 @@ export type Subscription_RootPokemon_V2_EncountermethodArgs = {
   where?: Maybe<Pokemon_V2_Encountermethod_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountermethod_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethod_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48924,11 +48045,9 @@ export type Subscription_RootPokemon_V2_Encountermethod_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountermethod_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountermethod_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncountermethodnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
@@ -48938,7 +48057,6 @@ export type Subscription_RootPokemon_V2_EncountermethodnameArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountermethodname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encountermethodname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48947,11 +48065,9 @@ export type Subscription_RootPokemon_V2_Encountermethodname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encountermethodname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encountermethodname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EncounterslotArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
@@ -48961,7 +48077,6 @@ export type Subscription_RootPokemon_V2_EncounterslotArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounterslot_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Encounterslot_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48970,11 +48085,9 @@ export type Subscription_RootPokemon_V2_Encounterslot_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Encounterslot_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Encounterslot_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EvolutionchainArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutionchain_Select_Column>>;
@@ -48984,7 +48097,6 @@ export type Subscription_RootPokemon_V2_EvolutionchainArgs = {
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutionchain_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutionchain_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -48993,11 +48105,9 @@ export type Subscription_RootPokemon_V2_Evolutionchain_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutionchain_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutionchain_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EvolutiontriggerArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontrigger_Select_Column>>;
@@ -49007,7 +48117,6 @@ export type Subscription_RootPokemon_V2_EvolutiontriggerArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontrigger_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutiontrigger_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontrigger_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49016,11 +48125,9 @@ export type Subscription_RootPokemon_V2_Evolutiontrigger_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontrigger_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutiontrigger_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_EvolutiontriggernameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
@@ -49030,7 +48137,6 @@ export type Subscription_RootPokemon_V2_EvolutiontriggernameArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutiontriggername_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Evolutiontriggername_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49039,11 +48145,9 @@ export type Subscription_RootPokemon_V2_Evolutiontriggername_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Evolutiontriggername_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Evolutiontriggername_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ExperienceArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
@@ -49053,7 +48157,6 @@ export type Subscription_RootPokemon_V2_ExperienceArgs = {
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Experience_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Experience_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49062,11 +48165,9 @@ export type Subscription_RootPokemon_V2_Experience_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Experience_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Experience_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_GenderArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Gender_Select_Column>>;
@@ -49076,7 +48177,6 @@ export type Subscription_RootPokemon_V2_GenderArgs = {
   where?: Maybe<Pokemon_V2_Gender_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Gender_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Gender_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49085,11 +48185,9 @@ export type Subscription_RootPokemon_V2_Gender_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Gender_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Gender_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_GenerationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generation_Select_Column>>;
@@ -49099,7 +48197,6 @@ export type Subscription_RootPokemon_V2_GenerationArgs = {
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Generation_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generation_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49108,11 +48205,9 @@ export type Subscription_RootPokemon_V2_Generation_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generation_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Generation_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_GenerationnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
@@ -49122,7 +48217,6 @@ export type Subscription_RootPokemon_V2_GenerationnameArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Generationname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Generationname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49131,11 +48225,9 @@ export type Subscription_RootPokemon_V2_Generationname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Generationname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Generationname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_GrowthrateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthrate_Select_Column>>;
@@ -49145,7 +48237,6 @@ export type Subscription_RootPokemon_V2_GrowthrateArgs = {
   where?: Maybe<Pokemon_V2_Growthrate_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Growthrate_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthrate_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49154,11 +48245,9 @@ export type Subscription_RootPokemon_V2_Growthrate_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Growthrate_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Growthrate_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_GrowthratedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
@@ -49168,7 +48257,6 @@ export type Subscription_RootPokemon_V2_GrowthratedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Growthratedescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Growthratedescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49177,11 +48265,9 @@ export type Subscription_RootPokemon_V2_Growthratedescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Growthratedescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Growthratedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Item_Select_Column>>;
@@ -49191,7 +48277,6 @@ export type Subscription_RootPokemon_V2_ItemArgs = {
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Item_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Item_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49200,11 +48285,9 @@ export type Subscription_RootPokemon_V2_Item_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Item_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Item_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemattributeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattribute_Select_Column>>;
@@ -49214,7 +48297,6 @@ export type Subscription_RootPokemon_V2_ItemattributeArgs = {
   where?: Maybe<Pokemon_V2_Itemattribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49223,11 +48305,9 @@ export type Subscription_RootPokemon_V2_Itemattribute_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattribute_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemattributedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
@@ -49237,20 +48317,20 @@ export type Subscription_RootPokemon_V2_ItemattributedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Itemattributedescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Itemattributedescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemattributedescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Itemattributedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemattributemapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
@@ -49260,7 +48340,6 @@ export type Subscription_RootPokemon_V2_ItemattributemapArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattributemap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributemap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49269,11 +48348,9 @@ export type Subscription_RootPokemon_V2_Itemattributemap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattributemap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattributemap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemattributenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
@@ -49283,7 +48360,6 @@ export type Subscription_RootPokemon_V2_ItemattributenameArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattributename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemattributename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49292,11 +48368,9 @@ export type Subscription_RootPokemon_V2_Itemattributename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemattributename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemattributename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemcategoryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategory_Select_Column>>;
@@ -49306,7 +48380,6 @@ export type Subscription_RootPokemon_V2_ItemcategoryArgs = {
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemcategory_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategory_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49315,11 +48388,9 @@ export type Subscription_RootPokemon_V2_Itemcategory_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemcategory_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemcategory_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemcategorynameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
@@ -49329,7 +48400,6 @@ export type Subscription_RootPokemon_V2_ItemcategorynameArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemcategoryname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemcategoryname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49338,11 +48408,9 @@ export type Subscription_RootPokemon_V2_Itemcategoryname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemcategoryname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemcategoryname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemeffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
@@ -49352,7 +48420,6 @@ export type Subscription_RootPokemon_V2_ItemeffecttextArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemeffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemeffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49361,11 +48428,9 @@ export type Subscription_RootPokemon_V2_Itemeffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemeffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
@@ -49375,7 +48440,6 @@ export type Subscription_RootPokemon_V2_ItemflavortextArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49384,11 +48448,9 @@ export type Subscription_RootPokemon_V2_Itemflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemflingeffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffect_Select_Column>>;
@@ -49398,7 +48460,6 @@ export type Subscription_RootPokemon_V2_ItemflingeffectArgs = {
   where?: Maybe<Pokemon_V2_Itemflingeffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemflingeffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49407,34 +48468,34 @@ export type Subscription_RootPokemon_V2_Itemflingeffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemflingeffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemflingeffect_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_ItemflingeffecteffecttextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Itemflingeffecteffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Itemflingeffecteffecttext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Itemflingeffecteffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Itemflingeffecteffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Itemflingeffecteffecttext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Itemflingeffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemgameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
@@ -49444,7 +48505,6 @@ export type Subscription_RootPokemon_V2_ItemgameindexArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemgameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemgameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49453,11 +48513,9 @@ export type Subscription_RootPokemon_V2_Itemgameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemgameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemgameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
@@ -49467,7 +48525,6 @@ export type Subscription_RootPokemon_V2_ItemnameArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49476,11 +48533,9 @@ export type Subscription_RootPokemon_V2_Itemname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItempocketArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocket_Select_Column>>;
@@ -49490,7 +48545,6 @@ export type Subscription_RootPokemon_V2_ItempocketArgs = {
   where?: Maybe<Pokemon_V2_Itempocket_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itempocket_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocket_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49499,11 +48553,9 @@ export type Subscription_RootPokemon_V2_Itempocket_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itempocket_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itempocket_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItempocketnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
@@ -49513,7 +48565,6 @@ export type Subscription_RootPokemon_V2_ItempocketnameArgs = {
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itempocketname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itempocketname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49522,11 +48573,9 @@ export type Subscription_RootPokemon_V2_Itempocketname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itempocketname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itempocketname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_ItemspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
@@ -49536,7 +48585,6 @@ export type Subscription_RootPokemon_V2_ItemspritesArgs = {
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Itemsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49545,11 +48593,9 @@ export type Subscription_RootPokemon_V2_Itemsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Itemsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Itemsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LanguageArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Language_Select_Column>>;
@@ -49559,7 +48605,6 @@ export type Subscription_RootPokemon_V2_LanguageArgs = {
   where?: Maybe<Pokemon_V2_Language_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Language_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Language_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49568,11 +48613,9 @@ export type Subscription_RootPokemon_V2_Language_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Language_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Language_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LanguagenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
@@ -49582,7 +48625,6 @@ export type Subscription_RootPokemon_V2_LanguagenameArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Languagename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Languagename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49591,11 +48633,9 @@ export type Subscription_RootPokemon_V2_Languagename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Languagename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Languagename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LocationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Location_Select_Column>>;
@@ -49605,7 +48645,6 @@ export type Subscription_RootPokemon_V2_LocationArgs = {
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Location_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Location_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49614,11 +48653,9 @@ export type Subscription_RootPokemon_V2_Location_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Location_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Location_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LocationareaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationarea_Select_Column>>;
@@ -49628,7 +48665,6 @@ export type Subscription_RootPokemon_V2_LocationareaArgs = {
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationarea_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationarea_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49637,34 +48673,34 @@ export type Subscription_RootPokemon_V2_Locationarea_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationarea_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationarea_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_LocationareaencounterrateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
   where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Locationareaencounterrate_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
-  where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Locationareaencounterrate_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Locationareaencounterrate_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Locationareaencounterrate_Order_By>>;
+    where?: Maybe<Pokemon_V2_Locationareaencounterrate_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Locationareaencounterrate_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LocationareanameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
@@ -49674,7 +48710,6 @@ export type Subscription_RootPokemon_V2_LocationareanameArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationareaname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationareaname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49683,11 +48718,9 @@ export type Subscription_RootPokemon_V2_Locationareaname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationareaname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationareaname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LocationgameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
@@ -49697,7 +48730,6 @@ export type Subscription_RootPokemon_V2_LocationgameindexArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationgameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationgameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49706,11 +48738,9 @@ export type Subscription_RootPokemon_V2_Locationgameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationgameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationgameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_LocationnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
@@ -49720,7 +48750,6 @@ export type Subscription_RootPokemon_V2_LocationnameArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Locationname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49729,11 +48758,9 @@ export type Subscription_RootPokemon_V2_Locationname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Locationname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Locationname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MachineArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
@@ -49743,7 +48770,6 @@ export type Subscription_RootPokemon_V2_MachineArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Machine_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Machine_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49752,11 +48778,9 @@ export type Subscription_RootPokemon_V2_Machine_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Machine_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Machine_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
@@ -49766,7 +48790,6 @@ export type Subscription_RootPokemon_V2_MoveArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Move_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Move_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49775,11 +48798,9 @@ export type Subscription_RootPokemon_V2_Move_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Move_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Move_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveattributeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattribute_Select_Column>>;
@@ -49789,7 +48810,6 @@ export type Subscription_RootPokemon_V2_MoveattributeArgs = {
   where?: Maybe<Pokemon_V2_Moveattribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattribute_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattribute_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49798,11 +48818,9 @@ export type Subscription_RootPokemon_V2_Moveattribute_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattribute_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattribute_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveattributedescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
@@ -49812,20 +48830,20 @@ export type Subscription_RootPokemon_V2_MoveattributedescriptionArgs = {
   where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Moveattributedescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveattributedescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Moveattributedescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveattributedescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveattributedescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveattributedescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Moveattributedescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveattributemapArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
@@ -49835,7 +48853,6 @@ export type Subscription_RootPokemon_V2_MoveattributemapArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattributemap_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributemap_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49844,11 +48861,9 @@ export type Subscription_RootPokemon_V2_Moveattributemap_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattributemap_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattributemap_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveattributenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
@@ -49858,7 +48873,6 @@ export type Subscription_RootPokemon_V2_MoveattributenameArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattributename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveattributename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49867,11 +48881,9 @@ export type Subscription_RootPokemon_V2_Moveattributename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveattributename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveattributename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovebattlestyleArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestyle_Select_Column>>;
@@ -49881,7 +48893,6 @@ export type Subscription_RootPokemon_V2_MovebattlestyleArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestyle_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movebattlestyle_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestyle_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49890,11 +48901,9 @@ export type Subscription_RootPokemon_V2_Movebattlestyle_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestyle_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movebattlestyle_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovebattlestylenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
@@ -49904,7 +48913,6 @@ export type Subscription_RootPokemon_V2_MovebattlestylenameArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movebattlestylename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movebattlestylename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49913,11 +48921,9 @@ export type Subscription_RootPokemon_V2_Movebattlestylename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movebattlestylename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movebattlestylename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovechangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
@@ -49927,7 +48933,6 @@ export type Subscription_RootPokemon_V2_MovechangeArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movechange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movechange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49936,11 +48941,9 @@ export type Subscription_RootPokemon_V2_Movechange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movechange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movechange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovedamageclassArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclass_Select_Column>>;
@@ -49950,7 +48953,6 @@ export type Subscription_RootPokemon_V2_MovedamageclassArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclass_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movedamageclass_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclass_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -49959,34 +48961,34 @@ export type Subscription_RootPokemon_V2_Movedamageclass_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclass_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movedamageclass_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_MovedamageclassdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Movedamageclassdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Movedamageclassdescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movedamageclassdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movedamageclassdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movedamageclassdescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Movedamageclassdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovedamageclassnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
@@ -49996,7 +48998,6 @@ export type Subscription_RootPokemon_V2_MovedamageclassnameArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movedamageclassname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movedamageclassname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50005,11 +49006,9 @@ export type Subscription_RootPokemon_V2_Movedamageclassname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movedamageclassname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movedamageclassname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveeffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffect_Select_Column>>;
@@ -50019,7 +49018,6 @@ export type Subscription_RootPokemon_V2_MoveeffectArgs = {
   where?: Maybe<Pokemon_V2_Moveeffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50028,11 +49026,9 @@ export type Subscription_RootPokemon_V2_Moveeffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffect_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveeffectchangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
@@ -50042,7 +49038,6 @@ export type Subscription_RootPokemon_V2_MoveeffectchangeArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffectchange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50051,34 +49046,34 @@ export type Subscription_RootPokemon_V2_Moveeffectchange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffectchange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffectchange_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_MoveeffectchangeeffecttextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
   where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Moveeffectchangeeffecttext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Moveeffectchangeeffecttext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Moveeffectchangeeffecttext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Moveeffectchangeeffecttext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Moveeffectchangeeffecttext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Moveeffectchangeeffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveeffecteffecttextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
@@ -50088,7 +49083,6 @@ export type Subscription_RootPokemon_V2_MoveeffecteffecttextArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffecteffecttext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveeffecteffecttext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50097,11 +49091,9 @@ export type Subscription_RootPokemon_V2_Moveeffecteffecttext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveeffecteffecttext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveeffecteffecttext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MoveflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
@@ -50111,7 +49103,6 @@ export type Subscription_RootPokemon_V2_MoveflavortextArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveflavortext_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Moveflavortext_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50120,11 +49111,9 @@ export type Subscription_RootPokemon_V2_Moveflavortext_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Moveflavortext_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Moveflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovelearnmethodArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethod_Select_Column>>;
@@ -50134,7 +49123,6 @@ export type Subscription_RootPokemon_V2_MovelearnmethodArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethod_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movelearnmethod_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethod_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50143,34 +49131,34 @@ export type Subscription_RootPokemon_V2_Movelearnmethod_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethod_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movelearnmethod_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_MovelearnmethoddescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Movelearnmethoddescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Movelearnmethoddescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movelearnmethoddescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movelearnmethoddescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movelearnmethoddescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Movelearnmethoddescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovelearnmethodnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
@@ -50180,7 +49168,6 @@ export type Subscription_RootPokemon_V2_MovelearnmethodnameArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movelearnmethodname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movelearnmethodname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50189,11 +49176,9 @@ export type Subscription_RootPokemon_V2_Movelearnmethodname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movelearnmethodname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movelearnmethodname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovemetaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
@@ -50203,7 +49188,6 @@ export type Subscription_RootPokemon_V2_MovemetaArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemeta_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemeta_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50212,11 +49196,9 @@ export type Subscription_RootPokemon_V2_Movemeta_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemeta_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemeta_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovemetaailmentArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailment_Select_Column>>;
@@ -50226,7 +49208,6 @@ export type Subscription_RootPokemon_V2_MovemetaailmentArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetaailment_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailment_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50235,11 +49216,9 @@ export type Subscription_RootPokemon_V2_Movemetaailment_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailment_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetaailment_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovemetaailmentnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
@@ -50249,7 +49228,6 @@ export type Subscription_RootPokemon_V2_MovemetaailmentnameArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetaailmentname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetaailmentname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50258,11 +49236,9 @@ export type Subscription_RootPokemon_V2_Movemetaailmentname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetaailmentname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetaailmentname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovemetacategoryArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategory_Select_Column>>;
@@ -50272,7 +49248,6 @@ export type Subscription_RootPokemon_V2_MovemetacategoryArgs = {
   where?: Maybe<Pokemon_V2_Movemetacategory_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetacategory_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategory_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50281,34 +49256,35 @@ export type Subscription_RootPokemon_V2_Movemetacategory_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetacategory_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetacategory_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_MovemetacategorydescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
 };
 
+export type Subscription_RootPokemon_V2_Movemetacategorydescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Movemetacategorydescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
+  };
 
-export type Subscription_RootPokemon_V2_Movemetacategorydescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Movemetacategorydescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Movemetacategorydescription_Bool_Exp>;
-};
-
-
-export type Subscription_RootPokemon_V2_Movemetacategorydescription_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
+export type Subscription_RootPokemon_V2_Movemetacategorydescription_By_PkArgs =
+  {
+    id: Scalars['Int'];
+  };
 
 export type Subscription_RootPokemon_V2_MovemetastatchangeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
@@ -50318,7 +49294,6 @@ export type Subscription_RootPokemon_V2_MovemetastatchangeArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetastatchange_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movemetastatchange_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50327,11 +49302,9 @@ export type Subscription_RootPokemon_V2_Movemetastatchange_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movemetastatchange_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movemetastatchange_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
@@ -50341,7 +49314,6 @@ export type Subscription_RootPokemon_V2_MovenameArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50350,11 +49322,9 @@ export type Subscription_RootPokemon_V2_Movename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovetargetArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetarget_Select_Column>>;
@@ -50364,7 +49334,6 @@ export type Subscription_RootPokemon_V2_MovetargetArgs = {
   where?: Maybe<Pokemon_V2_Movetarget_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetarget_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetarget_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50373,11 +49342,9 @@ export type Subscription_RootPokemon_V2_Movetarget_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetarget_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetarget_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovetargetdescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
@@ -50387,7 +49354,6 @@ export type Subscription_RootPokemon_V2_MovetargetdescriptionArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetargetdescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetdescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50396,11 +49362,9 @@ export type Subscription_RootPokemon_V2_Movetargetdescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetargetdescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetargetdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_MovetargetnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
@@ -50410,7 +49374,6 @@ export type Subscription_RootPokemon_V2_MovetargetnameArgs = {
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetargetname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Movetargetname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50419,11 +49382,9 @@ export type Subscription_RootPokemon_V2_Movetargetname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Movetargetname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Movetargetname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_NatureArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
@@ -50433,7 +49394,6 @@ export type Subscription_RootPokemon_V2_NatureArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Nature_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Nature_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50442,34 +49402,35 @@ export type Subscription_RootPokemon_V2_Nature_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Nature_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Nature_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_NaturebattlestylepreferenceArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
   where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
 };
 
+export type Subscription_RootPokemon_V2_Naturebattlestylepreference_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
+    where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
+  };
 
-export type Subscription_RootPokemon_V2_Naturebattlestylepreference_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Naturebattlestylepreference_Order_By>>;
-  where?: Maybe<Pokemon_V2_Naturebattlestylepreference_Bool_Exp>;
-};
-
-
-export type Subscription_RootPokemon_V2_Naturebattlestylepreference_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
+export type Subscription_RootPokemon_V2_Naturebattlestylepreference_By_PkArgs =
+  {
+    id: Scalars['Int'];
+  };
 
 export type Subscription_RootPokemon_V2_NaturenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
@@ -50479,7 +49440,6 @@ export type Subscription_RootPokemon_V2_NaturenameArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Naturename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50488,11 +49448,9 @@ export type Subscription_RootPokemon_V2_Naturename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Naturename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Naturename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_NaturepokeathlonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
@@ -50502,7 +49460,6 @@ export type Subscription_RootPokemon_V2_NaturepokeathlonstatArgs = {
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Naturepokeathlonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Naturepokeathlonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50511,11 +49468,9 @@ export type Subscription_RootPokemon_V2_Naturepokeathlonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Naturepokeathlonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Naturepokeathlonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PalparkArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
@@ -50525,7 +49480,6 @@ export type Subscription_RootPokemon_V2_PalparkArgs = {
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palpark_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palpark_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50534,11 +49488,9 @@ export type Subscription_RootPokemon_V2_Palpark_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palpark_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palpark_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PalparkareaArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkarea_Select_Column>>;
@@ -50548,7 +49500,6 @@ export type Subscription_RootPokemon_V2_PalparkareaArgs = {
   where?: Maybe<Pokemon_V2_Palparkarea_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palparkarea_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkarea_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50557,11 +49508,9 @@ export type Subscription_RootPokemon_V2_Palparkarea_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palparkarea_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palparkarea_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PalparkareanameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
@@ -50571,7 +49520,6 @@ export type Subscription_RootPokemon_V2_PalparkareanameArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palparkareaname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Palparkareaname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50580,11 +49528,9 @@ export type Subscription_RootPokemon_V2_Palparkareaname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Palparkareaname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Palparkareaname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokeathlonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstat_Select_Column>>;
@@ -50594,7 +49540,6 @@ export type Subscription_RootPokemon_V2_PokeathlonstatArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokeathlonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50603,11 +49548,9 @@ export type Subscription_RootPokemon_V2_Pokeathlonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokeathlonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokeathlonstatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
@@ -50617,7 +49560,6 @@ export type Subscription_RootPokemon_V2_PokeathlonstatnameArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokeathlonstatname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokeathlonstatname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50626,11 +49568,9 @@ export type Subscription_RootPokemon_V2_Pokeathlonstatname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokeathlonstatname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokeathlonstatname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokedexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedex_Select_Column>>;
@@ -50640,7 +49580,6 @@ export type Subscription_RootPokemon_V2_PokedexArgs = {
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50649,11 +49588,9 @@ export type Subscription_RootPokemon_V2_Pokedex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokedexdescriptionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
@@ -50663,7 +49600,6 @@ export type Subscription_RootPokemon_V2_PokedexdescriptionArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexdescription_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexdescription_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50672,11 +49608,9 @@ export type Subscription_RootPokemon_V2_Pokedexdescription_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexdescription_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokedexnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
@@ -50686,7 +49620,6 @@ export type Subscription_RootPokemon_V2_PokedexnameArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50695,11 +49628,9 @@ export type Subscription_RootPokemon_V2_Pokedexname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokedexversiongroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
@@ -50709,7 +49640,6 @@ export type Subscription_RootPokemon_V2_PokedexversiongroupArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexversiongroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokedexversiongroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50718,11 +49648,9 @@ export type Subscription_RootPokemon_V2_Pokedexversiongroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokedexversiongroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokedexversiongroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemon_Select_Column>>;
@@ -50732,7 +49660,6 @@ export type Subscription_RootPokemon_V2_PokemonArgs = {
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemon_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemon_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50741,11 +49668,9 @@ export type Subscription_RootPokemon_V2_Pokemon_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemon_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemon_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonabilityArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
@@ -50755,7 +49680,6 @@ export type Subscription_RootPokemon_V2_PokemonabilityArgs = {
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonability_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonability_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50764,11 +49688,9 @@ export type Subscription_RootPokemon_V2_Pokemonability_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonability_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonability_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemoncolorArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolor_Select_Column>>;
@@ -50778,7 +49700,6 @@ export type Subscription_RootPokemon_V2_PokemoncolorArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolor_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemoncolor_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolor_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50787,11 +49708,9 @@ export type Subscription_RootPokemon_V2_Pokemoncolor_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolor_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemoncolor_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemoncolornameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
@@ -50801,7 +49720,6 @@ export type Subscription_RootPokemon_V2_PokemoncolornameArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemoncolorname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemoncolorname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50810,11 +49728,9 @@ export type Subscription_RootPokemon_V2_Pokemoncolorname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemoncolorname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemoncolorname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemondexnumberArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
@@ -50824,7 +49740,6 @@ export type Subscription_RootPokemon_V2_PokemondexnumberArgs = {
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemondexnumber_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemondexnumber_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50833,11 +49748,9 @@ export type Subscription_RootPokemon_V2_Pokemondexnumber_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemondexnumber_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemondexnumber_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonegggroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
@@ -50847,7 +49760,6 @@ export type Subscription_RootPokemon_V2_PokemonegggroupArgs = {
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonegggroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonegggroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50856,11 +49768,9 @@ export type Subscription_RootPokemon_V2_Pokemonegggroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonegggroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonegggroup_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonevolutionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
@@ -50870,7 +49780,6 @@ export type Subscription_RootPokemon_V2_PokemonevolutionArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonevolution_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonevolution_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50879,11 +49788,9 @@ export type Subscription_RootPokemon_V2_Pokemonevolution_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonevolution_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonevolution_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonformArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
@@ -50893,7 +49800,6 @@ export type Subscription_RootPokemon_V2_PokemonformArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonform_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonform_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50902,11 +49808,9 @@ export type Subscription_RootPokemon_V2_Pokemonform_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonform_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonform_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonformgenerationArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
@@ -50916,7 +49820,6 @@ export type Subscription_RootPokemon_V2_PokemonformgenerationArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformgeneration_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformgeneration_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50925,11 +49828,9 @@ export type Subscription_RootPokemon_V2_Pokemonformgeneration_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformgeneration_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformgeneration_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonformnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
@@ -50939,7 +49840,6 @@ export type Subscription_RootPokemon_V2_PokemonformnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50948,11 +49848,9 @@ export type Subscription_RootPokemon_V2_Pokemonformname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonformspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
@@ -50962,7 +49860,6 @@ export type Subscription_RootPokemon_V2_PokemonformspritesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50971,11 +49868,9 @@ export type Subscription_RootPokemon_V2_Pokemonformsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonformtypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
@@ -50985,7 +49880,6 @@ export type Subscription_RootPokemon_V2_PokemonformtypeArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformtype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonformtype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -50994,11 +49888,9 @@ export type Subscription_RootPokemon_V2_Pokemonformtype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonformtype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonformtype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemongameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
@@ -51008,7 +49900,6 @@ export type Subscription_RootPokemon_V2_PokemongameindexArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemongameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemongameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51017,11 +49908,9 @@ export type Subscription_RootPokemon_V2_Pokemongameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemongameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemongameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonhabitatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitat_Select_Column>>;
@@ -51031,7 +49920,6 @@ export type Subscription_RootPokemon_V2_PokemonhabitatArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonhabitat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51040,11 +49928,9 @@ export type Subscription_RootPokemon_V2_Pokemonhabitat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonhabitat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonhabitatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
@@ -51054,7 +49940,6 @@ export type Subscription_RootPokemon_V2_PokemonhabitatnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonhabitatname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonhabitatname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51063,11 +49948,9 @@ export type Subscription_RootPokemon_V2_Pokemonhabitatname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonhabitatname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonhabitatname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonitemArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
@@ -51077,7 +49960,6 @@ export type Subscription_RootPokemon_V2_PokemonitemArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonitem_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonitem_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51086,11 +49968,9 @@ export type Subscription_RootPokemon_V2_Pokemonitem_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonitem_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonitem_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonmoveArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
@@ -51100,7 +49980,6 @@ export type Subscription_RootPokemon_V2_PokemonmoveArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonmove_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonmove_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51109,11 +49988,9 @@ export type Subscription_RootPokemon_V2_Pokemonmove_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonmove_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonmove_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonshapeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshape_Select_Column>>;
@@ -51123,7 +50000,6 @@ export type Subscription_RootPokemon_V2_PokemonshapeArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshape_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonshape_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshape_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51132,11 +50008,9 @@ export type Subscription_RootPokemon_V2_Pokemonshape_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshape_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonshape_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonshapenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
@@ -51146,7 +50020,6 @@ export type Subscription_RootPokemon_V2_PokemonshapenameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonshapename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonshapename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51155,11 +50028,9 @@ export type Subscription_RootPokemon_V2_Pokemonshapename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonshapename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonshapename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonspeciesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
@@ -51169,7 +50040,6 @@ export type Subscription_RootPokemon_V2_PokemonspeciesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonspecies_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspecies_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51178,34 +50048,34 @@ export type Subscription_RootPokemon_V2_Pokemonspecies_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspecies_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonspecies_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_PokemonspeciesdescriptionArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
   where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Pokemonspeciesdescription_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Pokemonspeciesdescription_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesdescription_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesdescription_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesdescription_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Pokemonspeciesdescription_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonspeciesflavortextArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
@@ -51215,20 +50085,20 @@ export type Subscription_RootPokemon_V2_PokemonspeciesflavortextArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
 };
 
-
-export type Subscription_RootPokemon_V2_Pokemonspeciesflavortext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
-};
-
+export type Subscription_RootPokemon_V2_Pokemonspeciesflavortext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Pokemonspeciesflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Pokemonspeciesflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Pokemonspeciesflavortext_Bool_Exp>;
+  };
 
 export type Subscription_RootPokemon_V2_Pokemonspeciesflavortext_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonspeciesnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
@@ -51238,7 +50108,6 @@ export type Subscription_RootPokemon_V2_PokemonspeciesnameArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonspeciesname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonspeciesname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51247,11 +50116,9 @@ export type Subscription_RootPokemon_V2_Pokemonspeciesname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonspeciesname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonspeciesname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonspritesArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
@@ -51261,7 +50128,6 @@ export type Subscription_RootPokemon_V2_PokemonspritesArgs = {
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonsprites_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonsprites_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51270,11 +50136,9 @@ export type Subscription_RootPokemon_V2_Pokemonsprites_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonsprites_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonsprites_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemonstatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
@@ -51284,7 +50148,6 @@ export type Subscription_RootPokemon_V2_PokemonstatArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonstat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemonstat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51293,11 +50156,9 @@ export type Subscription_RootPokemon_V2_Pokemonstat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemonstat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemonstat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemontypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
@@ -51307,7 +50168,6 @@ export type Subscription_RootPokemon_V2_PokemontypeArgs = {
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemontype_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontype_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51316,11 +50176,9 @@ export type Subscription_RootPokemon_V2_Pokemontype_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemontype_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemontype_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_PokemontypepastArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
@@ -51330,7 +50188,6 @@ export type Subscription_RootPokemon_V2_PokemontypepastArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemontypepast_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Pokemontypepast_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51339,11 +50196,9 @@ export type Subscription_RootPokemon_V2_Pokemontypepast_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Pokemontypepast_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Pokemontypepast_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_RegionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Region_Select_Column>>;
@@ -51353,7 +50208,6 @@ export type Subscription_RootPokemon_V2_RegionArgs = {
   where?: Maybe<Pokemon_V2_Region_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Region_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Region_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51362,11 +50216,9 @@ export type Subscription_RootPokemon_V2_Region_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Region_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Region_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_RegionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
@@ -51376,7 +50228,6 @@ export type Subscription_RootPokemon_V2_RegionnameArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Regionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Regionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51385,11 +50236,9 @@ export type Subscription_RootPokemon_V2_Regionname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Regionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Regionname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_StatArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Stat_Select_Column>>;
@@ -51399,7 +50248,6 @@ export type Subscription_RootPokemon_V2_StatArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Stat_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Stat_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51408,11 +50256,9 @@ export type Subscription_RootPokemon_V2_Stat_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Stat_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Stat_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_StatnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
@@ -51422,7 +50268,6 @@ export type Subscription_RootPokemon_V2_StatnameArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Statname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Statname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51431,11 +50276,9 @@ export type Subscription_RootPokemon_V2_Statname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Statname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Statname_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_SupercontestcomboArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
@@ -51445,7 +50288,6 @@ export type Subscription_RootPokemon_V2_SupercontestcomboArgs = {
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Supercontestcombo_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontestcombo_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51454,11 +50296,9 @@ export type Subscription_RootPokemon_V2_Supercontestcombo_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Supercontestcombo_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Supercontestcombo_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_SupercontesteffectArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffect_Select_Column>>;
@@ -51468,7 +50308,6 @@ export type Subscription_RootPokemon_V2_SupercontesteffectArgs = {
   where?: Maybe<Pokemon_V2_Supercontesteffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Supercontesteffect_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffect_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51477,34 +50316,35 @@ export type Subscription_RootPokemon_V2_Supercontesteffect_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Supercontesteffect_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Supercontesteffect_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_SupercontesteffectflavortextArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
   where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
 };
 
+export type Subscription_RootPokemon_V2_Supercontesteffectflavortext_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
+    where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
+  };
 
-export type Subscription_RootPokemon_V2_Supercontesteffectflavortext_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Supercontesteffectflavortext_Order_By>>;
-  where?: Maybe<Pokemon_V2_Supercontesteffectflavortext_Bool_Exp>;
-};
-
-
-export type Subscription_RootPokemon_V2_Supercontesteffectflavortext_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
+export type Subscription_RootPokemon_V2_Supercontesteffectflavortext_By_PkArgs =
+  {
+    id: Scalars['Int'];
+  };
 
 export type Subscription_RootPokemon_V2_TypeArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
@@ -51514,7 +50354,6 @@ export type Subscription_RootPokemon_V2_TypeArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Type_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Type_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51523,11 +50362,9 @@ export type Subscription_RootPokemon_V2_Type_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Type_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Type_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_TypeefficacyArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
@@ -51537,7 +50374,6 @@ export type Subscription_RootPokemon_V2_TypeefficacyArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typeefficacy_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typeefficacy_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51546,11 +50382,9 @@ export type Subscription_RootPokemon_V2_Typeefficacy_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typeefficacy_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typeefficacy_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_TypegameindexArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
@@ -51560,7 +50394,6 @@ export type Subscription_RootPokemon_V2_TypegameindexArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typegameindex_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typegameindex_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51569,11 +50402,9 @@ export type Subscription_RootPokemon_V2_Typegameindex_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typegameindex_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typegameindex_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_TypenameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
@@ -51583,7 +50414,6 @@ export type Subscription_RootPokemon_V2_TypenameArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typename_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Typename_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51592,11 +50422,9 @@ export type Subscription_RootPokemon_V2_Typename_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Typename_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Typename_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_VersionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Version_Select_Column>>;
@@ -51606,7 +50434,6 @@ export type Subscription_RootPokemon_V2_VersionArgs = {
   where?: Maybe<Pokemon_V2_Version_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Version_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Version_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51615,11 +50442,9 @@ export type Subscription_RootPokemon_V2_Version_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Version_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Version_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_VersiongroupArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroup_Select_Column>>;
@@ -51629,7 +50454,6 @@ export type Subscription_RootPokemon_V2_VersiongroupArgs = {
   where?: Maybe<Pokemon_V2_Versiongroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versiongroup_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroup_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51638,34 +50462,35 @@ export type Subscription_RootPokemon_V2_Versiongroup_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Versiongroup_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versiongroup_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-
 export type Subscription_RootPokemon_V2_VersiongroupmovelearnmethodArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
+  distinct_on?: Maybe<
+    Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+  >;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
   where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
 };
 
+export type Subscription_RootPokemon_V2_Versiongroupmovelearnmethod_AggregateArgs =
+  {
+    distinct_on?: Maybe<
+      Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>
+    >;
+    limit?: Maybe<Scalars['Int']>;
+    offset?: Maybe<Scalars['Int']>;
+    order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
+    where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
+  };
 
-export type Subscription_RootPokemon_V2_Versiongroupmovelearnmethod_AggregateArgs = {
-  distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Select_Column>>;
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  order_by?: Maybe<Array<Pokemon_V2_Versiongroupmovelearnmethod_Order_By>>;
-  where?: Maybe<Pokemon_V2_Versiongroupmovelearnmethod_Bool_Exp>;
-};
-
-
-export type Subscription_RootPokemon_V2_Versiongroupmovelearnmethod_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
+export type Subscription_RootPokemon_V2_Versiongroupmovelearnmethod_By_PkArgs =
+  {
+    id: Scalars['Int'];
+  };
 
 export type Subscription_RootPokemon_V2_VersiongroupregionArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
@@ -51675,7 +50500,6 @@ export type Subscription_RootPokemon_V2_VersiongroupregionArgs = {
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versiongroupregion_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versiongroupregion_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51684,11 +50508,9 @@ export type Subscription_RootPokemon_V2_Versiongroupregion_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Versiongroupregion_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versiongroupregion_By_PkArgs = {
   id: Scalars['Int'];
 };
-
 
 export type Subscription_RootPokemon_V2_VersionnameArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
@@ -51698,7 +50520,6 @@ export type Subscription_RootPokemon_V2_VersionnameArgs = {
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versionname_AggregateArgs = {
   distinct_on?: Maybe<Array<Pokemon_V2_Versionname_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -51707,17 +50528,79 @@ export type Subscription_RootPokemon_V2_Versionname_AggregateArgs = {
   where?: Maybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-
 export type Subscription_RootPokemon_V2_Versionname_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPokemonsQueryVariables = Exact<{ [key: string]: never }>;
 
+export type GetPokemonsQuery = {
+  __typename?: 'query_root';
+  pokemon: Array<{
+    __typename?: 'pokemon_v2_pokemon';
+    name: string;
+    id: number;
+    types: Array<{
+      __typename?: 'pokemon_v2_pokemontype';
+      type?:
+        | { __typename?: 'pokemon_v2_type'; name: string }
+        | null
+        | undefined;
+    }>;
+    stats: Array<{
+      __typename?: 'pokemon_v2_pokemonstat';
+      base_stat: number;
+      stat?:
+        | { __typename?: 'pokemon_v2_stat'; name: string }
+        | null
+        | undefined;
+    }>;
+  }>;
+};
 
-export type Unnamed_1_Query = { __typename?: 'query_root', pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', name: string, id: number, types: Array<{ __typename?: 'pokemon_v2_pokemontype', type?: { __typename?: 'pokemon_v2_type', name: string } | null | undefined }>, stats: Array<{ __typename?: 'pokemon_v2_pokemonstat', base_stat: number, stat?: { __typename?: 'pokemon_v2_stat', name: string } | null | undefined }> }> };
+export type GetPokemonQueryVariables = Exact<{
+  _eq?: Maybe<Scalars['Int']>;
+}>;
 
-export type PokemonLengthQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PokemonLengthQuery = { __typename?: 'query_root', pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', id: number }> };
+export type GetPokemonQuery = {
+  __typename?: 'query_root';
+  pokemon: Array<{
+    __typename?: 'pokemon_v2_pokemon';
+    name: string;
+    id: number;
+    weight?: number | null | undefined;
+    height?: number | null | undefined;
+    types: Array<{
+      __typename?: 'pokemon_v2_pokemontype';
+      type?:
+        | { __typename?: 'pokemon_v2_type'; name: string }
+        | null
+        | undefined;
+    }>;
+    stats: Array<{
+      __typename?: 'pokemon_v2_pokemonstat';
+      base_stat: number;
+      stat?:
+        | { __typename?: 'pokemon_v2_stat'; name: string }
+        | null
+        | undefined;
+    }>;
+    moves: Array<{
+      __typename?: 'pokemon_v2_pokemonmove';
+      move?:
+        | { __typename?: 'pokemon_v2_move'; name: string }
+        | null
+        | undefined;
+    }>;
+    specy?:
+      | {
+          __typename?: 'pokemon_v2_pokemonspecies';
+          description: Array<{
+            __typename?: 'pokemon_v2_pokemonspeciesflavortext';
+            flavor_text: string;
+          }>;
+        }
+      | null
+      | undefined;
+  }>;
+};

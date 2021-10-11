@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
+import { artworkForPokemon } from '../../../graphql/getSprites';
 
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -21,11 +23,57 @@ import BarPoints from '../../Atoms/BarPoints';
 type DetailsProps = {
   open: boolean;
   onClose: () => void;
+  id: number;
+  pokemons: any | undefined;
 };
 
-const PokemonDetails = ({ open, onClose }: DetailsProps) => {
+type ColorProps = {
+  $color: string;
+};
+
+const PokemonDetails = ({ open, onClose, id, pokemons }: DetailsProps) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const [pokemonImage, setPokemonImage] = useState('');
+  const pokemonStats: any = {};
+
+  useEffect(() => {
+    if (id) {
+      setPokemonImage(artworkForPokemon(id));
+    }
+  }, [id]);
+
+  const pokemon = id >= 0 && pokemons[id - 1];
+
+  const name = pokemon?.name;
+  const height = pokemon?.height;
+  const weight = pokemon?.weight;
+  const description = pokemon?.specy?.description[0]?.flavor_text
+    .replace(/\s+/g, ' ')
+    .trim();
+  const stats = pokemon?.stats;
+  const types = pokemon?.types;
+  const moves = pokemon?.moves;
+
+  const firstType = types && types[0].type?.name;
+
+  //refactor - todo
+  stats &&
+    Object.keys(stats).forEach((index) => {
+      let stat = stats[index].stat.name;
+      let value = stats[index].base_stat;
+
+      if (stat === 'special-attack') {
+        stat = 'specialAttack';
+      }
+
+      if (stat === 'special-defense') {
+        stat = 'specialDefense';
+      }
+
+      pokemonStats[stat] = value;
+    });
 
   return (
     <StyledDialog
@@ -33,86 +81,97 @@ const PokemonDetails = ({ open, onClose }: DetailsProps) => {
       open={open}
       onClose={onClose}
       aria-labelledby="responsive-dialog-title"
+      $color={firstType}
     >
       <DialogTitle>
         <StyledIconButton onClick={onClose}>
           <StyledArrowBackIcon fontSize="large" />
         </StyledIconButton>
-        <Title>Bulbasaur</Title>
-        <PokemonId>#001</PokemonId>
+        <Title>{name}</Title>
+        <PokemonId>#{id}</PokemonId>
       </DialogTitle>
       <StyledDialogContent>
         <Wrapper>
+          <PokemonImage src={pokemonImage} />
           <InfoWrapper>
             <TagsWrapper>
-              <Tag type="grass" />
-              <Tag type="poison" />
+              {types &&
+                types.map((t: any, i: number) => (
+                  <Tag key={i} type={t.type.name} />
+                ))}
             </TagsWrapper>
-            <Subtitle>About</Subtitle>
+            <Subtitle $color={firstType}>About</Subtitle>
             <Table>
               <TableItem className="left-item">
                 <TableItemTopWrapper>
                   <ScaleIcon viewBox="0 0 16 16" />
-                  <TableItemValue>6.9 Kg</TableItemValue>
+                  <TableItemValue>{weight && weight / 10} Kg</TableItemValue>
                 </TableItemTopWrapper>
                 <TableItemName>Weight</TableItemName>
               </TableItem>
               <TableItem className="middle-item">
                 <TableItemTopWrapper>
                   <RulerIcon viewBox="-4 0 16 16" />
-                  <TableItemValue>0.7 m</TableItemValue>
+                  <TableItemValue>{height && height / 10} m</TableItemValue>
                 </TableItemTopWrapper>
                 <TableItemName>Height</TableItemName>
               </TableItem>
               <TableItem className="right-item">
                 <MovesWrapper>
-                  <Move>Chlorophyll</Move>
-                  <Move>Overgrow</Move>
+                  {moves &&
+                    moves.map((m: any, i: number) => (
+                      <Move key={i}>{m.move?.name}</Move>
+                    ))}
                 </MovesWrapper>
                 <TableItemName>Moves</TableItemName>
               </TableItem>
             </Table>
             <PokemonDescription>
-              There is a plant seed on its back right from the day this Pokémon
-              is born. The seed slowly grows larger.
+              {description || 'Sem descrição'}
             </PokemonDescription>
-            <Subtitle>Base Stats</Subtitle>
+            <Subtitle $color={firstType}>Base Stats</Subtitle>
 
             <StatsWrapper>
               <StatsLabelWrapper>
-                <StatsLabel>HP</StatsLabel>
-                <StatsLabel>ATK</StatsLabel>
-                <StatsLabel>DEF</StatsLabel>
-                <StatsLabel>SATK</StatsLabel>
-                <StatsLabel>SDEF</StatsLabel>
-                <StatsLabel>SPD</StatsLabel>
+                <StatsLabel $color={firstType}>HP</StatsLabel>
+                <StatsLabel $color={firstType}>ATK</StatsLabel>
+                <StatsLabel $color={firstType}>DEF</StatsLabel>
+                <StatsLabel $color={firstType}>SATK</StatsLabel>
+                <StatsLabel $color={firstType}>SDEF</StatsLabel>
+                <StatsLabel $color={firstType}>SPD</StatsLabel>
               </StatsLabelWrapper>
               <StatsValueWrapper>
-                <StatsValue>049</StatsValue>
-                <StatsValue>041</StatsValue>
-                <StatsValue>050</StatsValue>
-                <StatsValue>060</StatsValue>
-                <StatsValue>040</StatsValue>
-                <StatsValue>060</StatsValue>
+                <StatsValue>{pokemonStats.hp}</StatsValue>
+                <StatsValue>{pokemonStats.attack} </StatsValue>
+                <StatsValue>{pokemonStats.defense}</StatsValue>
+                <StatsValue>{pokemonStats.specialAttack}</StatsValue>
+                <StatsValue>{pokemonStats.specialDefense}</StatsValue>
+                <StatsValue>{pokemonStats.speed}</StatsValue>
               </StatsValueWrapper>
               <StatsBarWrapper>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints color={firstType} value={pokemonStats.hp} />
                 </StatsBar>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints color={firstType} value={pokemonStats.attack} />
                 </StatsBar>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints color={firstType} value={pokemonStats.defense} />
                 </StatsBar>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints
+                    color={firstType}
+                    value={pokemonStats.specialAttack}
+                  />
                 </StatsBar>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints
+                    color={firstType}
+                    value={pokemonStats.specialDefense}
+                  />
                 </StatsBar>
                 <StatsBar>
-                  <BarPoints color="grass" />
+                  <BarPoints color={firstType} value={pokemonStats.speed} />
                 </StatsBar>
               </StatsBarWrapper>
             </StatsWrapper>
@@ -122,11 +181,14 @@ const PokemonDetails = ({ open, onClose }: DetailsProps) => {
     </StyledDialog>
   );
 };
-const StyledDialog = styled(Dialog)`
+const StyledDialog = styled(Dialog).attrs((props: ColorProps) => ({
+  $color: props.$color,
+}))`
   .MuiDialog-paper {
     min-width: 360px;
     min-height: 640px;
-    background-color: ${COLORS.types.grass};
+    background-color: ${({ $color }) =>
+      $color ? COLORS.types[$color] : COLORS.types.steel};
 
     border-radius: 12px;
   }
@@ -156,6 +218,8 @@ const Title = styled.span`
   color: white;
 
   margin-left: 1rem;
+
+  text-transform: capitalize;
 `;
 const PokemonId = styled.span`
   margin-left: auto;
@@ -171,6 +235,7 @@ const StyledDialogContent = styled(DialogContent)`
     padding: 0;
     display: flex;
     align-items: flex-end;
+    padding-top: 11rem;
   }
 `;
 
@@ -190,7 +255,16 @@ const Wrapper = styled.div`
   border-radius: 8px;
 `;
 
-const PokemonImage = styled.img``;
+const PokemonImage = styled.img`
+  width: 200px;
+  aspect-ratio: 1;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  transform: translate(-50%, -80%);
+`;
 
 const InfoWrapper = styled.div`
   display: flex;
@@ -198,8 +272,6 @@ const InfoWrapper = styled.div`
   flex-direction: column;
 
   width: 100%;
-
-  margin-top: 3.5rem; //desfazer
 `;
 
 const TagsWrapper = styled.div`
@@ -207,14 +279,19 @@ const TagsWrapper = styled.div`
   justify-content: center;
   column-gap: 1rem;
   margin-bottom: 1rem;
+
+  margin-top: 3.2rem;
 `;
 
-const Subtitle = styled.span`
+const Subtitle = styled.span.attrs((props: ColorProps) => ({
+  $color: props.$color,
+}))`
   font-weight: bold;
   font-size: 1.2rem;
   line-height: 1.5rem;
 
-  color: ${COLORS.types.grass};
+  color: ${({ $color }) =>
+    $color ? COLORS.types[$color] : COLORS.types.steel};
 
   margin-bottom: 1rem;
 `;
@@ -243,7 +320,8 @@ const TableItem = styled.div`
   display: flex;
   flex-direction: column;
 
-  justify-content: space-between;
+  row-gap: 1rem;
+  justify-content: flex-end;
   align-items: center;
 
   row-gap: 0.5rem;
@@ -273,6 +351,7 @@ const TableItemValue = styled.span`
 const TableItemName = styled.span`
   font-size: 0.8125rem;
   line-height: 0.9375rem;
+  font-weight: 700;
 `;
 
 const RulerIcon = createSvgIcon(
@@ -292,6 +371,9 @@ const ScaleIcon = createSvgIcon(
 );
 
 const PokemonDescription = styled.span`
+  max-width: 500px;
+  width: 100%;
+
   font-size: 1rem;
   line-height: 1.375rem;
   text-align: center;
@@ -311,12 +393,15 @@ const StatsLabelWrapper = styled.div`
 
   border-right: 1px solid #e0e0e0;
 `;
-const StatsLabel = styled.span`
+const StatsLabel = styled.span.attrs((props: ColorProps) => ({
+  $color: props.$color,
+}))`
   font-weight: bold;
   font-size: 0.9375rem;
   line-height: 1.375rem;
 
-  color: ${COLORS.types.grass};
+  color: ${({ $color }) =>
+    $color ? COLORS.types[$color] : COLORS.types.steel};
 `;
 
 const StatsValueWrapper = styled.div`

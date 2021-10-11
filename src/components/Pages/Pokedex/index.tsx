@@ -15,13 +15,6 @@ import PokemonDetails from '../../Organisms/PokemonDetails';
 const Pokedex = () => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   const storageKey = localStorage.getItem('pokemonsStorage') || null;
 
   const pokemonsStorage: Pokemon_V2_Pokemon[] =
@@ -30,14 +23,15 @@ const Pokedex = () => {
   const [pokemonData, setPokemonData] =
     useState<Pokemon_V2_Pokemon[]>(pokemonsStorage);
 
+  const [pokemonId, setPokemonId] = useState<number>(-1);
+
+  const [search, setSearch] = useState<string>('');
   const [pages, setPages] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
 
   const step = 9;
   const start = page * step - step;
   const end = start + step;
-
-  const [search, setSearch] = useState<string>('');
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -47,7 +41,7 @@ const Pokedex = () => {
     setPage(p);
   };
 
-  const getPokemonData = async () => {
+  const getPokemonsData = async () => {
     const { pokemon } = await client.request(GET_POKEMONS);
 
     return pokemon;
@@ -59,10 +53,20 @@ const Pokedex = () => {
 
   const filteredPokemon = pokemonData?.filter(filterName);
 
+  //Modal
+  const handleOpenModal = (id: number) => {
+    setPokemonId(id);
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+    setPokemonId(-1);
+  };
+
   useEffect(() => {
     if (!pokemonsStorage) {
-      console.log('passou');
-      getPokemonData().then((data: any) => setPokemonData(data));
+      getPokemonsData().then((data: any) => setPokemonData(data));
     }
   }, [pokemonsStorage]);
 
@@ -81,7 +85,6 @@ const Pokedex = () => {
       <Container>
         <Title>
           {pokemonData?.length} Pokemons for you to choose your favorite
-          <Button onClick={handleClickOpen}>Teste</Button>
         </Title>
         <StyledTextField
           value={search}
@@ -91,7 +94,13 @@ const Pokedex = () => {
         />
         <CardGrid>
           {filteredPokemon?.slice(start, end).map((pokemon: any, index) => {
-            return <Card key={index} pokemon={pokemon} />;
+            return (
+              <Card
+                key={index}
+                pokemon={pokemon}
+                handleOpenModal={handleOpenModal}
+              />
+            );
           })}
         </CardGrid>
         <StyledPagination
@@ -103,7 +112,12 @@ const Pokedex = () => {
           hidePrevButton
         />
       </Container>
-      <PokemonDetails open={open} onClose={handleClose} />
+      <PokemonDetails
+        open={open}
+        onClose={handleCloseModal}
+        id={pokemonId}
+        pokemons={pokemonData}
+      />
     </>
   );
 };

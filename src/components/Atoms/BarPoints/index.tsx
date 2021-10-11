@@ -3,36 +3,24 @@ import COLORS from '../../constants/colors';
 
 type BarPointsColor = {
   color: string;
+  value: number;
 };
 
-const BarPoints = ({ color }: BarPointsColor) => {
+const BarPoints = ({ color, value }: BarPointsColor) => {
+  const percentage = (value / 200) * 100;
   return (
     <BarInput
       color={color}
       type="range"
-      value={10}
+      value={percentage}
       step="1"
-      min="0"
-      max={100}
+      min={0}
+      max={150}
+      readOnly
     />
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Header = styled.span`
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  margin-bottom: 0.25rem;
-`;
-const Number = styled.span`
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  margin-bottom: 0.75rem;
-`;
 const BarInput = styled.input`
   height: 5px;
   width: 100%;
@@ -53,8 +41,11 @@ const BarInput = styled.input`
     linear,
     0% 0%,
     100% 0%,
-    color-stop(40%, ${({ color }) => color && COLORS.types[color]}),
-    color-stop(40%, #f6f7f9)
+    color-stop(
+      ${({ value }) => `${value}%`},
+      ${({ color }) => color && COLORS.types[color]}
+    ),
+    color-stop(${({ value }) => `${value}%`}, #f6f7f9)
   );
 
   &&::-webkit-slider-thumb {

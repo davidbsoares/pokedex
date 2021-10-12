@@ -13,11 +13,15 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import COLORS from '../../constants/colors';
 import { pokemonTypes } from '../../constants/pokemonTypes';
 
-type typeCheckProps = {
+type typeCheckTypes = {
   [key: string]: boolean;
 };
 
-const Filter = () => {
+type FilterTypes = {
+  label: string;
+};
+
+const Filter = ({ label }: FilterTypes) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -27,7 +31,7 @@ const Filter = () => {
     setAnchorEl(null);
   };
 
-  const [typeCheck, setTypeCheck] = useState<typeCheckProps>({
+  const [typeCheck, setTypeCheck] = useState<typeCheckTypes>({
     normal: false,
     fighting: false,
     flying: false,
@@ -67,7 +71,7 @@ const Filter = () => {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Tipo
+        {label}
       </StyledButton>
       <StyledMenu
         anchorEl={anchorEl}

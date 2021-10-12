@@ -5,12 +5,13 @@ import client from '../../../graphql/client';
 import { GET_POKEMONS } from '../../../graphql/queries';
 import { Pokemon_V2_Pokemon } from '../../../graphql/generated/graphql';
 
-import { TextField, Pagination, Button } from '@mui/material';
+import { TextField, Pagination } from '@mui/material';
 
 import Card from './../../Molecules/Card/index';
 
 import COLORS from '../../constants/colors';
 import PokemonDetails from '../../Organisms/PokemonDetails';
+import Filter from '../../Atoms/Filter';
 
 const Pokedex = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -92,6 +93,11 @@ const Pokedex = () => {
           label="Find your pokemon"
           variant="standard"
         />
+
+        <FilterWrapper>
+          <Filter label="Type" />
+          <Filter label="Rarity" />
+        </FilterWrapper>
         <CardGrid>
           {filteredPokemon?.slice(start, end).map((pokemon: any, index) => {
             return (
@@ -158,6 +164,14 @@ const StyledTextField = styled(TextField)`
   && .Mui-focused:after {
     border-bottom: 2px solid ${COLORS.second};
   }
+`;
+
+const FilterWrapper = styled.div`
+  display: flex;
+
+  column-gap: 4rem;
+
+  margin-bottom: 3.25rem;
 `;
 
 const CardGrid = styled.div`

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Pokemon_V2_Pokemonstat } from '../../../graphql/generated/graphql';
 import { artworkForPokemon } from '../../../graphql/getSprites';
 import Stats from '../../Atoms/Stats';
 import Tag from '../../Atoms/Tag';

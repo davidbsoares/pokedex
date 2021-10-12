@@ -31,7 +31,6 @@ const BarInput = styled.input`
 
   margin: 0;
   padding: 0;
-  cursor: pointer;
 
   -webkit-appearance: none;
 

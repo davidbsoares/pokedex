@@ -2,7 +2,7 @@ import { gql } from 'graphql-request';
 
 export const GET_POKEMONS = gql`
   query getPokemons {
-    {
+  {
   pokemon: pokemon_v2_pokemon(where: {id: {_lt: 3000}}) {
     name
     id
@@ -31,10 +31,8 @@ export const GET_POKEMONS = gql`
       description: pokemon_v2_pokemonspeciesflavortexts(where: {language_id: {_eq: 9}, version_id: {_eq: 1}}) {
         flavor_text
       }
-      
     }
   }
-}
-
-  }
+}  
+   }
 `;

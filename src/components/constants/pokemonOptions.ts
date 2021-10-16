@@ -20,3 +20,5 @@ export const pokemonTypes: string[] = [
   'Unknown',
   'Shadow',
 ];
+
+export const pokemonKinds: string[] = ['Mythical', 'Legendary', 'Baby'];

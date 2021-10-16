@@ -5,8 +5,8 @@ import { artworkForPokemon } from '../../../graphql/getSprites';
 
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-/* import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'; */
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -25,13 +25,20 @@ type DetailsProps = {
   onClose: () => void;
   id: number;
   pokemons: any | undefined;
+  handlePokemonId: (e: number) => void;
 };
 
 type ColorProps = {
   $color: string;
 };
 
-const PokemonDetails = ({ open, onClose, id, pokemons }: DetailsProps) => {
+const PokemonDetails = ({
+  open,
+  onClose,
+  id,
+  pokemons,
+  handlePokemonId,
+}: DetailsProps) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -90,8 +97,15 @@ const PokemonDetails = ({ open, onClose, id, pokemons }: DetailsProps) => {
         <Title>{name}</Title>
         <PokemonId>#{id}</PokemonId>
       </DialogTitle>
+
       <StyledDialogContent>
         <Wrapper>
+          <PrevPokemon onClick={() => handlePokemonId(id - 1)}>
+            <StyledKeyboardArrowLeftIcon fontSize="large" />
+          </PrevPokemon>
+          <NextPokemon onClick={() => handlePokemonId(id + 1)}>
+            <StyledKeyboardArrowRightIcon fontSize="large" />
+          </NextPokemon>
           <PokemonImage src={pokemonImage} />
           <InfoWrapper>
             <TagsWrapper>
@@ -207,6 +221,25 @@ const StyledIconButton = styled(IconButton)`
 `;
 
 const StyledArrowBackIcon = styled(ArrowBackIcon)`
+  color: white;
+`;
+
+const PrevPokemon = styled(StyledIconButton)`
+  position: absolute;
+  top: -50px;
+  left: 28px;
+`;
+
+const NextPokemon = styled(StyledIconButton)`
+  position: absolute;
+  top: -50px;
+  right: 28px;
+`;
+
+const StyledKeyboardArrowLeftIcon = styled(KeyboardArrowLeftIcon)`
+  color: white;
+`;
+const StyledKeyboardArrowRightIcon = styled(KeyboardArrowRightIcon)`
   color: white;
 `;
 

@@ -3,25 +3,19 @@ import styled from 'styled-components';
 
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import COLORS from '../../constants/colors';
-import { pokemonTypes } from '../../constants/pokemonTypes';
-
-type typeCheckTypes = {
-  [key: string]: boolean;
-};
 
 type FilterTypes = {
   label: string;
+  children: React.ReactChild | React.ReactChild[];
 };
 
-const Filter = ({ label }: FilterTypes) => {
+const Filter = ({ label, children }: FilterTypes) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -29,36 +23,6 @@ const Filter = ({ label }: FilterTypes) => {
   };
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const [typeCheck, setTypeCheck] = useState<typeCheckTypes>({
-    normal: false,
-    fighting: false,
-    flying: false,
-    poison: false,
-    ground: false,
-    rock: false,
-    bug: false,
-    ghost: false,
-    steel: false,
-    fire: false,
-    water: false,
-    grass: false,
-    electric: false,
-    psychic: false,
-    ice: false,
-    dragon: false,
-    dark: false,
-    fairy: false,
-    unknown: false,
-    shadow: false,
-  });
-
-  const handleChange = (event: any) => {
-    setTypeCheck({
-      ...typeCheck,
-      [event.target.name]: event.target.checked,
-    });
   };
 
   return (
@@ -87,22 +51,7 @@ const Filter = ({ label }: FilterTypes) => {
         }}
       >
         <FormControl component="fieldset" variant="standard">
-          <FormGroup>
-            {pokemonTypes.sort().map((type: string, index) => (
-              <StyledMenuItem key={index}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={typeCheck[type.toLowerCase()]}
-                      onChange={handleChange}
-                      name={type.toLowerCase()}
-                    />
-                  }
-                  label={type}
-                />
-              </StyledMenuItem>
-            ))}
-          </FormGroup>
+          <FormGroup>{children}</FormGroup>
         </FormControl>
       </StyledMenu>
     </>
@@ -136,18 +85,6 @@ const StyledMenu = styled(Menu)`
   left: 0;
   && .MuiMenu-paper {
     max-width: 100%;
-  }
-`;
-
-const StyledMenuItem = styled(MenuItem)`
-  padding-top: 0;
-  padding-bottom: 0;
-
-  &.MuiMenuItem-root * {
-    font-family: Source Sans Pro;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.2569rem;
   }
 `;
 

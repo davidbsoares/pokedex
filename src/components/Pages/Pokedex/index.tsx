@@ -5,13 +5,24 @@ import client from '../../../graphql/client';
 import { GET_POKEMONS } from '../../../graphql/queries';
 import { Pokemon_V2_Pokemon } from '../../../graphql/generated/graphql';
 
-import { TextField, Pagination } from '@mui/material';
+import {
+  TextField,
+  Pagination,
+  FormControlLabel,
+  Checkbox,
+  MenuItem,
+} from '@mui/material';
 
 import Card from './../../Molecules/Card/index';
 
 import COLORS from '../../constants/colors';
 import PokemonDetails from '../../Organisms/PokemonDetails';
 import Filter from '../../Atoms/Filter';
+import { pokemonTypes, pokemonKinds } from '../../constants/pokemonOptions';
+
+export type CheckTypes = {
+  [key: string]: boolean;
+};
 
 const Pokedex = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -36,6 +47,7 @@ const Pokedex = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+    setPage(1);
   };
 
   const handlePage = (_: any, p: number) => {
@@ -48,13 +60,7 @@ const Pokedex = () => {
     return pokemon;
   };
 
-  function filterName(value: Pokemon_V2_Pokemon) {
-    if (value.name.includes(search.toLowerCase())) return value;
-  }
-
-  const filteredPokemon = pokemonData?.filter(filterName);
-
-  //Modal
+  // Modal
   const handleOpenModal = (id: number) => {
     setPokemonId(id);
     setOpen(true);
@@ -64,6 +70,82 @@ const Pokedex = () => {
     setOpen(false);
     setPokemonId(-1);
   };
+
+  const handlePokemonId = (id: number) => {
+    setPokemonId(id);
+  };
+
+  // Filter
+  const [typeCheck, setTypeCheck] = useState<CheckTypes>({
+    normal: false,
+    fighting: false,
+    flying: false,
+    poison: false,
+    ground: false,
+    rock: false,
+    bug: false,
+    ghost: false,
+    steel: false,
+    fire: false,
+    water: false,
+    grass: false,
+    electric: false,
+    psychic: false,
+    ice: false,
+    dragon: false,
+    dark: false,
+    fairy: false,
+    unknown: false,
+    shadow: false,
+  });
+
+  const handleChangeTypeFilter = (event: any) => {
+    setTypeCheck({
+      ...typeCheck,
+      [event.target.name]: event.target.checked,
+    });
+    setPage(1);
+  };
+
+  const [kindCheck, setKindCheck] = useState<CheckTypes>({
+    mythical: false,
+    legendary: false,
+    baby: false,
+  });
+
+  const handleChangeKindFilter = (event: any) => {
+    setKindCheck({
+      ...kindCheck,
+      [event.target.name]: event.target.checked,
+    });
+    setPage(1);
+  };
+
+  const selectedTypes = Object.keys(typeCheck).filter(
+    (i) => typeCheck[i] === true
+  );
+
+  function filterName(value: Pokemon_V2_Pokemon) {
+    if (value.name.includes(search.toLowerCase())) return value;
+  }
+
+  function filterTypes(value: any) {
+    if (value?.types[0]?.type.name.includes(selectedTypes)) return value;
+  }
+
+  function filterKinds(value: any) {
+    if (kindCheck.mythical && value?.specy?.is_mythical) return value;
+    if (kindCheck.legendary && value?.specy?.is_legendary) return value;
+    if (kindCheck.baby && value?.specy?.is_baby) return value;
+
+    if (!kindCheck.mythical && !kindCheck.legendary && !kindCheck.baby)
+      return value;
+  }
+
+  const filteredPokemon = pokemonData
+    ?.filter(filterName)
+    .filter(filterKinds)
+    .filter(filterTypes);
 
   useEffect(() => {
     if (!pokemonsStorage) {
@@ -79,7 +161,7 @@ const Pokedex = () => {
 
   useEffect(() => {
     setPages(Math.round(filteredPokemon?.length / 9));
-  }, [search, filteredPokemon]);
+  }, [search, kindCheck, typeCheck, filteredPokemon]);
 
   return (
     <>
@@ -95,8 +177,39 @@ const Pokedex = () => {
         />
 
         <FilterWrapper>
-          <Filter label="Type" />
-          <Filter label="Rarity" />
+          <Filter label="Type">
+            {pokemonTypes.sort().map((type: string, index) => (
+              <StyledMenuItem key={index}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={typeCheck[type.toLowerCase()]}
+                      onChange={handleChangeTypeFilter}
+                      name={type.toLowerCase()}
+                    />
+                  }
+                  label={type}
+                />
+              </StyledMenuItem>
+            ))}
+          </Filter>
+
+          <Filter label="Kind">
+            {pokemonKinds.sort().map((kind: string, index) => (
+              <StyledMenuItem key={index}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={kindCheck[kind.toLowerCase()]}
+                      onChange={handleChangeKindFilter}
+                      name={kind.toLowerCase()}
+                    />
+                  }
+                  label={kind}
+                />
+              </StyledMenuItem>
+            ))}
+          </Filter>
         </FilterWrapper>
         <CardGrid>
           {filteredPokemon?.slice(start, end).map((pokemon: any, index) => {
@@ -123,6 +236,7 @@ const Pokedex = () => {
         onClose={handleCloseModal}
         id={pokemonId}
         pokemons={pokemonData}
+        handlePokemonId={handlePokemonId}
       />
     </>
   );
@@ -192,6 +306,18 @@ const CardGrid = styled.div`
 
 const StyledPagination = styled(Pagination)`
   margin-bottom: 3rem;
+`;
+
+const StyledMenuItem = styled(MenuItem)`
+  padding-top: 0;
+  padding-bottom: 0;
+
+  &.MuiMenuItem-root * {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2569rem;
+  }
 `;
 
 export default Pokedex;

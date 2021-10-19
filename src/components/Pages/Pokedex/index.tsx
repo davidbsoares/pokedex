@@ -13,11 +13,10 @@ import {
   MenuItem,
 } from '@mui/material';
 
-import Card from './../../Molecules/Card/index';
-
-import COLORS from '../../constants/colors';
-import PokemonDetails from '../../Organisms/PokemonDetails';
 import Filter from '../../Atoms/Filter';
+import Card from './../../Molecules/Card/index';
+import PokemonDetails from '../../Organisms/PokemonDetails';
+import COLORS from '../../constants/colors';
 import { pokemonTypes, pokemonKinds } from '../../constants/pokemonOptions';
 
 export type CheckTypes = {
@@ -249,6 +248,8 @@ const Container = styled.div`
   align-items: center;
 
   width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
 `;
 
 const Title = styled.span`
@@ -258,8 +259,7 @@ const Title = styled.span`
   text-align: center;
   letter-spacing: 0.1875rem;
 
-  margin-top: 4.5625rem;
-  margin-bottom: 2.125rem;
+  margin: 4.5625rem 1rem 2.125rem;
 `;
 
 const StyledTextField = styled(TextField)`
@@ -298,7 +298,7 @@ const CardGrid = styled.div`
 
   margin-bottom: 1.875rem;
 
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, 336px);
   grid-template-rows: 1fr 1fr 1fr;
   grid-row-gap: 2.8125rem;
   grid-column-gap: 2.125rem;

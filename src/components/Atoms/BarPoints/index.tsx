@@ -7,7 +7,7 @@ type BarPointsColor = {
 };
 
 const BarPoints = ({ color, value }: BarPointsColor) => {
-  const percentage = (value / 200) * 100;
+  const percentage = (value / 200) * 100 || 0;
   return (
     <BarInput
       color={color}
@@ -23,9 +23,7 @@ const BarPoints = ({ color, value }: BarPointsColor) => {
 
 const BarInput = styled.input`
   height: 5px;
-  width: 100%;
-  width: 256px;
-
+  width: 225px;
   border-radius: 8px;
   border: none;
 

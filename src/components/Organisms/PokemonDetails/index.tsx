@@ -10,6 +10,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import ReactLoading from 'react-loading';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -32,6 +33,10 @@ type ColorProps = {
   $color: string;
 };
 
+type PokemonImageProps = {
+  loaded: boolean;
+};
+
 const PokemonDetails = ({
   open,
   onClose,
@@ -45,8 +50,11 @@ const PokemonDetails = ({
   const [pokemonImage, setPokemonImage] = useState('');
   const pokemonStats: any = {};
 
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     if (id) {
+      setLoaded(false);
       setPokemonImage(artworkForPokemon(id));
     }
   }, [id]);
@@ -106,7 +114,21 @@ const PokemonDetails = ({
           <NextPokemon onClick={() => handlePokemonId(id + 1)}>
             <StyledKeyboardArrowRightIcon fontSize="large" />
           </NextPokemon>
-          <PokemonImage src={pokemonImage} />
+          {!loaded && (
+            <ReactLoading
+              className="loading"
+              type="spinningBubbles"
+              color={COLORS.dark}
+              height={150}
+              width={150}
+            />
+          )}
+          <PokemonImage
+            loaded={loaded}
+            src={pokemonImage}
+            onLoad={() => setLoaded(true)}
+          />
+
           <InfoWrapper>
             <TagsWrapper>
               {types &&
@@ -200,11 +222,13 @@ const StyledDialog = styled(Dialog).attrs((props: ColorProps) => ({
 }))`
   .MuiDialog-paper {
     min-width: 360px;
-    min-height: 640px;
+
     background-color: ${({ $color }) =>
       $color ? COLORS.types[$color] : COLORS.types.steel};
 
-    border-radius: 12px;
+    @media screen and (min-width: 900px) {
+      border-radius: 12px;
+    }
   }
 `;
 
@@ -286,9 +310,20 @@ const Wrapper = styled.div`
   margin: 0 0.25rem 0.25rem 0.25rem;
 
   border-radius: 8px;
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -80%);
+  }
 `;
 
-const PokemonImage = styled.img`
+const PokemonImage = styled.img.attrs((props: PokemonImageProps) => ({
+  loaded: props.loaded,
+}))`
+  display: ${({ loaded }) => !loaded && 'none'};
   width: 200px;
   aspect-ratio: 1;
 
@@ -303,8 +338,6 @@ const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  width: 100%;
 `;
 
 const TagsWrapper = styled.div`
@@ -337,15 +370,15 @@ const Table = styled.div`
     border-left: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
 
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   .left-item {
-    padding-right: 1.25rem;
+    padding-right: 1rem;
   }
 
   .right-item {
-    padding-left: 1.25rem;
+    padding-left: 1rem;
   }
 `;
 

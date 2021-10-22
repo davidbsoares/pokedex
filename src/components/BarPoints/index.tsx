@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import COLORS from '../../constants/colors';
 
 type BarPointsColor = {
-  color: string;
+  color: string | undefined;
   value: number;
 };
 
@@ -24,13 +24,12 @@ const BarPoints = ({ color, value }: BarPointsColor) => {
 const BarInput = styled.input`
   height: 5px;
   width: 225px;
+
   border-radius: 8px;
   border: none;
 
   margin: 0;
   padding: 0;
-
-  -webkit-appearance: none;
 
   box-sizing: border-box;
 
@@ -45,6 +44,7 @@ const BarInput = styled.input`
     color-stop(${({ value }) => `${value}%`}, #f6f7f9)
   );
 
+  -webkit-appearance: none;
   &&::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;

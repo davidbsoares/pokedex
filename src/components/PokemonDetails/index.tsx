@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { artworkForPokemon } from '../../../graphql/getSprites';
+import { artworkForPokemon } from '../../graphql/getSprites';
 
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -16,16 +16,16 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createSvgIcon } from '@mui/material/utils';
 
-import Tag from '../../Atoms/Tag';
+import Tag from '../Tag';
 
 import COLORS from '../../constants/colors';
-import BarPoints from '../../Atoms/BarPoints';
+import BarPoints from '../BarPoints';
 
 type DetailsProps = {
   open: boolean;
   onClose: () => void;
   id: number;
-  pokemons: any | undefined;
+  pokemons: any; //todo
   handlePokemonId: (e: number) => void;
 };
 
@@ -35,6 +35,10 @@ type ColorProps = {
 
 type PokemonImageProps = {
   loaded: boolean;
+};
+
+type PokemonStatsTypes = {
+  [key: string]: number;
 };
 
 const PokemonDetails = ({
@@ -48,36 +52,34 @@ const PokemonDetails = ({
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const [pokemonImage, setPokemonImage] = useState('');
-  const pokemonStats: any = {};
+  const pokemonStats: PokemonStatsTypes = {
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+  };
 
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (id) {
-      setLoaded(false);
-      setPokemonImage(artworkForPokemon(id));
-    }
-  }, [id]);
-
   const pokemon = id >= 0 && pokemons[id - 1];
 
-  const name = pokemon?.name;
-  const height = pokemon?.height;
-  const weight = pokemon?.weight;
-  const description = pokemon?.specy?.description[0]?.flavor_text
-    .replace(/\s+/g, ' ')
-    .trim();
-  const stats = pokemon?.stats;
-  const types = pokemon?.types;
-  const moves = pokemon?.moves;
+  const name = pokemon && pokemon.name;
+  const height = pokemon && pokemon.height;
+  const weight = pokemon && pokemon.weight;
+  const stats = pokemon && pokemon.stats;
+  const types = pokemon && pokemon.types;
+  const moves = pokemon && pokemon.moves;
+  const description =
+    pokemon &&
+    pokemon.specy?.description[0].flavor_text.replace(/\s+/g, ' ').trim();
 
-  const firstType = types && types[0].type?.name;
+  const firstType = types ? types[0].type?.name : undefined;
 
-  //refactor - todo
   stats &&
-    Object.keys(stats).forEach((index) => {
-      let stat = stats[index].stat.name;
-      let value = stats[index].base_stat;
+    stats.map((index: any) => {
+      let stat = index.stat.name;
+      let value = index.base_stat;
 
       if (stat === 'special-attack') {
         stat = 'specialAttack';
@@ -86,9 +88,15 @@ const PokemonDetails = ({
       if (stat === 'special-defense') {
         stat = 'specialDefense';
       }
-
-      pokemonStats[stat] = value;
+      return (pokemonStats[stat] = value);
     });
+
+  useEffect(() => {
+    if (id) {
+      setLoaded(false);
+      setPokemonImage(artworkForPokemon(id));
+    }
+  }, [id]);
 
   return (
     <StyledDialog

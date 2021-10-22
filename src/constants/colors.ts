@@ -1,4 +1,8 @@
-export const COLORS: { [key: string]: any } = {
+type ColorsProps = {
+  [key: string]: any;
+};
+
+export const COLORS: ColorsProps = {
   primary: '#F2BB07',
   second: '#F28F16',
   third: '#F5DB13',

@@ -1,7 +1,12 @@
-import { GraphQLClient } from 'graphql-request';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const endpoint = 'https://beta.pokeapi.co/graphql/v1beta';
 
-const client = new GraphQLClient(endpoint);
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  cache: cache,
+  uri: endpoint,
+});
 
 export default client;

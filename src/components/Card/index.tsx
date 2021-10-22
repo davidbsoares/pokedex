@@ -1,15 +1,16 @@
 import styled from 'styled-components';
-import { artworkForPokemon } from '../../../graphql/getSprites';
-import Stats from '../../Atoms/Stats';
-import Tag from '../../Atoms/Tag';
+import { artworkForPokemon } from '../../graphql/getSprites';
+import Stats from '../Stats';
+import Tag from '../Tag';
 import COLORS from '../../constants/colors';
+import { PokemonProps } from '../../types';
 
 type ImageWrapperProps = {
-  $bgColor: string;
+  $bgColor: string | undefined;
 };
 
 type CardProps = {
-  pokemon: any;
+  pokemon: PokemonProps;
   handleOpenModal: (id: number) => void;
 };
 
@@ -108,7 +109,7 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
   height: 100%;
   background: linear-gradient(
     to left,
-    ${({ $bgColor }) => COLORS.types[$bgColor]} 75%,
+    ${({ $bgColor }) => $bgColor && COLORS.types[$bgColor]} 75%,
     transparent 100%
   );
   border-radius: 0px 8px 8px 0px;

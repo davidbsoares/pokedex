@@ -1,4 +1,4 @@
-import Pokedex from './components/Pages/Pokedex';
+import Pokedex from './pages/pokedex';
 
 const routes = [
   {

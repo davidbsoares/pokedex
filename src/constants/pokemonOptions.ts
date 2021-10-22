@@ -1,4 +1,4 @@
-export const pokemonTypes: string[] = [
+export const pokemonTypes = [
   'Normal',
   'Fighting',
   'Flying',
@@ -21,4 +21,4 @@ export const pokemonTypes: string[] = [
   'Shadow',
 ];
 
-export const pokemonKinds: string[] = ['Mythical', 'Legendary', 'Baby'];
+export const pokemonKinds = ['Mythical', 'Legendary', 'Baby'];

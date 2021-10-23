@@ -30,8 +30,11 @@ const Pokedex = () => {
 
   const storageKey = localStorage.getItem('pokemonsStorage') || null;
 
-  const pokemonsStorage: PokemonsProps[] = storageKey && JSON.parse(storageKey);
-
+  const pokemonsStorage: PokemonsProps['pokemons'] =
+    storageKey && JSON.parse(storageKey);
+  const [pokemonData, setPokemonData] = useState<PokemonsProps['pokemons']>(
+    pokemonsStorage && pokemonsStorage
+  );
   const [pokemonId, setPokemonId] = useState<number>(-1);
 
   const [search, setSearch] = useState<string>('');
@@ -66,17 +69,14 @@ const Pokedex = () => {
     baby: false,
   });
 
-  const {
-    loading,
-    error,
-    data: { pokemons } = {},
-  } = useQuery<PokemonsProps>(GET_POKEMONS, {
-    onCompleted: (data) =>
-      localStorage.setItem('pokemonsStorage', JSON.stringify(data)),
+  const { loading } = useQuery<PokemonsProps>(GET_POKEMONS, {
+    onCompleted: (data: any) => {
+      const { pokemons } = data;
+      setPokemonData(pokemons);
+      localStorage.setItem('pokemonsStorage', JSON.stringify(pokemons));
+    },
     skip: Boolean(storageKey),
   });
-
-  console.log(loading);
 
   const step = 9;
   const start = page * step - step;
@@ -90,12 +90,6 @@ const Pokedex = () => {
   const handlePage = (_: any, p: number) => {
     setPage(p);
   };
-
-  /*  const getPokemonsData = async () => {
-    const { pokemon } = await client.query(GET_POKEMONS);
-    
-    return pokemon;
-  }; */
 
   // Modal
   const handleOpenModal = (id: number) => {
@@ -151,8 +145,8 @@ const Pokedex = () => {
       return value;
   }
 
-  const filteredPokemon = pokemons
-    ? pokemons.filter(filterName).filter(filterKinds).filter(filterTypes)
+  const filteredPokemon = pokemonData
+    ? pokemonData.filter(filterName).filter(filterKinds).filter(filterTypes)
     : undefined;
 
   useEffect(() => {
@@ -163,63 +157,62 @@ const Pokedex = () => {
 
   return (
     <>
-      {loading ? (
-        <ReactLoading
-          className="loading"
-          type="spinningBubbles"
-          color={COLORS.dark}
-          height={150}
-          width={150}
+      <Container>
+        <Title>
+          {pokemonData?.length || '000'} Pokemons for you to choose your
+          favorite
+        </Title>
+        <StyledTextField
+          value={search}
+          onChange={handleSearch}
+          label="Find your pokemon"
+          variant="standard"
         />
-      ) : (
-        <>
-          <Container>
-            <Title>
-              {pokemons?.length || '000'} Pokemons for you to choose your
-              favorite
-            </Title>
-            <StyledTextField
-              value={search}
-              onChange={handleSearch}
-              label="Find your pokemon"
-              variant="standard"
-            />
-
-            <FilterWrapper>
-              <Filter label="Type">
-                {pokemonTypes.sort().map((type: string, index) => (
-                  <StyledMenuItem key={index}>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={typeCheck[type.toLowerCase()]}
-                          onChange={handleChangeTypeFilter}
-                          name={type.toLowerCase()}
-                        />
-                      }
-                      label={type}
+        <FilterWrapper>
+          <Filter label="Type">
+            {pokemonTypes.sort().map((type: string, index) => (
+              <StyledMenuItem key={index}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={typeCheck[type.toLowerCase()]}
+                      onChange={handleChangeTypeFilter}
+                      name={type.toLowerCase()}
                     />
-                  </StyledMenuItem>
-                ))}
-              </Filter>
+                  }
+                  label={type}
+                />
+              </StyledMenuItem>
+            ))}
+          </Filter>
 
-              <Filter label="Kind">
-                {pokemonKinds.sort().map((kind: string, index) => (
-                  <StyledMenuItem key={index}>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={kindCheck[kind.toLowerCase()]}
-                          onChange={handleChangeKindFilter}
-                          name={kind.toLowerCase()}
-                        />
-                      }
-                      label={kind}
+          <Filter label="Kind">
+            {pokemonKinds.sort().map((kind: string, index) => (
+              <StyledMenuItem key={index}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={kindCheck[kind.toLowerCase()]}
+                      onChange={handleChangeKindFilter}
+                      name={kind.toLowerCase()}
                     />
-                  </StyledMenuItem>
-                ))}
-              </Filter>
-            </FilterWrapper>
+                  }
+                  label={kind}
+                />
+              </StyledMenuItem>
+            ))}
+          </Filter>
+        </FilterWrapper>
+        {loading ? (
+          <ReactLoading
+            className="loading"
+            type="spinningBubbles"
+            color={COLORS.dark}
+            height={150}
+            width={150}
+          />
+        ) : (
+          <>
             <CardGrid>
               {filteredPokemon
                 ?.slice(start, end)
@@ -241,17 +234,17 @@ const Pokedex = () => {
               hideNextButton
               hidePrevButton
             />
-          </Container>
-          {pokemons && (
-            <PokemonDetails
-              open={open}
-              onClose={handleCloseModal}
-              id={pokemonId}
-              pokemons={pokemons}
-              handlePokemonId={handlePokemonId}
-            />
-          )}
-        </>
+          </>
+        )}
+      </Container>
+      {pokemonData && (
+        <PokemonDetails
+          open={open}
+          onClose={handleCloseModal}
+          id={pokemonId}
+          pokemons={pokemonData}
+          handlePokemonId={handlePokemonId}
+        />
       )}
     </>
   );
@@ -266,6 +259,10 @@ const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   height: fit-content;
+
+  .loading {
+    margin: auto;
+  }
 `;
 
 const Title = styled.span`

@@ -228,6 +228,7 @@ const PokemonDetails = ({
 const StyledDialog = styled(Dialog).attrs((props: ColorProps) => ({
   $color: props.$color,
 }))`
+  height: 100vh;
   .MuiDialog-paper {
     min-width: 360px;
 

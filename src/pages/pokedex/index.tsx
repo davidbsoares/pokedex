@@ -13,6 +13,7 @@ import {
   FormControlLabel,
   Checkbox,
   MenuItem,
+  CheckboxProps,
 } from '@mui/material';
 
 import Filter from '../../components/Filter';
@@ -24,6 +25,10 @@ import { pokemonTypes, pokemonKinds } from '../../constants/pokemonOptions';
 export type CheckTypes = {
   [key: string]: boolean;
 };
+
+interface StyledCheckboxProps extends CheckboxProps {
+  $type?: string;
+}
 
 const Pokedex = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -72,6 +77,7 @@ const Pokedex = () => {
   const { loading } = useQuery<PokemonsProps>(GET_POKEMONS, {
     onCompleted: (data: any) => {
       const { pokemons } = data;
+      console.log(pokemons);
       setPokemonData(pokemons);
       localStorage.setItem('pokemonsStorage', JSON.stringify(pokemons));
     },
@@ -172,12 +178,13 @@ const Pokedex = () => {
           <Filter label="Type">
             {pokemonTypes.sort().map((type: string, index) => (
               <StyledMenuItem key={index}>
-                <FormControlLabel
+                <StyledFormControlLabel
                   control={
-                    <Checkbox
+                    <StyledCheckbox
                       checked={typeCheck[type.toLowerCase()]}
                       onChange={handleChangeTypeFilter}
                       name={type.toLowerCase()}
+                      $type={type}
                     />
                   }
                   label={type}
@@ -191,7 +198,7 @@ const Pokedex = () => {
               <StyledMenuItem key={index}>
                 <FormControlLabel
                   control={
-                    <Checkbox
+                    <StyledCheckbox
                       checked={kindCheck[kind.toLowerCase()]}
                       onChange={handleChangeKindFilter}
                       name={kind.toLowerCase()}
@@ -301,6 +308,14 @@ const FilterWrapper = styled.div`
   margin-bottom: 3.25rem;
 `;
 
+const StyledCheckbox = styled(Checkbox).attrs((props: StyledCheckboxProps) => ({
+  $type: props.$type,
+}))`
+  &&.MuiCheckbox-colorPrimary.Mui-checked {
+    color: ${({ $type }) => $type && COLORS.types[$type.toLowerCase()]};
+  }
+`;
+
 const CardGrid = styled.div`
   max-width: 1125px;
   width: 100%;
@@ -325,6 +340,9 @@ const StyledMenuItem = styled(MenuItem)`
   padding-top: 0;
   padding-bottom: 0;
 
+  &.MuiMenuItem-root label {
+    width: 100%;
+  }
   &.MuiMenuItem-root * {
     font-family: Source Sans Pro;
     font-weight: 400;
@@ -332,5 +350,7 @@ const StyledMenuItem = styled(MenuItem)`
     line-height: 1.2569rem;
   }
 `;
+
+const StyledFormControlLabel = styled(FormControlLabel)``;
 
 export default Pokedex;

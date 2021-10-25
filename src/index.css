@@ -8,6 +8,7 @@ body {
   letter-spacing: 0.03em;
 
   font-family: Karla;
+  overflow-x: hidden;
 }
 
 *,

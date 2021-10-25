@@ -20,7 +20,9 @@
 A React webite developed based on the [GraphQl PokeAPI](https://pokeapi.co/docs/graphql). You can search all the currently 898 pokemons available.
 
 The design was based on these figma projects:
+
 https://www.figma.com/community/file/979132880663340794
+
 https://www.figma.com/community/file/893705420616737018
 
 [Demo here](https://pokedex-davidbsoares.netlify.app/)

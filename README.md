@@ -48,7 +48,7 @@ You can access https://pokedex-davidbsoares.netlify.app/ or execute in your comp
 
 ```bash
 # Clone the repository
-git clone https://github.com/davidbsoares/rick-and-morty-app
+git clone https://github.com/davidbsoares/pokedex
 
 # Enter the repository folder
 cd pokedex
